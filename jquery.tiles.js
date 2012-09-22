@@ -25,6 +25,7 @@ function range(min, max, rand) {
 * - rand: animate in random order
 * - speed: duration of the effect
 * - effect: the animation effect (css class with transitions)
+* - reverse: begin effect from opposite side  
 */
 $.fn.tiles = function(ops) {
 
