@@ -13,9 +13,18 @@ Split images in tiles with css3 transitions.
 * **y**: number of tiles in Y axis.
 * **rand**: animate tiles in random order.
 * **speed**: speed of effect in ms.
-* **effect**: `default`, `simple`, `updown` (y=1), `leftright` (x=1).
+* **effect**: `default`, `simple`, `switchlr`, `switchud`, `updown`, `leftright`.
 * **reverse:** begin effect from opposite side.
 
+### Effects:
+* **default**
+* **simple**
+* **switchlr:** `y` must be `1` and `x` must be odd.
+* **switchud:** `x` must be `1` and `y` must be odd.
+* **updown:** `y1 must be `1`.
+* **leftright** `x` must be `1`.
+
+### Usage:
 Use `.trigger('toggleTiles')` to toggle the effect on and off.
 
 ### Example:
