@@ -21,6 +21,7 @@ function range(min, max, rand) {
 * @param ops {obj} Options:
 * - x: number of tiles in x axis
 * - y: number of tiles in y axis
+* - rand: animate in random order
 * - speed: duration of the effect
 * - effect: the animation effect (css class with transitions)
 */
@@ -76,7 +77,7 @@ $.fn.tiles = function(ops) {
     });
 
     // Toggle effect
-    $img.on('toggleSlice', function(){
+    $img.on('toggleTiles', function(){
       var delay = ~~(o.speed / $tiles.length);
       range(0, o.x*o.y, o.rand).forEach(function(v, i){
         setTimeout(function(){
