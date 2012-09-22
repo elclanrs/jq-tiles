@@ -53,7 +53,8 @@ $.fn.tiles = function(ops) {
     $tiles = $(tiles.join(''));
 
     // Make sure image is loaded to get REAL width and height
-    $img.load(function(){
+    // Only load once if needed
+    $img.one('load', function(){
 
       var w = $img.width();
       var h = $img.height();
@@ -75,6 +76,9 @@ $.fn.tiles = function(ops) {
       });
 
     });
+
+    // Trigger load event if image is cached
+    if ($img[0].complete) { $img.trigger('load'); }
 
     // Toggle effect
     $img.on('toggleTiles', function(){
