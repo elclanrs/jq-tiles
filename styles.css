@@ -1,10 +1,10 @@
-body { 
-  width: 640px; 
-  margin: 30px auto; 
+body {
+  width: 640px;
+  margin: 30px auto;
   background: url(bg.png);
   font: normal 22px Doppio One;
 }
-a { 
+a {
   color: #088BBF;
   text-decoration: none;
   font-size: 14px;
@@ -19,7 +19,7 @@ h1 {
   text-shadow: 1px 1px 0 white;
   color: #222;
 }
-h3 { 
+h3 {
   color: #444;
   font-size: 22px;
   font-weight: normal;
@@ -49,18 +49,24 @@ button.toggle {
 	color: #ffffff;
 	padding: 10px 20px;
   margin: 10px 0;
+	background: -o-linear-gradient(
+		top,
+		#a3a3a3 0%,
+		#3b3b3b 50%,
+		#242424 50%,
+		#000000);
 	background: -moz-linear-gradient(
 		top,
 		#a3a3a3 0%,
 		#3b3b3b 50%,
 		#242424 50%,
 		#000000);
-	background: -webkit-gradient(
-		linear, left top, left bottom, 
-		from(#a3a3a3),
-		color-stop(0.50, #3b3b3b),
-		color-stop(0.50, #242424),
-		to(#000000));
+	background: -webkit-linear-gradient(
+		top,
+		#a3a3a3 0%,
+		#3b3b3b 50%,
+		#242424 50%,
+		#000000);
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
