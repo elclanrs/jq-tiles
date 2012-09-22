@@ -1,6 +1,6 @@
 ;(function(){
 /**
-* randomRange Get an array of numbers in random order
+* randomRange Get an array of numbers within a range
 * @param min {number} Lowest number in array
 * @param max {number} Highest number in array
 * @param rand {bool} Shuffle array
