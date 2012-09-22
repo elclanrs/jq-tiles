@@ -25,6 +25,7 @@ function range(min, max, rand) {
 * - rand: animate in random order
 * - speed: duration of the effect
 * - effect: the animation effect (css class with transitions)
+* - reverse: begin effect from opposite side  
 */
 $.fn.tiles = function(ops) {
 
@@ -32,13 +33,14 @@ $.fn.tiles = function(ops) {
     x: 5, y: 5,
     rand: false,
     speed: 400,
-    effect: 'default'
+    effect: 'default',
+    reverse: false
   }, ops);
 
   // Prevent css3 transitions on load
   $('body').addClass('tiles-preload');
   $(window).load(function(){ 
-    $('body').removeClass('tiles-preload') 
+    $('body').removeClass('tiles-preload');
   });
 
   return this.each(function() {
@@ -90,7 +92,8 @@ $.fn.tiles = function(ops) {
     // Toggle effect
     $img.on('toggleTiles', function(){
       var delay = ~~(o.speed / $tiles.length);
-      range(0, o.x*o.y, o.rand).forEach(function(v, i){
+      var ran = range(0, o.x*o.y, o.rand);
+      (o.reverse ? ran.reverse() : ran).forEach(function(v,i){
         setTimeout(function(){
           $tiles.eq(v).toggleClass(klass +'-toggle');
         }, i*delay);
