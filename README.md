@@ -13,7 +13,7 @@ Split images in tiles with css3 transitions.
 * **y**: number of tiles in Y axis.
 * **rand**: animate effect in random order.
 * **speed**: speed of effect in ms.
-* **effect**: `default`, `simple`.
+* **effect**: `default`, `simple`, `updown` (`y` must be `1`), `leftright` (`x` must be `1`).
 
 Use `.trigger('toggleTiles')` to toggle the effect on and off.
 
