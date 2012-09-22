@@ -27,7 +27,7 @@
       <button type="button" class="toggle">Run effect</button>
     </div>
     <div class="container">
-      <img id="default" src="city.jpg"/>
+      <img id="default" src="img/city.jpg"/>
     </div>
     </article>
 
@@ -37,7 +37,27 @@
       <button type="button" class="toggle">Run effect</button>
     </div>
     <div class="container">
-      <img id="simple" src="tiger.jpg"/>
+      <img id="simple" src="img/tiger.jpg"/>
+    </div>
+    </article>
+
+    <article>
+    <div class="title">
+      <h3>&raquo; Switch LR</h3>
+      <button type="button" class="toggle">Run effect</button>
+    </div>
+    <div class="container">
+      <img id="switchlr" src="img/club.jpg"/>
+    </div>
+    </article>
+
+    <article>
+    <div class="title">
+      <h3>&raquo; Switch UD</h3>
+      <button type="button" class="toggle">Run effect</button>
+    </div>
+    <div class="container">
+      <img id="switchud" src="img/bike.jpg"/>
     </div>
     </article>
 
@@ -47,7 +67,7 @@
       <button type="button" class="toggle">Run effect</button>
     </div>
     <div class="container">
-      <img id="updown" src="drop.jpg"/>
+      <img id="updown" src="img/drop.jpg"/>
     </div>
     </article>
 
@@ -57,7 +77,7 @@
       <button type="button" class="toggle">Run effect</button>
     </div>
     <div class="container">
-      <img id="leftright" src="girl.jpg"/>
+      <img id="leftright" src="img/girl.jpg"/>
     </div>
     </article>
 
@@ -71,6 +91,8 @@
       $('#simple').tiles({ x: 6, y: 4, rand: true, effect: 'simple' });
       $('#updown').tiles({ x: 10, y: 1, effect: 'updown' });
       $('#leftright').tiles({ x: 1, y: 7, effect: 'leftright' });
+      $('#switchlr').tiles({ x: 10, y: 1, effect: 'switchlr' });
+      $('#switchud').tiles({ x: 1, y: 10, effect: 'switchud' });
 
       $('button').click(function(){
         var $nextImg = $(this).parent().next().find('img');

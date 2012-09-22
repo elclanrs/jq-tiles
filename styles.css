@@ -1,7 +1,7 @@
 body {
   width: 640px;
   margin: 30px auto;
-  background: url(bg.png);
+  background: url(img/bg.png);
   font: normal 22px Doppio One;
 }
 a {
