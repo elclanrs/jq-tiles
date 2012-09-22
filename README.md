@@ -1,4 +1,7 @@
-jq-tiles
-========
+#jq-tiles
 
-split images into tiles with css3 transitions
+Split images into tiles with css3 transitions.
+
+**Demo:**
+
+
