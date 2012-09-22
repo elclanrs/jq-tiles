@@ -1,14 +1,26 @@
-body { width: 600px; margin: 30px auto; }
-#container { margin: 20px 0; }
+body { 
+  width: 600px; 
+  margin: 30px auto; 
+}
+.container { margin-bottom: 30px; }
 a { color: #088BBF; text-decoration: none; }
 a:hover { text-decoration: underline }
 img { display: block; }
+.title { position: relative; }
+h3 { 
+  display: inline-block; 
+  font: normal 22px Doppio One;
+  color: #444;
+}
 button.toggle {
+  position: absolute;
+  right: 0;
   cursor: pointer;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
 	color: #ffffff;
 	padding: 10px 20px;
+  margin: 10px 0;
 	background: -moz-linear-gradient(
 		top,
 		#a3a3a3 0%,

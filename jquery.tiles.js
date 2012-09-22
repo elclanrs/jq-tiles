@@ -1,6 +1,7 @@
 ;(function(){
+
 /**
-* randomRange Get an array of numbers within a range
+* range Get an array of numbers within a range
 * @param min {number} Lowest number in array
 * @param max {number} Highest number in array
 * @param rand {bool} Shuffle array
@@ -33,6 +34,12 @@ $.fn.tiles = function(ops) {
     speed: 400,
     effect: 'default'
   }, ops);
+
+  // Prevent css3 transitions on load
+  $('body').addClass('tiles-preload');
+  $(window).load(function(){ 
+    $('body').removeClass('tiles-preload') 
+  });
 
   return this.each(function() {
 

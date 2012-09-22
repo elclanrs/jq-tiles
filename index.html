@@ -10,20 +10,59 @@
     <![endif]-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
     <script src="jquery.tiles.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="jquery.tiles.css"/>
     <link rel="stylesheet" href="styles.css"/>
   </head>
   <body>
 
-  <button type="button" class="toggle">Toggle effect</button>
-  <div id="container">
-    <img src="city.jpg"/>
+  <div class="title">
+    <h3>&raquo; Default</h3>
+    <button type="button" class="toggle">Toggle effect</button>
   </div>
+  <div class="container">
+    <img id="default" src="city.jpg"/>
+  </div>
+
+  <div class="title">
+    <h3>&raquo; Simple</h3>
+    <button type="button" class="toggle">Toggle effect</button>
+  </div>
+  <div class="container">
+    <img id="simple" src="tiger.jpg"/>
+  </div>
+
+  <div class="title">
+    <h3>&raquo; Up & Down</h3>
+    <button type="button" class="toggle">Toggle effect</button>
+  </div>
+  <div class="container">
+    <img id="updown" src="drop.jpg"/>
+  </div>
+
+  <div class="title">
+    <h3>&raquo; Left & Right</h3>
+    <button type="button" class="toggle">Toggle effect</button>
+  </div>
+  <div class="container">
+    <img id="leftright" src="girl.jpg"/>
+  </div>
+
   <a href="https://github.com/elclanrs/jq-tiles">&laquo; Back to Github</a>
 
   <script>
-    var $img = $('img').tiles({ rand: true });
-    $('button').click(function(){ $img.trigger('toggleTiles'); });
+
+    var $img = $('img');
+
+    $('#default').tiles({ rand: true });
+    $('#simple').tiles({ rand: true, effect: 'simple' });
+    $('#updown').tiles({ x: 10, y: 1, effect: 'updown' });
+    $('#leftright').tiles({ x: 1, y: 10, effect: 'leftright' });
+
+    $('button').click(function(){
+      $(this).parent().next().find('img').trigger('toggleTiles');
+    });
+
   </script>
 
   </body>
