@@ -1,6 +1,6 @@
 #!/bin/bash
-cat tiles.js | uglifyjs -o tiles.min.js
-lessc -x tiles.less tiles.css
+cat jquery.tiles.js | uglifyjs -o jquery.tiles.min.js
+lessc -x jquery.tiles.less jquery.tiles.css
 echo 'Commit message: '
 read commit
 git commit -am "$commit"
