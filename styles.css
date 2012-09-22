@@ -1,20 +1,46 @@
 body { 
-  width: 600px; 
+  width: 640px; 
   margin: 30px auto; 
+  background: url(bg.png);
+  font: normal 22px Doppio One;
 }
-.container { margin-bottom: 30px; }
-a { color: #088BBF; text-decoration: none; }
+a { 
+  color: #088BBF;
+  text-decoration: none;
+  font-size: 14px;
+}
 a:hover { text-decoration: underline }
 img { display: block; }
-.title { position: relative; }
+h1, h3 { display: inline-block; }
+h1 {
+  font-size: 42px;
+  font-weight: normal;
+  letter-spacing: -1px;
+  text-shadow: 1px 1px 0 white;
+  color: #222;
+}
 h3 { 
-  display: inline-block; 
-  font: normal 22px Doppio One;
   color: #444;
+  font-size: 22px;
+  font-weight: normal;
+}
+.title { position: relative; }
+.container { margin-bottom: 30px; }
+article {
+  background: white;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 3px;
+}
+#down {
+  position: relative;
+  left: 20px;
+  top: -6px;
 }
 button.toggle {
   position: absolute;
   right: 0;
+  top: 5px;
   cursor: pointer;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
