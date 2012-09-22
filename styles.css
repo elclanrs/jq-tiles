@@ -96,8 +96,8 @@ button.toggle:active {
 
 /* Custom tiles effects */
 .tiles-updown-toggle {
-  height: 50px !important;
+  height: 55px !important;
 }
 .tiles-leftright-toggle {
-  width: 50px !important;
+  width: 55px !important;
 }
