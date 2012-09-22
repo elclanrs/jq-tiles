@@ -19,7 +19,7 @@ Use `.trigger('toggleTiles')` to toggle the effect on and off.
 ### Example:
 ```javascript
 var $img = $('img').tiles({ rand: true });
-$button.click(function(){ $img.trigger('toggleTiles'); };
+$('button').click(function(){ $img.trigger('toggleTiles'); };
 ```
 
 
