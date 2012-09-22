@@ -76,4 +76,7 @@ button.toggle {
 		0px -1px 0px rgba(000,000,000,1),
 		0px 1px 0px rgba(255,255,255,0.2);
 }
-
+button.toggle:active {
+  background: #222;
+  top: 6px;
+}
