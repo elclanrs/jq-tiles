@@ -1,8 +1,10 @@
 ;(function(){
 /**
 * randomRange Get an array of numbers in random order
-* @param min Lowest number in array
-* @param max Highest number in array
+* @param min {number} Lowest number in array
+* @param max {number} Highest number in array
+* @param rand {bool} Shuffle array
+* @return {array}
 */
 function range(min, max, rand) {
   var arr = (new Array(++max-min))
@@ -14,6 +16,14 @@ function range(min, max, rand) {
     arr;
 }
 
+/**
+* tiles jQuery plugin to split images into tiles with css3 transitions
+* @param ops {obj} Options:
+* - x: number of tiles in x axis
+* - y: number of tiles in y axis
+* - speed: duration of the effect
+* - effect: the animation effect (css class with transitions)
+*/
 $.fn.tiles = function(ops) {
 
   var o = $.extend({
@@ -32,33 +42,40 @@ $.fn.tiles = function(ops) {
       $.error('Selector can only contain images.');
     }
 
-    var w = $img.width();
-    var h = $img.height();
-
-    $img.wrap($('<div class="tiles-wrap"/>').width(w).height(h));
-
-    var tiles = [];
+    // Generate tiles
+    var tiles = [], $tiles;
     (new Array(o.x * o.y))
       .join('.').split('.')
       .forEach(function(v, i){
         tiles.push('<div class="tiles-tile '+ klass +'-normal"/>');
       });
+    $tiles = $(tiles.join(''));
 
-    var $tiles = $(tiles.join(''));
+    // Make sure image is loaded to get REAL width and height
+    $img.load(function(){
 
-    $tiles.insertAfter($img);
+      var w = $img.width();
+      var h = $img.height();
 
-    $tiles.css({
-      width: w/o.x,
-      height: h/o.y,
-      backgroundImage: 'url('+ $img.attr('src') +')'
-    })
-    .each(function(){
-      var $this = $(this);
-      var pos = $this.position();
-      $this.css('backgroundPosition', -pos.left +'px '+ -pos.top +'px');
+      // Insert in DOM
+      $img.wrap($('<div class="tiles-wrap"/>').width(w).height(h));
+      $tiles.insertAfter($img);
+
+      $tiles.css({
+        width: w/o.x,
+        height: h/o.y,
+        backgroundImage: 'url('+ $img.attr('src') +')'
+      });
+
+      $tiles.each(function(){
+        var $this = $(this);
+        var pos = $this.position();
+        $this.css('backgroundPosition', -pos.left +'px '+ -pos.top +'px');
+      });
+
     });
 
+    // Toggle effect
     $img.on('toggleSlice', function(){
       var delay = ~~(o.speed / $tiles.length);
       range(0, o.x*o.y, o.rand).forEach(function(v, i){
