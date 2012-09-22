@@ -11,7 +11,7 @@ Split images in tiles with css3 transitions.
 ### Options:
 * **x**: number of tiles in X axis.
 * **y**: number of tiles in Y axis.
-* **rand**: animate effect in random order.
+* **rand**: animate tiles in random order.
 * **speed**: speed of effect in ms.
 * **effect**: `default`, `simple`, `updown` (y=1), `leftright` (x=1).
 * **reverse:** begin effect from opposite side.
