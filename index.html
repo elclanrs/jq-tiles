@@ -21,7 +21,7 @@
     <article>
     <div class="title">
       <h3>&raquo; Default</h3>
-      <button type="button" class="toggle">Toggle effect</button>
+      <button type="button" class="toggle">Run effect</button>
     </div>
     <div class="container">
       <img id="default" src="city.jpg"/>
@@ -31,7 +31,7 @@
     <article>
     <div class="title">
       <h3>&raquo; Simple</h3>
-      <button type="button" class="toggle">Toggle effect</button>
+      <button type="button" class="toggle">Run effect</button>
     </div>
     <div class="container">
       <img id="simple" src="tiger.jpg"/>
@@ -41,7 +41,7 @@
     <article>
     <div class="title">
       <h3>&raquo; Up & Down</h3>
-      <button type="button" class="toggle">Toggle effect</button>
+      <button type="button" class="toggle">Run effect</button>
     </div>
     <div class="container">
       <img id="updown" src="drop.jpg"/>
@@ -51,7 +51,7 @@
     <article>
     <div class="title">
       <h3>&raquo; Left & Right</h3>
-      <button type="button" class="toggle">Toggle effect</button>
+      <button type="button" class="toggle">Run effect</button>
     </div>
     <div class="container">
       <img id="leftright" src="girl.jpg"/>
@@ -70,7 +70,9 @@
       $('#leftright').tiles({ x: 1, y: 10, effect: 'leftright' });
 
       $('button').click(function(){
-        $(this).parent().next().find('img').trigger('toggleTiles');
+        var $nextImg = $(this).parent().next().find('img');
+        $nextImg.trigger('toggleTiles');
+        setTimeout(function(){ $nextImg.trigger('toggleTiles'); }, 800);
       });
 
     </script>
