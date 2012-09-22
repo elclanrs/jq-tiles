@@ -67,10 +67,10 @@
 
       var $img = $('img');
 
-      $('#default').tiles({ rand: true });
-      $('#simple').tiles({ rand: true, effect: 'simple' });
+      $('#default').tiles({ x: 10, y: 7, rand: true });
+      $('#simple').tiles({ x: 10, y: 7, rand: true, effect: 'simple' });
       $('#updown').tiles({ x: 10, y: 1, effect: 'updown' });
-      $('#leftright').tiles({ x: 1, y: 10, effect: 'leftright' });
+      $('#leftright').tiles({ x: 1, y: 7, effect: 'leftright' });
 
       $('button').click(function(){
         var $nextImg = $(this).parent().next().find('img');

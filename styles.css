@@ -93,3 +93,11 @@ button.toggle:active {
   background: #222;
   top: 6px;
 }
+
+/* Custom tiles effects */
+.tiles-updown-toggle {
+  height: 50px !important;
+}
+.tiles-leftright-toggle {
+  width: 35px !important;
+}
