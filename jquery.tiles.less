@@ -1,0 +1,61 @@
+/*-----------------------------------------------
+ * Mixins:
+ ----------------------------------------------*/
+
+.transition-property(@props) {
+  -webkit-transition-property: @props;
+  -moz-transition-property: @props;
+  -o-transition-property: @props;
+  -ms-transition-property: @props;
+  transition-property: @props;
+}
+.transition-duration(@speed) {
+  -webkit-transition-duration: @speed;
+  -moz-transition-duration: @speed;
+  -o-transition-duration: @speed;
+  -ms-transition-duration: @speed;
+  transition-duration: @speed;
+}
+.transition-timing-function(@fn) {
+  -webkit-transition-timing-function: @fn;
+  -moz-transition-timing-function: @fn;
+  -o-transition-timing-function: @fn;
+  -ms-transition-timing-function: @fn;
+  transition-timing-function: @fn;
+}
+
+/*-----------------------------------------------
+ * Global:
+ ----------------------------------------------*/
+
+.tiles-wrap, .tiles-tile { position: relative; }
+.tiles-tile { float: left; }
+
+/*-----------------------------------------------
+ * Effects:
+ ----------------------------------------------*/
+
+/* Simple */
+.tiles-simple-normal {
+  visibility: visible;
+}
+.tiles-simple-toggle {
+  visibility: hidden;
+}
+
+/* Default */
+.tiles-default-normal {
+  opacity: 1;
+  top: 0;
+  right: 0;
+  box-shadow: 0 0 0 transparent;
+  .transition-property(~"opacity, box-shadow, top, right");
+  .transition-duration(.3s);
+  .transition-timing-function(ease-in-out);
+}
+.tiles-default-toggle {
+  opacity: 0;
+  box-shadow: 0 0 10px black;
+  top: -.8em;
+  right: -.5em;
+}
