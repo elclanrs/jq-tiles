@@ -95,9 +95,9 @@ button.toggle:active {
 }
 
 /* Custom tiles effects */
-.tiles-updown-toggle {
-  height: 55px !important;
-}
-.tiles-leftright-toggle {
-  width: 58px !important;
-}
+/*.tiles-updown-toggle {*/
+  /*height: 55px !important;*/
+/*}*/
+/*.tiles-leftright-toggle {*/
+  /*width: 58px !important;*/
+/*}*/
