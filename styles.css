@@ -11,6 +11,7 @@ a {
 }
 a:hover { text-decoration: underline }
 img { display: block; }
+header { margin: 50px 0 30px 0; }
 h1, h3 { display: inline-block; }
 h1 {
   font-size: 42px;
@@ -18,6 +19,7 @@ h1 {
   letter-spacing: -1px;
   text-shadow: 1px 1px 0 white;
   color: #222;
+  margin: 0;
 }
 h3 {
   color: #444;
