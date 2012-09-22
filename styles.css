@@ -1,5 +1,6 @@
 body { width: 600px; margin: 30px auto; }
 #container { margin: 20px 0; }
+a { color: #088BBF; }
 button.toggle {
   cursor: pointer;
 	font-family: Arial, Helvetica, sans-serif;
