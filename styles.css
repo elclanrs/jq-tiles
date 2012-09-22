@@ -23,8 +23,10 @@ h1 {
 }
 h3 {
   color: #444;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: normal;
+  position: relative;
+  top: 4px;
 }
 .title { position: relative; }
 .container { margin-bottom: 30px; }
@@ -50,7 +52,7 @@ button.toggle {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
 	color: #ffffff;
-	padding: 10px 20px;
+	padding: 7px 14px;
   margin: 10px 0;
 	background: -o-linear-gradient(
 		top,
