@@ -69,7 +69,6 @@
 /* Up & Down */
 .tiles-updown-normal {
   height: 100%;
-  visibility: visible;
   .transition-property(~"visibility height");
   .transition-duration(.3s);
   .transition-timing-function(ease-in-out);
@@ -83,10 +82,11 @@
 .tiles-leftright-normal {
   width: 100%;
   clear: both;
-  .transition-property(~"width");
+  .transition-property(~"visibility width");
   .transition-duration(.3s);
   .transition-timing-function(ease-in-out);
 }
 .tiles-leftright-toggle {
-  width: 0px !important;
+  width: 0 !important;
+  visibility: hidden;
 }
