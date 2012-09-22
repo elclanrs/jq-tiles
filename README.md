@@ -14,6 +14,8 @@ Split images in tiles with css3 transitions.
 * **speed**: speed of effect in ms.
 * **effect**: `default`, `simple`.
 
+Use `.trigger('toggleTiles')` to toggle the effect on and off.
+
 ### Example:
 ```javascript
 var $img = $('img').tiles({ rand: true });
