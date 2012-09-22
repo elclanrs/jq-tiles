@@ -1,6 +1,6 @@
 #jq-tiles
 
-Split images into tiles with css3 transitions.
+Split images in tiles with css3 transitions.
 
 **Demo:** http://elclanrs.github.com/jq-tiles/
 
