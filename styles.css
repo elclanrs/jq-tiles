@@ -37,6 +37,8 @@ article {
   left: 20px;
   top: -6px;
 }
+
+button::-moz-focus-inner { border: 0; }
 button.toggle {
   position: absolute;
   right: 0;
