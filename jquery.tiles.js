@@ -47,6 +47,7 @@ $.fn.tiles = function(ops) {
 
     var $img = $(this);
     var klass = 'tiles-'+ o.effect;
+    var n_tiles = o.x*o.y;
 
     if (!$img.is('img')) {
       $.error('Selector can only contain images.');
@@ -54,7 +55,7 @@ $.fn.tiles = function(ops) {
 
     // Generate tiles
     var tiles = [], $tiles;
-    (new Array(o.x * o.y))
+    (new Array(n_tiles))
       .join('.').split('.')
       .forEach(function(v, i){
         tiles.push('<div class="tiles-tile '+ klass +'-normal"/>');
@@ -91,14 +92,18 @@ $.fn.tiles = function(ops) {
 
     // Toggle effect
     $img.on('toggleTiles', function(){
-      var delay = ~~(o.speed / $tiles.length);
-      var ran = range(0, o.x*o.y, o.rand);
+      var delay = ~~(o.speed / n_tiles);
+      var ran = range(0, n_tiles, o.rand);
       (o.reverse ? ran.reverse() : ran).forEach(function(v,i){
         setTimeout(function(){
           $tiles.eq(v).toggleClass(klass +'-toggle');
         }, i*delay);
       });
     });
+    
+    $tiles.addClass('tiles-x'+ o.x +' tiles-y'+ o.y);
+    $tiles.filter(':odd').addClass('tiles-odd');
+    $tiles.filter(':even').addClass('tiles-even');
 
     $img.hide();
 
