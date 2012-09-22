@@ -16,7 +16,8 @@ Split images in tiles with css3 transitions.
 
 ### Example:
 ```javascript
-$('img').tiles({ rand: true }).trigger('toggleTiles');
+var $img = $('img').tiles({ rand: true });
+$button.click(function(){ $img.trigger('toggleTiles'); };
 ```
 
 
