@@ -13,7 +13,7 @@ Split images into tiles with css3 transitions.
 
 ### Example:
 ```javascript
-  $('img').tiles({ rand: true }).trigger('toggleTiles');
+$('img').tiles({ rand: true }).trigger('toggleTiles');
 ```
 
 
