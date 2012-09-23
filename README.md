@@ -19,8 +19,8 @@ Split images in tiles with css3 transitions.
 ### Effects:
 * **default**
 * **simple**
-* **switchlr:** `y=1` and `x` must be odd.
-* **switchud:** `x=1` and `y` must be odd.
+* **switchlr:** `y=1` and `x` must be even.
+* **switchud:** `x=1` and `y` must be even.
 * **updown:** `y=1`.
 * **leftright** `x=1`.
 
