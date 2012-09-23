@@ -81,6 +81,26 @@
     </div>
     </article>
 
+    <article>
+    <div class="title">
+      <h3>&raquo; Rotate LR</h3>
+      <button type="button" class="toggle">Run effect</button>
+    </div>
+    <div class="container">
+      <img id="rotatelr" src="img/dust.jpg"/>
+    </div>
+    </article>
+
+    <article>
+    <div class="title">
+      <h3>&raquo; Rotate UD</h3>
+      <button type="button" class="toggle">Run effect</button>
+    </div>
+    <div class="container">
+      <img id="rotateud" src="img/bridge.jpg"/>
+    </div>
+    </article>
+
     <a href="https://github.com/elclanrs/jq-tiles">&laquo; Back to Github</a>
 
     <script>
@@ -93,6 +113,8 @@
       $('#leftright').tiles({ x: 1, y: 7, effect: 'leftright' });
       $('#switchlr').tiles({ x: 10, y: 1, effect: 'switchlr' });
       $('#switchud').tiles({ x: 1, y: 8, effect: 'switchud' });
+      $('#rotatelr').tiles({ x: 10, y: 1, effect: 'rotatelr' });
+      $('#rotateud').tiles({ x: 1, y: 8, effect: 'rotateud' });
 
       $('button').click(function(){
         var $nextImg = $(this).parent().next().find('img');
