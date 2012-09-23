@@ -23,7 +23,18 @@
   -ms-transition-timing-function: @fn;
   transition-timing-function: @fn;
 }
-
+.rotateY (@deg) {
+  -webkit-transform: rotateY(@deg);
+  -moz-transform: rotateY(@deg);
+  -ms-transform: rotateY(@deg);
+  -o-transform: rotateY(@deg);
+}
+.rotateX (@deg) {
+  -webkit-transform: rotateX(@deg);
+  -moz-transform: rotateX(@deg);
+  -ms-transform: rotateX(@deg);
+  -o-transform: rotateX(@deg);
+}
 /*-----------------------------------------------
  * Global:
  ----------------------------------------------*/
@@ -37,6 +48,10 @@
 .tiles-wrap, .tiles-tile { position: relative; }
 .tiles-tile { 
   float: left; 
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   .transition-duration(.3s);
   .transition-timing-function(ease-in-out);
   .transition-property(all);
@@ -54,7 +69,7 @@
   opacity: 0;
   box-shadow: 0 0 10px black;
   top: -.8em;
-  right: -.5em;
+  left: .5em;
 }
 
 /* Up & Down */
@@ -72,18 +87,17 @@
 
 /* Switch LR */
 .tiles-switchlr-toggle.tiles-even {
-  &.tiles-y1.tiles-x2 { right: -100/2%; }
-  &.tiles-y1.tiles-x4 { right: -100/4%; }
-  &.tiles-y1.tiles-x6 { right: -100/6%; }
-  &.tiles-y1.tiles-x8 { right: -100/8%; }
-  &.tiles-y1.tiles-x10 { right: -100/10%; }
-  &.tiles-y1.tiles-x12 { right: -100/12%; }
-  &.tiles-y1.tiles-x14 { right: -100/14%; }
-  &.tiles-y1.tiles-x16 { right: -100/16%; }
-  &.tiles-y1.tiles-x18 { right: -100/18%; }
-  &.tiles-y1.tiles-x20 { right: -100/20%; }
+  &.tiles-y1.tiles-x2 { left: 100/2%; }
+  &.tiles-y1.tiles-x4 { left: 100/4%; }
+  &.tiles-y1.tiles-x6 { left: 100/6%; }
+  &.tiles-y1.tiles-x8 { left: 100/8%; }
+  &.tiles-y1.tiles-x10 { left: 100/10%; }
+  &.tiles-y1.tiles-x12 { left: 100/12%; }
+  &.tiles-y1.tiles-x14 { left: 100/14%; }
+  &.tiles-y1.tiles-x16 { left: 100/16%; }
+  &.tiles-y1.tiles-x18 { left: 100/18%; }
+  &.tiles-y1.tiles-x20 { left: 100/20%; }
 }
-
 .tiles-switchlr-toggle.tiles-odd {
   &.tiles-y1.tiles-x2 { left: -100/2%; }
   &.tiles-y1.tiles-x4 { left: -100/4%; }
@@ -110,7 +124,6 @@
   &.tiles-x1.tiles-y18 { top: 100/18%; }
   &.tiles-x1.tiles-y20 { top: 100/20%; }
 }
-
 .tiles-switchud-toggle.tiles-odd {
   &.tiles-x1.tiles-y2 { top: -100/2%; }
   &.tiles-x1.tiles-y4 { top: -100/4%; }
@@ -123,3 +136,6 @@
   &.tiles-x1.tiles-y18 { top: -100/18%; }
   &.tiles-x1.tiles-y20 { top: -100/20%; }
 }
+
+.tiles-rotatelr-toggle { .rotateY(180deg); }
+.tiles-rotateud-toggle { .rotateX(180deg); }
