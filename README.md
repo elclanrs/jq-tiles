@@ -29,12 +29,16 @@ Split images in tiles with css3 transitions.
 * **flipud**
 
 ### Usage:
-Use `.trigger('toggleTiles')` to toggle the effect on and off.
+Use `.trigger('toggleTiles', callback)` to toggle the effect on and off.
 
 ### Example:
 ```javascript
 var $img = $('img').tiles({ rand: true });
-$('button').click(function(){ $img.trigger('toggleTiles'); };
+$('button').click(function(){ 
+  $img.trigger('toggleTiles', function(){
+    alert('Finished!');
+  });
+};
 ```
 
 
