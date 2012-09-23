@@ -20,7 +20,7 @@ function range(min, max, rand) {
 /** 
  * jQuery setTimeout sugar
  */
-$.wait = function(time) {
+function wait(time) {
   return $.Deferred(function(dfd) {
     setTimeout(dfd.resolve, time);
   });
@@ -122,16 +122,16 @@ $.fn.tiles = function(ops) {
 
       (o.reverse ? ran.reverse() : ran).forEach(function(v,i){
         function anim() { $tiles.eq(v).toggleClass(klass +'-toggle'); }
-        $.wait(i*delay).then(anim);
+        wait(i*delay).then(anim);
         if (o.rewind) { 
           var d = i*delay + (o.cssSpeed/(100/o.rewind));
-          $.wait(d).then(anim); 
+          wait(d).then(anim); 
         }
       });
 
       // Callback
       cb = cb || $.noop;
-      $.wait(o.speed).then(cb($tiles, $img));
+      wait(o.speed).then(cb($tiles, $img));
 
     });
     
