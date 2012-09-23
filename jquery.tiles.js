@@ -97,7 +97,7 @@ $.fn.tiles = function(ops) {
     if ($img[0].complete) { $img.trigger('load'); }
 
     // Toggle effect
-    $img.on('toggleTiles', function(){
+    $img.on('toggleTiles', function(e,cb) {
 
       var delay = ~~(o.speed / n_tiles);
       var ran = range(0, n_tiles, o.rand);
@@ -119,6 +119,9 @@ $.fn.tiles = function(ops) {
         anim(i,v,delay);
         if (o.rewind) { anim(i,v,delay,o.cssSpeed/(100/o.rewind)); }
       });
+
+      // Callback
+      setTimeout(cb, o.speed);
 
     });
     
