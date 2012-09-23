@@ -74,7 +74,7 @@
       <button type="button" class="toggle">Run effect</button>
     </div>
     <div class="container">
-      <img id="updown" src="img/drop.jpg"/>
+      <img id="updown" class="notoggle" src="img/drop.jpg"/>
     </div>
     </article>
 
@@ -85,7 +85,7 @@
       <button type="button" class="toggle">Run effect</button>
     </div>
     <div class="container">
-      <img id="leftright" src="img/dust.jpg"/>
+      <img id="leftright" class="notoggle" src="img/dust.jpg"/>
     </div>
     </article>
 
@@ -106,7 +106,7 @@
       <button type="button" class="toggle">Run effect</button>
     </div>
     <div class="container">
-      <img id="flipud" src="img/bridge.jpg"/>
+      <img id="flipud" class="notoggle" src="img/bridge.jpg"/>
     </div>
     </article>
 
@@ -128,7 +128,9 @@
       $('button').click(function(){
         var $nextImg = $(this).parent().next().find('img');
         $nextImg.trigger('toggleTiles');
-        setTimeout(function(){ $nextImg.trigger('toggleTiles'); }, 800);
+        setTimeout(function(){ 
+          $nextImg.filter(':not(.notoggle)').trigger('toggleTiles'); 
+        }, 800);
       });
 
     </script>
