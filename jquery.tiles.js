@@ -52,7 +52,6 @@ $.fn.tiles = function(ops) {
   return this.each(function() {
 
     var $img = $(this);
-    var $wrap = $('<div class="tiles-wrap"/>');
     var klass = 'tiles-'+ o.effect;
     var n_tiles = o.x*o.y;
 
@@ -68,10 +67,11 @@ $.fn.tiles = function(ops) {
         tiles.push('<div class="tiles-tile '+ klass +'-normal"/>');
       });
     $tiles = $(tiles.join(''));
-
+    
+    var $wrap = $('<div class="tiles-wrap"/>');
 
     // Make sure image is loaded to get REAL width and height
-    // Only load once if needed
+    // Only load once if image is not cached
     $img.one('load', function(){
 
       var w = $img.width();
