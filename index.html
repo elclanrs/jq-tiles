@@ -83,7 +83,7 @@
 
     <article>
     <div class="title">
-      <h3>&raquo; Rotate LR</h3>
+      <h3>&raquo; Flip LR</h3>
       <button type="button" class="toggle">Run effect</button>
     </div>
     <div class="container">
@@ -93,7 +93,7 @@
 
     <article>
     <div class="title">
-      <h3>&raquo; Rotate UD</h3>
+      <h3>&raquo; Flip UD</h3>
       <button type="button" class="toggle">Run effect</button>
     </div>
     <div class="container">
@@ -113,8 +113,8 @@
       $('#leftright').tiles({ x: 1, y: 7, effect: 'leftright' });
       $('#switchlr').tiles({ x: 10, y: 1, effect: 'switchlr' });
       $('#switchud').tiles({ x: 1, y: 8, effect: 'switchud' });
-      $('#rotatelr').tiles({ x: 10, y: 1, effect: 'rotatelr' });
-      $('#rotateud').tiles({ x: 1, y: 8, effect: 'rotateud' });
+      $('#rotatelr').tiles({ x: 10, y: 1, effect: 'fliplr' });
+      $('#rotateud').tiles({ x: 1, y: 8, effect: 'flipud' });
 
       $('button').click(function(){
         var $nextImg = $(this).parent().next().find('img');

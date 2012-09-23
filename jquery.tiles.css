@@ -46,5 +46,5 @@
 .tiles-switchud-toggle.tiles-odd.tiles-x1.tiles-y16{top:-6.25%;}
 .tiles-switchud-toggle.tiles-odd.tiles-x1.tiles-y18{top:-5.555555555555555%;}
 .tiles-switchud-toggle.tiles-odd.tiles-x1.tiles-y20{top:-5%;}
-.tiles-rotatelr-toggle{-webkit-transform:rotatey(180deg);-moz-transform:rotatey(180deg);-ms-transform:rotatey(180deg);-o-transform:rotatey(180deg);}
-.tiles-rotateud-toggle{-webkit-transform:rotatex(180deg);-moz-transform:rotatex(180deg);-ms-transform:rotatex(180deg);-o-transform:rotatex(180deg);}
+.tiles-fliplr-toggle{-webkit-transform:rotatey(180deg);-moz-transform:rotatey(180deg);-ms-transform:rotatey(180deg);-o-transform:rotatey(180deg);}
+.tiles-flipud-toggle{-webkit-transform:rotatex(180deg);-moz-transform:rotatex(180deg);-ms-transform:rotatex(180deg);-o-transform:rotatex(180deg);}
