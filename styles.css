@@ -33,6 +33,7 @@ code {
   padding: .3em .8em;
   font-size: 14px;
   position: relative;
+  margin: 0 3px;
   left: 15px;
   top: 2px;
   border-radius: 3px;
