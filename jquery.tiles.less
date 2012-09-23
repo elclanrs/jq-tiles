@@ -1,27 +1,11 @@
 /*-----------------------------------------------
  * Mixins:
  ----------------------------------------------*/
-
-.transition-property(@props) {
-  -webkit-transition-property: @props;
-  -moz-transition-property: @props;
-  -o-transition-property: @props;
-  -ms-transition-property: @props;
-  transition-property: @props;
-}
-.transition-duration(@speed) {
-  -webkit-transition-duration: @speed;
-  -moz-transition-duration: @speed;
-  -o-transition-duration: @speed;
-  -ms-transition-duration: @speed;
-  transition-duration: @speed;
-}
-.transition-timing-function(@fn) {
-  -webkit-transition-timing-function: @fn;
-  -moz-transition-timing-function: @fn;
-  -o-transition-timing-function: @fn;
-  -ms-transition-timing-function: @fn;
-  transition-timing-function: @fn;
+.transition (@transition) {
+	-webkit-transition: @transition;  
+	-moz-transition: @transition;
+	-ms-transition: @transition; 
+	-o-transition: @transition;  
 }
 .rotateY (@deg) {
   -webkit-transform: rotateY(@deg);
@@ -53,9 +37,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  .transition-duration(.3s);
-  .transition-timing-function(ease-in-out);
-  .transition-property(all);
+  .transition(all .3s ease-in-out);
 }
 
 /*-----------------------------------------------
