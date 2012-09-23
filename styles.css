@@ -2,12 +2,11 @@ body {
   width: 640px;
   margin: 30px auto;
   background: url(img/bg.png);
-  font: normal 22px Doppio One;
+  font: normal 14px Doppio One, sans;
 }
 a {
   color: #088BBF;
   text-decoration: none;
-  font-size: 14px;
 }
 a:hover { text-decoration: underline }
 img { display: block; }
@@ -27,6 +26,17 @@ h3 {
   font-weight: normal;
   position: relative;
   top: 4px;
+}
+code {
+  font-family: Ubuntu mono, mono;
+  background: #dedede;
+  padding: .3em .8em;
+  font-size: 14px;
+  position: relative;
+  left: 15px;
+  top: 2px;
+  border-radius: 3px;
+  color: #444;
 }
 .title { position: relative; }
 .container { margin-bottom: 30px; }

@@ -11,6 +11,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
     <script src="jquery.tiles.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="jquery.tiles.css"/>
     <link rel="stylesheet" href="styles.css"/>
   </head>
@@ -24,6 +25,7 @@
     <article>
     <div class="title">
       <h3>&raquo; Default</h3>
+      <code>rand:true</code>
       <button type="button" class="toggle">Run effect</button>
     </div>
     <div class="container">
@@ -34,6 +36,7 @@
     <article>
     <div class="title">
       <h3>&raquo; Simple</h3>
+      <code>rand:true</code>
       <button type="button" class="toggle">Run effect</button>
     </div>
     <div class="container">
@@ -44,6 +47,7 @@
     <article>
     <div class="title">
       <h3>&raquo; Switch LR</h3>
+      <code>limit:50 reverse:true</code>
       <button type="button" class="toggle">Run effect</button>
     </div>
     <div class="container">
@@ -64,6 +68,7 @@
     <article>
     <div class="title">
       <h3>&raquo; Up & Down</h3>
+      <code>rewind:50</code>
       <button type="button" class="toggle">Run effect</button>
     </div>
     <div class="container">
@@ -87,17 +92,18 @@
       <button type="button" class="toggle">Run effect</button>
     </div>
     <div class="container">
-      <img id="rotatelr" src="img/dust.jpg"/>
+      <img id="fliplr" src="img/dust.jpg"/>
     </div>
     </article>
 
     <article>
     <div class="title">
       <h3>&raquo; Flip UD</h3>
+      <code>rewind:50</code>
       <button type="button" class="toggle">Run effect</button>
     </div>
     <div class="container">
-      <img id="rotateud" src="img/bridge.jpg"/>
+      <img id="flipud" src="img/bridge.jpg"/>
     </div>
     </article>
 
@@ -109,12 +115,12 @@
 
       $('#default').tiles({ x: 6, y: 4, rand: true });
       $('#simple').tiles({ x: 6, y: 4, rand: true, effect: 'simple' });
-      $('#updown').tiles({ x: 10, y: 1, effect: 'updown', limit: 50 });
+      $('#updown').tiles({ x: 10, y: 1, effect: 'updown', rewind: 50 });
       $('#leftright').tiles({ x: 1, y: 7, effect: 'leftright' });
-      $('#switchlr').tiles({ x: 10, y: 1, effect: 'switchlr' });
+      $('#switchlr').tiles({ x: 12, y: 1, effect: 'switchlr', limit: 50, reverse: true });
       $('#switchud').tiles({ x: 1, y: 8, effect: 'switchud' });
-      $('#rotatelr').tiles({ x: 10, y: 1, effect: 'fliplr' });
-      $('#rotateud').tiles({ x: 1, y: 8, effect: 'flipud' });
+      $('#fliplr').tiles({ x: 10, y: 1, effect: 'fliplr' });
+      $('#flipud').tiles({ x: 1, y: 8, effect: 'flipud', rewind: 50 });
 
       $('button').click(function(){
         var $nextImg = $(this).parent().next().find('img');
