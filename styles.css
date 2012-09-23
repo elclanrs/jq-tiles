@@ -28,7 +28,7 @@ h3 {
   top: 4px;
 }
 code {
-  font-family: Ubuntu Mono;
+  font-family: Ubuntu Mono, mono;
   background: #dedede;
   padding: .3em .8em;
   font-size: 14px;
