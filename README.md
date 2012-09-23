@@ -15,6 +15,7 @@ Split images in tiles with css3 transitions.
 * **speed**: speed of effect in ms.
 * **effect**: `default`, `simple`, `switchlr`, `switchud`, `updown`, `leftright`.
 * **reverse:** begin effect from opposite side.
+* **limit:** limit animation to a certain percentage of the image.
 
 ### Effects:
 * **default**
