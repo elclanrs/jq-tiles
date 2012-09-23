@@ -35,7 +35,7 @@ $.fn.tiles = function(ops) {
     speed: 400,
     effect: 'default',
     reverse: false,
-    limit: false
+    repeat: false
   }, ops);
 
   // Prevent css3 transitions on load
@@ -95,14 +95,14 @@ $.fn.tiles = function(ops) {
     $img.on('toggleTiles', function(){
       var delay = ~~(o.speed / n_tiles);
       var ran = range(0, n_tiles, o.rand);
-      function anim(i,v,d,l) {
+      function anim(i,v,d,r) {
        setTimeout(function(){
           $tiles.eq(v).toggleClass(klass +'-toggle');
-        }, i*d+(l||0));
+        }, i*d+(r||0));
       }
       (o.reverse ? ran.reverse() : ran).forEach(function(v,i){
         anim(i,v,delay);
-        if (o.limit) { anim(i,v,delay,(o.limit*100)/delay); }
+        if (o.repeat) { anim(i,v,delay,(o.speed/(100/o.repeat))); }
       });
     });
     
