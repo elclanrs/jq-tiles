@@ -127,7 +127,7 @@
 
       $('button').click(function(){
         var $nextImg = $(this).parent().next().find('img');
-        $nextImg.trigger('toggleTiles', function(){ console.log('finished'); });
+        $nextImg.trigger('toggleTiles');
         setTimeout(function(){ 
           $nextImg.filter(':not(.notoggle)').trigger('toggleTiles'); 
         }, 800);

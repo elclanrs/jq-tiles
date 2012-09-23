@@ -52,6 +52,7 @@ $.fn.tiles = function(ops) {
   return this.each(function() {
 
     var $img = $(this);
+    var $wrap = $('<div class="tiles-wrap"/>');
     var klass = 'tiles-'+ o.effect;
     var n_tiles = o.x*o.y;
 
@@ -68,6 +69,7 @@ $.fn.tiles = function(ops) {
       });
     $tiles = $(tiles.join(''));
 
+
     // Make sure image is loaded to get REAL width and height
     // Only load once if needed
     $img.one('load', function(){
@@ -76,7 +78,7 @@ $.fn.tiles = function(ops) {
       var h = $img.height();
 
       // Insert in DOM
-      $img.wrap($('<div class="tiles-wrap"/>').width(w).height(h));
+      $img.wrap($wrap.width(w).height(h));
       $tiles.insertAfter($img);
 
       $tiles.css({
@@ -121,7 +123,8 @@ $.fn.tiles = function(ops) {
       });
 
       // Callback
-      setTimeout(cb, o.speed);
+      cb = cb || $.noop;
+      setTimeout(cb($tiles, $img), o.speed);
 
     });
     
