@@ -25,7 +25,8 @@ function range(min, max, rand) {
 * - rand: animate in random order
 * - speed: duration of the effect
 * - effect: the animation effect (css class with transitions)
-* - reverse: begin effect from opposite side  
+* - reverse: begin effect from opposite side
+* - limit: limit animation to a certain percentage of the image. 
 */
 $.fn.tiles = function(ops) {
 
@@ -35,7 +36,7 @@ $.fn.tiles = function(ops) {
     speed: 400,
     effect: 'default',
     reverse: false,
-    repeat: false
+    limit: false
   }, ops);
 
   // Prevent css3 transitions on load
@@ -95,14 +96,14 @@ $.fn.tiles = function(ops) {
     $img.on('toggleTiles', function(){
       var delay = ~~(o.speed / n_tiles);
       var ran = range(0, n_tiles, o.rand);
-      function anim(i,v,d,r) {
+      function anim(i,v,d,lim) {
        setTimeout(function(){
           $tiles.eq(v).toggleClass(klass +'-toggle');
-        }, i*d+(r||0));
+        }, i*d+(lim||0));
       }
       (o.reverse ? ran.reverse() : ran).forEach(function(v,i){
         anim(i,v,delay);
-        if (o.repeat) { anim(i,v,delay,(o.speed/(100/o.repeat))); }
+        if (o.limit) { anim(i,v,delay,(o.speed/(100/o.limit))); }
       });
     });
     
