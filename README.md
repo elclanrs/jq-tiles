@@ -35,8 +35,8 @@ Use `.trigger('toggleTiles', callback)` to toggle the effect on and off.
 ```javascript
 var $img = $('img').tiles({ rand: true });
 $('button').click(function(){ 
-  $img.trigger('toggleTiles', function(){
-    alert('Finished!');
+  $img.trigger('toggleTiles', function($tiles, $image){
+    // Finished
   });
 };
 ```
