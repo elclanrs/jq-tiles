@@ -30,7 +30,7 @@ function range(min, max, rand) {
 $.fn.tiles = function(ops) {
 
   var o = $.extend({
-    x: 5, y: 5,
+    x: 4, y: 4,
     rand: false,
     speed: 400,
     effect: 'default',
