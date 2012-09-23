@@ -17,6 +17,15 @@ function range(min, max, rand) {
     arr;
 }
 
+/** 
+ * jQuery setTimeout sugar
+ */
+$.wait = function(time) {
+  return $.Deferred(function(dfd) {
+    setTimeout(dfd.resolve, time);
+  });
+};
+
 /**
 * tiles jQuery plugin to split images into tiles with css3 transitions
 * @param ops {obj} Options:
@@ -111,20 +120,18 @@ $.fn.tiles = function(ops) {
           ran.splice(lim, ran.length);
       }
 
-      function anim(i,v,d,r) {
-       setTimeout(function(){
-          $tiles.eq(v).toggleClass(klass +'-toggle');
-        }, i*d + (r||0));
-      }
-
       (o.reverse ? ran.reverse() : ran).forEach(function(v,i){
-        anim(i,v,delay);
-        if (o.rewind) { anim(i,v,delay,o.cssSpeed/(100/o.rewind)); }
+        function anim() { $tiles.eq(v).toggleClass(klass +'-toggle'); }
+        $.wait(i*delay).then(anim);
+        if (o.rewind) { 
+          var d = i*delay + (o.cssSpeed/(100/o.rewind));
+          $.wait(d).then(anim); 
+        }
       });
 
       // Callback
       cb = cb || $.noop;
-      setTimeout(cb($tiles, $img), o.speed);
+      $.wait(o.speed).then(cb($tiles, $img));
 
     });
     
