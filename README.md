@@ -19,10 +19,10 @@ Split images in tiles with css3 transitions.
 ### Effects:
 * **default**
 * **simple**
-* **switchlr:** `y` must be `1` and `x` must be odd.
-* **switchud:** `x` must be `1` and `y` must be odd.
-* **updown:** `y1 must be `1`.
-* **leftright** `x` must be `1`.
+* **switchlr:** `y=1` and `x` must be odd.
+* **switchud:** `x=1` and `y` must be odd.
+* **updown:** `y=1`.
+* **leftright** `x=1`.
 
 ### Usage:
 Use `.trigger('toggleTiles')` to toggle the effect on and off.
