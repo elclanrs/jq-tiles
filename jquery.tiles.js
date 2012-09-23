@@ -23,7 +23,8 @@ function range(min, max, rand) {
 * - x: number of tiles in x axis
 * - y: number of tiles in y axis
 * - rand: animate in random order
-* - speed: duration of the effect
+* - speed: duration of the effect in ms
+* - cssSpeed: speed of css transitions in ms
 * - effect: the animation effect (css class with transitions)
 * - reverse: begin effect from opposite side
 * - limit: limit animation to a certain percentage of the image. 
