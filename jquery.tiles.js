@@ -23,20 +23,24 @@ function range(min, max, rand) {
 * - x: number of tiles in x axis
 * - y: number of tiles in y axis
 * - rand: animate in random order
-* - speed: duration of the effect
+* - speed: duration of the effect in ms
+* - cssSpeed: speed of css transitions in ms
 * - effect: the animation effect (css class with transitions)
 * - reverse: begin effect from opposite side
 * - limit: limit animation to a certain percentage of the image. 
-*/
+* - rewind: toggle animation back at a certain point in time (percentage).
+**/
 $.fn.tiles = function(ops) {
 
   var o = $.extend({
     x: 4, y: 4,
     rand: false,
     speed: 400,
+    cssSpeed: 300,
     effect: 'default',
     reverse: false,
-    limit: false
+    limit: false,
+    rewind: false
   }, ops);
 
   // Prevent css3 transitions on load
@@ -94,17 +98,28 @@ $.fn.tiles = function(ops) {
 
     // Toggle effect
     $img.on('toggleTiles', function(){
+
       var delay = ~~(o.speed / n_tiles);
       var ran = range(0, n_tiles, o.rand);
-      function anim(i,v,d,lim) {
+
+      if (o.limit) {
+        var lim = ran.length/(100/o.limit);
+        o.reverse ?
+          ran.splice(0, lim) :
+          ran.splice(lim, ran.length);
+      }
+
+      function anim(i,v,d,r) {
        setTimeout(function(){
           $tiles.eq(v).toggleClass(klass +'-toggle');
-        }, i*d+(lim||0));
+        }, i*d + (r||0));
       }
+
       (o.reverse ? ran.reverse() : ran).forEach(function(v,i){
         anim(i,v,delay);
-        if (o.limit) { anim(i,v,delay,(o.speed/(100/o.limit))); }
+        if (o.rewind) { anim(i,v,delay,o.cssSpeed/(100/o.rewind)); }
       });
+
     });
     
     $tiles.addClass('tiles-x'+ o.x +' tiles-y'+ o.y);

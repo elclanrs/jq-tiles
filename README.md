@@ -16,6 +16,8 @@ Split images in tiles with css3 transitions.
 * **effect**: `default`, `simple`, `switchlr`, `switchud`, `updown`, `leftright`, `fliplr`, `flipud`.
 * **reverse:** begin effect from opposite side.
 * **limit:** limit animation to a certain percentage of the image.
+* **limit:** limit animation to a certain percentage of the image. 
+* **rewind:** toggle animation back at a certain point in time (percentage).
 
 ### Effects:
 * **default**

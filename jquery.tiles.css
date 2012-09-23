@@ -4,8 +4,8 @@
 .tiles-simple-toggle{opacity:0;}
 .tiles-default-toggle{opacity:0;box-shadow:0 0 10px black;top:-0.8em;left:.5em;}
 .tiles-updown-toggle{height:1px !important;visibility:hidden;}
-.tiles-leftright-normal{clear:both;}
-.tiles-leftright-toggle{width:0 !important;visibility:hidden;}
+.tiles-x1.tiles-leftright-normal{clear:both;}
+.tiles-x1.tiles-leftright-toggle{width:0 !important;visibility:hidden;}
 .tiles-switchlr-toggle.tiles-even.tiles-y1.tiles-x2{left:50%;}
 .tiles-switchlr-toggle.tiles-even.tiles-y1.tiles-x4{left:25%;}
 .tiles-switchlr-toggle.tiles-even.tiles-y1.tiles-x6{left:16.666666666666668%;}
