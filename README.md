@@ -33,9 +33,9 @@ sliderSpeed: 3000,
 * **fliplr:** `y=1`.
 * **flipud:** `x=1`.
 
-## Methods:
+### Methods:
 
-**Start**  
+#### Start  
 Start the slideshow / go to the next slide.
 ```javascript
 $('.slider').trigger('start', function(){
@@ -43,7 +43,7 @@ $('.slider').trigger('start', function(){
 });
 ```
 
-**Stop**
+### Stop
 ```javascript
 $('.slider').trigger('stop')
 });
