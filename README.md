@@ -33,6 +33,22 @@ sliderSpeed: 3000,
 * **fliplr:** `y=1`.
 * **flipud:** `x=1`.
 
+## Methods:
+
+**Start**  
+Start the slideshow / go to the next slide.
+```javascript
+$('.slider').trigger('start', function(){
+  // Loop finished
+});
+```
+
+**Stop**
+```javascript
+$('.slider').trigger('stop')
+});
+```
+
 ### Usage:
 
 **HTML:**
@@ -51,9 +67,7 @@ sliderSpeed: 3000,
 
 **jQuery:**
 ```javascript
-$('.slider').tilesSlider({ random: true }, function(){ 
-  // Loop finished 
-});
+$('.slider').tilesSlider({ random: true });
 ```
 
 
