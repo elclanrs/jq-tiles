@@ -266,7 +266,7 @@
       });
       $('button.stop').hide().click(function(){
         timer = false;
-        $(this).fadeOut(250);
+        $(this).delay(100).fadeOut(250);
         $('button.run').fadeIn(500);
         $('button.run').text('Start').parents('article').removeClass('active');
         $(this).parent().next().trigger('stop');
