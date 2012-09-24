@@ -2,6 +2,8 @@
 
 Split images in tiles with css3 transitions.
 
+Forget about bloated jquery sliders, jq-tiles packs some of the most seen effects in barely 2kb gzipped by relying on css3 animations and a bit of JavaScript magic.
+
 **Note:** jq-tiles is a work in progress so some features might be buggy.
 
 **Demo:** http://elclanrs.github.com/jq-tiles/  
