@@ -51,7 +51,9 @@ sliderSpeed: 3000,
 
 **jQuery:**
 ```javascript
-$('.slider').tilesSlider({ random: true }, function(){ // Loop finished });
+$('.slider').tilesSlider({ random: true }, function(){ 
+  // Loop finished 
+});
 ```
 
 
