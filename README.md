@@ -43,7 +43,7 @@ $('.slider').trigger('start', function(){
 });
 ```
 
-### Stop
+#### Stop
 ```javascript
 $('.slider').trigger('stop')
 });
