@@ -96,6 +96,7 @@
     <script> 
       $('.slider.switchlr').tilesSlider({ 
         x:10, y:1,
+        effectSpeed: 600,
         effect: 'switchlr',
         reverse: true,
         fade: false
@@ -124,6 +125,7 @@
     <script> 
       $('.slider.switchud').tilesSlider({ 
         x:1, y:8,
+        effectSpeed: 600,
         effect: 'switchud',
         reverse: true
       });
@@ -160,7 +162,7 @@
     <article>
     <div class="title">
       <h3>&raquo; Up & Down</h3>
-      <code>x:12</code><code>y:1</code><code>rewind:70</code>
+      <code>x:16</code><code>y:1</code><code>rewind:60</code>
       <button type="button" class="run action">Start</button>
       <button type="button" class="stop action">Stop</button>
     </div>
@@ -178,9 +180,10 @@
 
     <script> 
       $('.slider.updown').tilesSlider({ 
-        x:12, y:1,
+        x:16, y:1,
+        effectSpeed: 800,
         effect: 'updown',
-        rewind: 70
+        rewind: 60
       });
     </script>
 
