@@ -45,8 +45,7 @@ $('.slider').trigger('start', function(){
 
 #### stop
 ```javascript
-$('.slider').trigger('stop')
-});
+$('.slider').trigger('stop');
 ```
 
 ### Usage:
