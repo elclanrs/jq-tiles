@@ -9,19 +9,21 @@ Split images in tiles with css3 transitions.
 \*\* _IE8 requires polyfills for `Array.prototype.map` and `Array.prototype.forEach`. You may use [ES5 Shim](https://github.com/kriskowal/es5-shim/)._
 
 ### Options:
-```
-x: 4, y: 4,
+```javascript
+{
+x: 4, y: 4, // limit 20
 slider: false,
 effect: 'default',
 fade: true,
 random: false,
 reverse: false,
 limit: false,
-rewind: false,
+rewind: false, // reverse animation at a certain percentage in time
 loop: true,
 effectSpeed: 1200,
 sliderSpeed: 3000,
 cssSpeed: 300
+}
 ```
 
 ### Effects:
