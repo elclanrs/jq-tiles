@@ -36,7 +36,7 @@ cssSpeed: 300
 
 ### Usage:
 
-**HTML**
+**HTML:**
 ```html
 <div class="slider">
   <img src="img1.jpg"/>
@@ -45,12 +45,12 @@ cssSpeed: 300
 </div>
 ```
 
-**CSS**
+**CSS:**
 ```css
 .slider { width: 600px; height: 400px; }
 ```
 
-**jQuery**
+**jQuery:**
 ```javascript
 $('.slider').tilesSlider({ random: true });
 ```
