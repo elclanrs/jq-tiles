@@ -27,112 +27,242 @@
     <article>
     <div class="title">
       <h3>&raquo; Default</h3>
-      <code>rand:true</code>
-      <button type="button" class="toggle">Run effect</button>
+      <code>x:6</code><code>y:4</code><code>random:true</code>
+      <button type="button" class="run action">Start</button>
+      <button type="button" class="stop action">Stop</button>
     </div>
-    <div class="container">
-      <img id="default" src="img/city.jpg"/>
+    <div class="container slider default">
+      <img src="img/bridge.jpg"/>
+      <img src="img/tiger.jpg"/>
+      <img src="img/city.jpg"/>
+      <!--<img src="img/club.jpg"/>-->
+      <!--<img src="img/bike.jpg"/>-->
+      <!--<img src="img/dust.jpg"/>-->
+      <!--<img src="img/drop.jpg"/>-->
+      <!--<img src="img/girl.jpg"/>-->
     </div>
     </article>
+
+    <script> $('.slider.default').tilesSlider({ x:6, y:4, random: true }); </script>
 
     <article>
     <div class="title">
       <h3>&raquo; Simple</h3>
-      <code>rand:true</code>
-      <button type="button" class="toggle">Run effect</button>
+      <code>x:6</code><code>y:4</code><code>random:true</code><code>fade:false</code>
+      <button type="button" class="run action">Start</button>
+      <button type="button" class="stop action">Stop</button>
     </div>
-    <div class="container">
-      <img id="simple" src="img/tiger.jpg"/>
+    <div class="container slider simple">
+      <img src="img/tiger.jpg"/>
+      <img src="img/bridge.jpg"/>
+      <img src="img/club.jpg"/>
+      <img src="img/city.jpg"/>
+      <img src="img/dust.jpg"/>
+      <img src="img/bike.jpg"/>
+      <img src="img/girl.jpg"/>
+      <img src="img/drop.jpg"/>
     </div>
     </article>
+
+    <script> 
+      $('.slider.simple').tilesSlider({ 
+        x:6, y:4,
+        effectSpeed: 1000,
+        effect: 'simple', 
+        random: true,
+        fade: false,
+      });
+    </script>
 
     <article>
     <div class="title">
       <h3>&raquo; Switch LR</h3>
-      <code>limit:50</code><code>reverse:true</code>
-      <button type="button" class="toggle">Run effect</button>
+      <code>x:6</code><code>y:4</code><code>reverse:true</code><code>fade:false</code>
+      <button type="button" class="run action">Start</button>
+      <button type="button" class="stop action">Stop</button>
     </div>
-    <div class="container">
-      <img id="switchlr" src="img/club.jpg"/>
+    <div class="container slider switchlr">
+      <img src="img/dust.jpg"/>
+      <img src="img/city.jpg"/>
+      <img src="img/tiger.jpg"/>
+      <img src="img/club.jpg"/>
+      <img src="img/bridge.jpg"/>
+      <img src="img/bike.jpg"/>
+      <img src="img/girl.jpg"/>
+      <img src="img/drop.jpg"/>
     </div>
     </article>
 
+    <script> 
+      $('.slider.switchlr').tilesSlider({ 
+        x:10, y:1,
+        effect: 'switchlr',
+        reverse: true,
+        fade: false
+      });
+    </script>
+    
     <article>
     <div class="title">
       <h3>&raquo; Switch UD</h3>
-      <button type="button" class="toggle">Run effect</button>
+      <code>x:1</code><code>y:8</code><code>reverse:true</code>
+      <button type="button" class="run action">Start</button>
+      <button type="button" class="stop action">Stop</button>
     </div>
-    <div class="container">
-      <img id="switchud" src="img/bike.jpg"/>
+    <div class="container slider switchud">
+      <img src="img/bike.jpg"/>
+      <img src="img/dust.jpg"/>
+      <img src="img/city.jpg"/>
+      <img src="img/tiger.jpg"/>
+      <img src="img/club.jpg"/>
+      <img src="img/bridge.jpg"/>
+      <img src="img/girl.jpg"/>
+      <img src="img/drop.jpg"/>
     </div>
     </article>
 
-    <article>
-    <div class="title">
-      <h3>&raquo; Up & Down</h3>
-      <code>rewind:50</code>
-      <button type="button" class="toggle">Run effect</button>
-    </div>
-    <div class="container">
-      <img id="updown" class="notoggle" src="img/drop.jpg"/>
-    </div>
-    </article>
+    <script> 
+      $('.slider.switchud').tilesSlider({ 
+        x:1, y:8,
+        effect: 'switchud',
+        reverse: true
+      });
+    </script>
 
     <article>
     <div class="title">
       <h3>&raquo; Left & Right</h3>
-      <code>rewind:80</code>
-      <button type="button" class="toggle">Run effect</button>
+      <code>x:1</code><code>y:8</code><code>reverse:true</code><code>fade:false</code>
+      <button type="button" class="run action">Start</button>
+      <button type="button" class="stop action">Stop</button>
     </div>
-    <div class="container">
-      <img id="leftright" class="notoggle" src="img/dust.jpg"/>
+    <div class="container slider leftright">
+      <img src="img/club.jpg"/>
+      <img src="img/bike.jpg"/>
+      <img src="img/dust.jpg"/>
+      <img src="img/city.jpg"/>
+      <img src="img/tiger.jpg"/>
+      <img src="img/bridge.jpg"/>
+      <img src="img/girl.jpg"/>
+      <img src="img/drop.jpg"/>
     </div>
     </article>
+
+    <script> 
+      $('.slider.leftright').tilesSlider({ 
+        x:1, y:8,
+        effect: 'leftright',
+        fade: false,
+        reverse: true,
+      });
+    </script>
+
+    <article>
+    <div class="title">
+      <h3>&raquo; Up & Down</h3>
+      <code>x:12</code><code>y:1</code><code>rewind:70</code>
+      <button type="button" class="run action">Start</button>
+      <button type="button" class="stop action">Stop</button>
+    </div>
+    <div class="container slider updown">
+      <img src="img/drop.jpg"/>
+      <img src="img/bike.jpg"/>
+      <img src="img/dust.jpg"/>
+      <img src="img/city.jpg"/>
+      <img src="img/tiger.jpg"/>
+      <img src="img/club.jpg"/>
+      <img src="img/bridge.jpg"/>
+      <img src="img/girl.jpg"/>
+    </div>
+    </article>
+
+    <script> 
+      $('.slider.updown').tilesSlider({ 
+        x:12, y:1,
+        effect: 'updown',
+        rewind: 70
+      });
+    </script>
 
     <article>
     <div class="title">
       <h3>&raquo; Flip LR</h3>
-      <button type="button" class="toggle">Run effect</button>
+      <code>x:12</code><code>y:1</code><code>reverse:true</code><code>fade:false</code>
+      <button type="button" class="run action">Start</button>
+      <button type="button" class="stop action">Stop</button>
     </div>
-    <div class="container">
-      <img id="fliplr" src="img/girl.jpg"/>
+    <div class="container slider fliplr">
+      <img src="img/city.jpg"/>
+      <img src="img/girl.jpg"/>
+      <img src="img/club.jpg"/>
+      <img src="img/bike.jpg"/>
+      <img src="img/dust.jpg"/>
+      <img src="img/tiger.jpg"/>
+      <img src="img/bridge.jpg"/>
+      <img src="img/drop.jpg"/>
     </div>
     </article>
+
+    <script> 
+      $('.slider.fliplr').tilesSlider({ 
+        x:12, y:1,
+        effect: 'fliplr',
+        fade: false,
+        reverse: true,
+      });
+    </script>
 
     <article>
     <div class="title">
       <h3>&raquo; Flip UD</h3>
-      <code>rewind:50</code>
-      <button type="button" class="toggle">Run effect</button>
+      <code>x:1</code><code>y:8</code><code>rewind:75</code>
+      <button type="button" class="run action">Start</button>
+      <button type="button" class="stop action">Stop</button>
     </div>
-    <div class="container">
-      <img id="flipud" class="notoggle" src="img/bridge.jpg"/>
+    <div class="container slider flipud">
+      <img src="img/girl.jpg"/>
+      <img src="img/club.jpg"/>
+      <img src="img/bike.jpg"/>
+      <img src="img/dust.jpg"/>
+      <img src="img/city.jpg"/>
+      <img src="img/tiger.jpg"/>
+      <img src="img/bridge.jpg"/>
+      <img src="img/drop.jpg"/>
     </div>
     </article>
 
-    <a href="https://github.com/elclanrs/jq-tiles">&laquo; Back to Github</a>
+    <script> 
+      $('.slider.flipud').tilesSlider({ 
+        x:1, y:8,
+        effect: 'flipud',
+        rewind: 75
+      });
+    </script>
 
     <script>
-
-      var $img = $('img');
-
-      $('#default').tiles({ x: 6, y: 4, rand: true });
-      $('#simple').tiles({ x: 6, y: 4, rand: true, effect: 'simple' });
-      $('#updown').tiles({ x: 10, y: 1, effect: 'updown', rewind: 50 });
-      $('#leftright').tiles({ x: 1, y: 8, effect: 'leftright', rewind: 80 });
-      $('#switchlr').tiles({ x: 8, y: 1, effect: 'switchlr', limit: 50, reverse: true });
-      $('#switchud').tiles({ x: 1, y: 8, effect: 'switchud' });
-      $('#fliplr').tiles({ x: 10, y: 1, effect: 'fliplr' });
-      $('#flipud').tiles({ x: 1, y: 8, effect: 'flipud', rewind: 50 });
-
-      $('button').click(function(){
-        var $nextImg = $(this).parent().next().find('img');
-        $nextImg.trigger('toggleTiles');
-        setTimeout(function(){ 
-          $nextImg.filter(':not(.notoggle)').trigger('toggleTiles'); 
-        }, 800);
+      var timer;
+      $('button.run').click(function(){
+        var $this = $(this);
+        var $next = $this.parent().next();
+        $this.text('Next').parents('article').addClass('active');
+        $('.slider').trigger('stop');
+        $('button.stop').not($this.next('.stop')).fadeOut(500);
+        $('button.run').not($this).fadeOut(500).text('Start')
+          .parents('article').removeClass('active');
+        if (!timer) {
+          timer = setTimeout(function(){
+            $next.trigger('start', function(){ console.log('hey'); });
+          }, 500);
+        } else {
+          $next.trigger('start');
+        }
       });
-
+      $('button.stop').click(function(){
+        timer = false;
+        $('button.run, button.stop').fadeIn(500);
+        $('button.run').text('Start').parents('article').removeClass('active');
+        $(this).parent().next().trigger('stop');
+      });
     </script>
 
   </body>
