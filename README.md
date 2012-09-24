@@ -9,14 +9,20 @@ Split images in tiles with css3 transitions.
 \*\* _IE8 requires polyfills for `Array.prototype.map` and `Array.prototype.forEach`. You may use [ES5 Shim](https://github.com/kriskowal/es5-shim/)._
 
 ### Options:
-* **x**: number of tiles in X axis.
-* **y**: number of tiles in Y axis.
-* **rand**: animate tiles in random order.
-* **speed**: speed of effect in ms.
-* **effect**: `default`, `simple`, `switchlr`, `switchud`, `updown`, `leftright`, `fliplr`, `flipud`.
-* **reverse:** begin effect from opposite side.
-* **limit:** limit animation to a certain percentage of the image.
-* **rewind:** toggle animation back at a certain point in time (percentage).
+```
+x: 4, y: 4,
+slider: false,
+effect: 'default',
+fade: true,
+random: false,
+reverse: false,
+limit: false,
+rewind: false,
+loop: true,
+effectSpeed: 1200,
+sliderSpeed: 3000,
+cssSpeed: 300
+```
 
 ### Effects:
 * **default**
@@ -29,16 +35,24 @@ Split images in tiles with css3 transitions.
 * **flipud**
 
 ### Usage:
-Use `.trigger('toggleTiles', callback)` to toggle the effect on and off.
 
-### Example:
+**HTML**
+```html
+<div class="slider">
+  <img src="img1.jpg"/>
+  <img src="img2.jpg"/>
+  <img src="img3.jpg"/>
+</div>
+```
+
+**CSS**
+```css
+.slider { width: 600px; height: 400px; }
+```
+
+**jQuery**
 ```javascript
-var $img = $('img').tiles({ rand: true });
-$('button').click(function(){ 
-  $img.trigger('toggleTiles', function($tiles, $image){
-    // Finished
-  });
-};
+$('.slider').tilesSlider({ random: true });
 ```
 
 

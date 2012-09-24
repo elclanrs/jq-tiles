@@ -40,8 +40,10 @@
   left: 0;
   right: 0;
   bottom: 0;
+  opacity: 1;
   .transition(all .3s ease-in-out);
 }
+.tiles-slider-wrap .tiles-wrap { position: absolute; }
 
 /*-----------------------------------------------
  * Effects:
@@ -126,3 +128,14 @@
 /* Flip */
 .tiles-fliplr-toggle { .rotateY(180deg); }
 .tiles-flipud-toggle { .rotateX(180deg); }
+
+/* Slider fixes */
+.tiles-switchlr-toggle.tiles-slider,
+.tiles-switchud-toggle.tiles-slider,
+.tiles-fliplr-toggle.tiles-slider,
+.tiles-y1.tiles-updown-toggle.tiles-slider,
+.tiles-x1.tiles-leftright-toggle.tiles-slider,
+.tiles-flipud-toggle.tiles-slider { 
+  opacity: 0;
+  visibility: hidden;
+}

@@ -1,3 +1,4 @@
+/*jshint expr:true */
 ;(function(){
 
 /**
@@ -17,40 +18,36 @@ function range(min, max, rand) {
     arr;
 }
 
-/** 
- * jQuery setTimeout sugar
- */
-function wait(time) {
-  return $.Deferred(function(dfd) {
-    setTimeout(dfd.resolve, time);
-  });
+/*--------------------------------------------------------------------
+
+  Options
+  
+---------------------------------------------------------------------*/
+
+var options = {
+  x: 4, y: 4,
+  slider: false,
+  effect: 'default',
+  fade: true,
+  random: false,
+  reverse: false,
+  limit: false,
+  rewind: false,
+  loop: true,
+  effectSpeed: 1200,
+  sliderSpeed: 3000,
+  cssSpeed: 300
 };
 
-/**
-* tiles jQuery plugin to split images into tiles with css3 transitions
-* @param ops {obj} Options:
-* - x: number of tiles in x axis
-* - y: number of tiles in y axis
-* - rand: animate in random order
-* - speed: duration of the effect in ms
-* - cssSpeed: speed of css transitions in ms
-* - effect: the animation effect (css class with transitions)
-* - reverse: begin effect from opposite side
-* - limit: limit animation to a certain percentage of the image. 
-* - rewind: toggle animation back at a certain point in time (percentage).
-**/
+/*--------------------------------------------------------------------
+
+  jquery.tiles
+  
+---------------------------------------------------------------------*/
+
 $.fn.tiles = function(ops) {
 
-  var o = $.extend({
-    x: 4, y: 4,
-    rand: false,
-    speed: 400,
-    cssSpeed: 300,
-    effect: 'default',
-    reverse: false,
-    limit: false,
-    rewind: false
-  }, ops);
+  var o = $.extend({}, options, ops);
 
   // Prevent css3 transitions on load
   $('body').addClass('tiles-preload');
@@ -68,16 +65,25 @@ $.fn.tiles = function(ops) {
       $.error('Selector can only contain images.');
     }
 
+    var $wrap = $('<div class="tiles-wrap"/>');
+
     // Generate tiles
     var tiles = [], $tiles;
     (new Array(n_tiles))
       .join('.').split('.')
       .forEach(function(v, i){
-        tiles.push('<div class="tiles-tile '+ klass +'-normal"/>');
+        tiles.push('<div class="tiles-tile '+ 
+          (o.slider && 'tiles-slider ') + klass +'-normal"/>');
       });
     $tiles = $(tiles.join(''));
     
-    var $wrap = $('<div class="tiles-wrap"/>');
+    $tiles.addClass('tiles-x'+ o.x +' tiles-y'+ o.y);
+    $tiles.filter(':odd').addClass('tiles-odd');
+    $tiles.filter(':even').addClass('tiles-even');
+    
+    // Insert in DOM
+    $wrap.insertAfter($img);
+    $wrap.append($img, $tiles);
 
     // Make sure image is loaded to get REAL width and height
     // Only load once if image is not cached
@@ -86,9 +92,7 @@ $.fn.tiles = function(ops) {
       var w = $img.width();
       var h = $img.height();
 
-      // Insert in DOM
-      $img.wrap($wrap.width(w).height(h));
-      $tiles.insertAfter($img);
+      $wrap.width(w).height(h);
 
       $tiles.css({
         width: w/o.x,
@@ -102,6 +106,7 @@ $.fn.tiles = function(ops) {
         $this.css('backgroundPosition', -pos.left +'px '+ -pos.top +'px');
       });
 
+
     });
 
     // Trigger load event if image is cached
@@ -110,8 +115,8 @@ $.fn.tiles = function(ops) {
     // Toggle effect
     $img.on('toggleTiles', function(e,cb) {
 
-      var delay = ~~(o.speed / n_tiles);
-      var ran = range(0, n_tiles, o.rand);
+      var delay = ~~(o.effectSpeed / n_tiles);
+      var ran = range(0, n_tiles, o.random);
 
       if (o.limit) {
         var lim = ran.length/(100/o.limit);
@@ -122,25 +127,96 @@ $.fn.tiles = function(ops) {
 
       (o.reverse ? ran.reverse() : ran).forEach(function(v,i){
         function anim() { $tiles.eq(v).toggleClass(klass +'-toggle'); }
-        wait(i*delay).then(anim);
+        setTimeout(anim, i*delay);
         if (o.rewind) { 
           var d = i*delay + (o.cssSpeed/(100/o.rewind));
-          wait(d).then(anim); 
+          setTimeout(anim, d); 
         }
       });
 
       // Callback
       cb = cb || $.noop;
-      wait(o.speed).then(cb($tiles, $img));
+      setTimeout(cb($tiles, $img), o.effectSpeed);
 
     });
-    
-    $tiles.addClass('tiles-x'+ o.x +' tiles-y'+ o.y);
-    $tiles.filter(':odd').addClass('tiles-odd');
-    $tiles.filter(':even').addClass('tiles-even');
 
     $img.hide();
 
   });
 };
+
+/*--------------------------------------------------------------------
+
+  jquery.tilesSlider
+  
+---------------------------------------------------------------------*/
+
+$.fn.tilesSlider = function(ops) {
+
+  var o = $.extend({}, options, ops);
+    
+  o.slider = true;
+  if (o.rewind) { o.fade = true; }
+
+  var $wrap = this;
+  $wrap.addClass('tiles-slider-wrap');
+
+  var $imgs = $wrap.find('img');
+  $imgs.tiles(o);
+
+  var $containers = $wrap.find('.tiles-wrap');
+  $containers.fadeTo(0,0).first().fadeTo(0,1);
+
+  // Slideshow:
+
+  function start() {
+
+    var $cont = $containers.filter(':first-child');
+    var $img = $cont.find('img');
+
+    o.fade ?
+      $cont.delay(o.effectSpeed/2).fadeTo(o.effectSpeed, 0).next().fadeTo(o.effectSpeed, 1) :
+      $cont.delay(o.effectSpeed + o.cssSpeed).fadeTo(0,0).next().fadeTo(0,1);
+
+    $img.trigger('toggleTiles', function(t){ 
+      t.parent().appendTo($wrap);
+      if (!o.rewind) {
+        var idx = $imgs.index($img);
+        setTimeout(function(){
+          $img.trigger('toggleTiles');
+        }, ++idx * o.effectSpeed + o.cssSpeed);
+      }
+    });
+  } 
+
+  // Methods:
+
+  var ival;
+  $wrap.on('start', function(e, cb){
+    
+    if (ival) { clearInterval(ival); }
+    ival = setInterval(start, o.sliderSpeed);
+    start();
+
+    var delay = o.sliderSpeed * ($imgs.length-1) + o.effectSpeed;
+
+    if (!o.loop) { 
+      setTimeout(function(){ $wrap.trigger('stop'); }, delay);
+    }
+
+    // Callback
+    cb = cb || $.noop;
+    setTimeout(cb, delay);
+  });
+
+  $wrap.on('stop', function(){ clearInterval(ival); });
+  
+  if (o.auto) {
+    setTimeout(function(){ $wrap.trigger('start'); }, o.sliderSpeed);
+  }
+
+  return $wrap;
+
+};
+
 }());
