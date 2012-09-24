@@ -252,6 +252,7 @@
         var $next = $this.parent().next();
         $this.text('Next').parents('article').addClass('active');
         $('.slider').trigger('stop');
+        $(this).next().fadeIn(250);
         $('button.stop').not($this.next('.stop')).fadeOut(500);
         $('button.run').not($this).fadeOut(500).text('Start')
           .parents('article').removeClass('active');
@@ -263,9 +264,10 @@
           $next.trigger('start');
         }
       });
-      $('button.stop').click(function(){
+      $('button.stop').hide().click(function(){
         timer = false;
-        $('button.run, button.stop').fadeIn(500);
+        $(this).fadeOut(250);
+        $('button.run').fadeIn(500);
         $('button.run').text('Start').parents('article').removeClass('active');
         $(this).parent().next().trigger('stop');
       });

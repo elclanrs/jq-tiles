@@ -106,7 +106,6 @@ $.fn.tiles = function(ops) {
         $this.css('backgroundPosition', -pos.left +'px '+ -pos.top +'px');
       });
 
-
     });
 
     // Trigger load event if image is cached
