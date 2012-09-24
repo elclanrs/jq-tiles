@@ -2,6 +2,8 @@
 
 Split images in tiles with css3 transitions.
 
+**Note:** jq-tiles is a work in progress so some features might be buggy.
+
 **Demo:** http://elclanrs.github.com/jq-tiles/  
 **Support:** Webkit, Firefox, Opera, IE10, IE9-8*  
 **License:** [MIT](http://en.wikipedia.org/wiki/MIT_License)  
