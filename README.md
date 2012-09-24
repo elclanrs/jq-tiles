@@ -12,17 +12,14 @@ Split images in tiles with css3 transitions.
 ```javascript
 {
 x: 4, y: 4, // limit 20
-slider: false,
 effect: 'default',
-fade: true,
-random: false,
-reverse: false,
-limit: false,
+fade: true, // fade images in addition to the tiles effect
+random: false, // animate tiles in random order
+reverse: false, // start animation from opposite direction
 rewind: false, // reverse animation at a certain percentage in time
 loop: true,
 effectSpeed: 1200,
 sliderSpeed: 3000,
-cssSpeed: 300
 }
 ```
 
