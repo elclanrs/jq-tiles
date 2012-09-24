@@ -35,7 +35,7 @@ sliderSpeed: 3000,
 
 ### Methods:
 
-#### Start  
+#### start  
 Start the slideshow / go to the next slide.
 ```javascript
 $('.slider').trigger('start', function(){
@@ -43,7 +43,7 @@ $('.slider').trigger('start', function(){
 });
 ```
 
-#### Stop
+#### stop
 ```javascript
 $('.slider').trigger('stop')
 });
