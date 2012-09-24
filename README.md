@@ -18,6 +18,7 @@ random: false, // animate tiles in random order
 reverse: false, // start animation from opposite direction
 rewind: false, // reverse animation at a certain percentage in time
 loop: true,
+auto: true,
 effectSpeed: 1200,
 sliderSpeed: 3000,
 }

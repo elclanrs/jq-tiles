@@ -34,6 +34,7 @@ var options = {
   limit: false,
   rewind: false,
   loop: true,
+  auto: true,
   effectSpeed: 1200,
   sliderSpeed: 3000,
   cssSpeed: 300
