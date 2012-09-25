@@ -177,7 +177,7 @@
     <article>
     <div class="title">
       <h3>&raquo; Left & Right</h3>
-      <code>x:1</code><code>y:10</code><code>reverse:true</code><code>fade:false</code>
+      <code>x:1</code><code>y:10</code><code>cssSpeed:600</code><code>fade:false</code>
       <button type="button" class="run action">Start</button>
       <button type="button" class="stop action">Stop</button>
     </div>
@@ -201,16 +201,16 @@
       $('.slider.leftright').tilesSlider({
         x:1, y:10,
         effectSpeed: 1000,
+        cssSpeed: 600,
         effect: 'leftright',
-        fade: false,
-        reverse: true
+        fade: false
       });
     </script>
 
     <article>
     <div class="title">
       <h3>&raquo; Up & Down</h3>
-      <code>x:12</code><code>y:1</code><code>fade:false</code>
+      <code>x:12</code><code>y:1</code><code>fade:false</code><code>cssSpeed:600</code>
       <button type="button" class="run action">Start</button>
       <button type="button" class="stop action">Stop</button>
     </div>
@@ -233,7 +233,7 @@
     <script>
       $('.slider.updown').tilesSlider({
         x:12, y:1,
-        effectSpeed: 1000,
+        cssSpeed: 600,
         effect: 'updown',
         fade: false
       });
