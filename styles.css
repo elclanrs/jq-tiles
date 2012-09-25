@@ -118,6 +118,7 @@ button.action:active {
   border: 1px solid #174E9C;
   text-shadow: 1px 1px rgba(0,0,0,.5);
 }
+.active button.action.stop { display: none; }
 .slider {
   width: 600px;
   height: 400px;
