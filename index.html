@@ -142,7 +142,7 @@
     <article>
     <div class="title">
       <h3>&raquo; Up</h3>
-      <code>x:16</code><code>y:1</code><code>rewind:60</code>
+      <code>x:12</code><code>y:1</code><code>rewind:60</code>
       <button type="button" class="run action">Start</button>
       <button type="button" class="stop action">Stop</button>
     </div>
@@ -163,7 +163,7 @@
 
     <script>
       $('.slider.up').tilesSlider({
-        x:16, y:1,
+        x:12, y:1,
         effect: 'up',
         rewind: 60
       });
@@ -204,7 +204,7 @@
     <article>
     <div class="title">
       <h3>&raquo; Up & Down</h3>
-      <code>x:16</code><code>y:1</code><code>fade:false</code>
+      <code>x:12</code><code>y:1</code><code>fade:false</code>
       <button type="button" class="run action">Start</button>
       <button type="button" class="stop action">Stop</button>
     </div>
@@ -222,6 +222,15 @@
       <img src="img/girl.jpg"/>
     </div>
     </article>
+
+    <script>
+      $('.slider.updown').tilesSlider({
+        x:12, y:1,
+        effectSpeed: 1000,
+        effect: 'updown',
+        fade: false
+      });
+    </script>
 
     <article>
     <div class="title">
@@ -283,15 +292,6 @@
         effectSpeed: 600,
         effect: 'switchud',
         reverse: true
-      });
-    </script>
-
-    <script>
-      $('.slider.updown').tilesSlider({
-        x:16, y:1,
-        effectSpeed: 1000,
-        effect: 'updown',
-        fade: false
       });
     </script>
 
