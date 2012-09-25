@@ -39,7 +39,6 @@ sliderSpeed: 3000,
 * **flipud:** `x=1`.
 
 ### Methods:
-
 #### start  
 Start the slideshow / go to the next slide.
 ```javascript
