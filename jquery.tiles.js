@@ -34,7 +34,7 @@ var options = {
   limit: false,
   rewind: false,
   loop: true,
-  effectSpeed: 1200,
+  effectSpeed: 1000,
   sliderSpeed: 3000,
   cssSpeed: 300
 };
@@ -160,7 +160,7 @@ $.fn.tilesSlider = function(ops) {
   if (o.rewind) { o.fade = true; }
 
   var $wrap = this;
-  $wrap.addClass('tiles-slider-wrap');
+  $wrap.addClass('tiles-slider-wrap tiles-slider-'+ o.effect);
 
   var $imgs = $wrap.find('img');
   $imgs.tiles(o);
