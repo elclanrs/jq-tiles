@@ -21,8 +21,10 @@ reverse: false, // start animation from opposite direction
 rewind: false, // reverse animation at a certain percentage in time
 loop: true,
 auto: true,
-effectSpeed: 1200,
-sliderSpeed: 3000,
+effectSpeed: 1200, // overall effect transition
+sliderSpeed: 3000, // time between slides
+tileSpeed: false // time to clear all tiles, default is effectSpeed
+cssSpeed: 300 // css3 transition speed [100,200,300,400,500,600,700,800,900,1000]
 }
 ```
 

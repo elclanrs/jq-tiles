@@ -35,6 +35,7 @@ var options = {
   rewind: false,
   loop: true,
   effectSpeed: 1000,
+  tileSpeed: false, //= effectSpeed
   sliderSpeed: 3000,
   cssSpeed: 300
 };
@@ -48,6 +49,8 @@ var options = {
 $.fn.tiles = function(ops) {
 
   var o = $.extend({}, options, ops);
+
+  o.tileSpeed = o.tileSpeed || o.effectSpeed;
 
   // Prevent css3 transitions on load
   $('body').addClass('tiles-preload');
@@ -116,7 +119,7 @@ $.fn.tiles = function(ops) {
     // Toggle effect
     $img.on('toggleTiles', function(e,cb) {
 
-      var delay = ~~(o.effectSpeed / n_tiles);
+      var delay = ~~(o.tileSpeed / n_tiles);
       var ran = range(0, n_tiles, o.random);
 
       if (o.limit) {
@@ -137,7 +140,7 @@ $.fn.tiles = function(ops) {
 
       // Callback
       cb = cb || $.noop;
-      setTimeout(cb($tiles, $img), o.effectSpeed);
+      setTimeout(cb($tiles, $img), o.tileSpeed);
 
     });
 
@@ -160,7 +163,8 @@ $.fn.tilesSlider = function(ops) {
   if (o.rewind) { o.fade = true; }
 
   var $wrap = this;
-  $wrap.addClass('tiles-slider-wrap tiles-slider-'+ o.effect);
+  $wrap.addClass('tiles-slider-wrap tiles-slider-'+ o.effect +
+    ' tiles-slider-s'+ o.cssSpeed);
 
   var $imgs = $wrap.find('img');
   $imgs.tiles(o);

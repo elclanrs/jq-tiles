@@ -16,6 +16,13 @@
   -o-transform: @props;
   transform: @props;
 }
+.origin (@or) {
+  -webkit-transform-origin: @or;
+  -moz-transform-origin: @or;
+  -ms-transform-origin: @or;
+  -o-transform-origin: @or;
+  transform-origin: @or;
+}
 
 /*-----------------------------------------------
  * Global:
@@ -39,6 +46,18 @@
   .transition(all .3s ease-in-out);
 }
 .tiles-slider-wrap .tiles-wrap { position: absolute; }
+
+/* cssSpeed */
+.tiles-slider-s100 .tiles-tile { .transition(all .1s ease-in-out); }
+.tiles-slider-s200 .tiles-tile { .transition(all .2s ease-in-out); }
+.tiles-slider-s300 .tiles-tile { .transition(all .3s ease-in-out); }
+.tiles-slider-s400 .tiles-tile { .transition(all .4s ease-in-out); }
+.tiles-slider-s500 .tiles-tile { .transition(all .5s ease-in-out); }
+.tiles-slider-s600 .tiles-tile { .transition(all .6s ease-in-out); }
+.tiles-slider-s700 .tiles-tile { .transition(all .7s ease-in-out); }
+.tiles-slider-s800 .tiles-tile { .transition(all .8s ease-in-out); }
+.tiles-slider-s900 .tiles-tile { .transition(all .9s ease-in-out); }
+.tiles-slider-s1000 .tiles-tile { .transition(all 1s ease-in-out); }
 
 /*-----------------------------------------------
  * Effects:
@@ -121,6 +140,10 @@
 /* Reduce */
 .tiles-reduce-toggle { .transform(~"scale(.5)"); }
 
+/* 360 */
+.tiles-360-toggle { .transform(~"scale(.5)"); }
+.tiles-360-toggle { .transform(~"rotateZ(360deg) scale(0)"); }
+
 /* Left & Right */
 .tiles-leftright-toggle.tiles-even { .transform(~"translate(50%, 0)"); }
 .tiles-leftright-toggle.tiles-odd { .transform(~"translate(-50%, 0)"); }
@@ -145,6 +168,7 @@
   }
 }
 .tiles-slider-leftright .tiles-wrap,
-.tiles-slider-updown .tiles-wrap {
-  overflow: hidden !important; 
+.tiles-slider-updown .tiles-wrap,
+.tiles-slider-360 .tiles-wrap {
+  overflow: hidden; 
 }
