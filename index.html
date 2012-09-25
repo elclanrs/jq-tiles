@@ -42,6 +42,7 @@
       <img src="img/bike.jpg"/>
       <img src="img/dust.jpg"/>
       <img src="img/drop.jpg"/>
+      <img src="img/fruit.jpg"/>
       <img src="img/girl.jpg"/>
     </div>
     </article>
@@ -62,6 +63,7 @@
       <img src="img/mountain.jpg"/>
       <img src="img/boat.jpg"/>
       <img src="img/club.jpg"/>
+      <img src="img/fruit.jpg"/>
       <img src="img/city.jpg"/>
       <img src="img/dust.jpg"/>
       <img src="img/bike.jpg"/>
@@ -93,6 +95,7 @@
       <img src="img/club.jpg"/>
       <img src="img/city.jpg"/>
       <img src="img/dust.jpg"/>
+      <img src="img/fruit.jpg"/>
       <img src="img/bike.jpg"/>
       <img src="img/mountain.jpg"/>
       <img src="img/boat.jpg"/>
@@ -121,6 +124,7 @@
       <img src="img/tiger.jpg"/>
       <img src="img/bridge.jpg"/>
       <img src="img/club.jpg"/>
+      <img src="img/fruit.jpg"/>
       <img src="img/city.jpg"/>
       <img src="img/snake.jpg"/>
       <img src="img/mountain.jpg"/>
@@ -153,6 +157,7 @@
       <img src="img/tiger.jpg"/>
       <img src="img/city.jpg"/>
       <img src="img/snake.jpg"/>
+      <img src="img/fruit.jpg"/>
       <img src="img/boat.jpg"/>
       <img src="img/dust.jpg"/>
       <img src="img/bike.jpg"/>
@@ -178,6 +183,7 @@
     </div>
     <div class="container slider leftright">
       <img src="img/club.jpg"/>
+      <img src="img/fruit.jpg"/>
       <img src="img/bike.jpg"/>
       <img src="img/dust.jpg"/>
       <img src="img/city.jpg"/>
@@ -211,6 +217,7 @@
     <div class="container slider updown">
       <img src="img/drop.jpg"/>
       <img src="img/bike.jpg"/>
+      <img src="img/fruit.jpg"/>
       <img src="img/snake.jpg"/>
       <img src="img/mountain.jpg"/>
       <img src="img/boat.jpg"/>
@@ -247,6 +254,7 @@
       <img src="img/bridge.jpg"/>
       <img src="img/bike.jpg"/>
       <img src="img/snake.jpg"/>
+      <img src="img/fruit.jpg"/>
       <img src="img/mountain.jpg"/>
       <img src="img/boat.jpg"/>
       <img src="img/girl.jpg"/>
@@ -274,6 +282,7 @@
     <div class="container slider switchud">
       <img src="img/bike.jpg"/>
       <img src="img/dust.jpg"/>
+      <img src="img/fruit.jpg"/>
       <img src="img/city.jpg"/>
       <img src="img/tiger.jpg"/>
       <img src="img/club.jpg"/>
@@ -308,6 +317,7 @@
       <img src="img/club.jpg"/>
       <img src="img/bike.jpg"/>
       <img src="img/dust.jpg"/>
+      <img src="img/fruit.jpg"/>
       <img src="img/tiger.jpg"/>
       <img src="img/bridge.jpg"/>
       <img src="img/drop.jpg"/>
@@ -343,13 +353,12 @@
       <img src="img/bridge.jpg"/>
       <img src="img/drop.jpg"/>
       <img src="img/snake.jpg"/>
+      <img src="img/fruit.jpg"/>
       <img src="img/mountain.jpg"/>
       <img src="img/boat.jpg"/>
     </div>
     </article>
-
-    <a href="https://github.com/elclanrs/jq-tiles">&laquo; Back to Github</a>
-
+ 
     <script>
       $('.slider.flipud').tilesSlider({
         x:12, y:4,
@@ -357,6 +366,41 @@
         rewind: 75
       });
     </script>
+
+    <article>
+    <div class="title">
+      <h3>&raquo;360&deg;</h3>
+      <code>x:1</code><code>y:1</code><code>cssSpeed:800</code>
+      <button type="button" class="run action">Start</button>
+      <button type="button" class="stop action">Stop</button>
+    </div>
+    <div class="container slider r360">
+      <img src="img/fruit.jpg"/>
+      <img src="img/girl.jpg"/>
+      <img src="img/club.jpg"/>
+      <img src="img/bike.jpg"/>
+      <img src="img/dust.jpg"/>
+      <img src="img/city.jpg"/>
+      <img src="img/tiger.jpg"/>
+      <img src="img/bridge.jpg"/>
+      <img src="img/drop.jpg"/>
+      <img src="img/snake.jpg"/>
+      <img src="img/mountain.jpg"/>
+      <img src="img/boat.jpg"/>
+    </div>
+    </article>
+ 
+    <script>
+      $('.slider.r360').tilesSlider({
+        x:1, y:1,
+        effect: '360',
+        cssSpeed: 800
+      });
+    </script>
+
+    <a href="https://github.com/elclanrs/jq-tiles">&laquo; Back to Github</a>
+
+
 
     <script>
       var timer;
