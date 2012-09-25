@@ -13,7 +13,7 @@ Split images in tiles with css3 transitions.
 ### Options:
 ```javascript
 {
-x: 4, y: 4, // limit 20
+x: 4, y: 4, // limit 20 each
 effect: 'default',
 fade: true, // fade images in addition to the tiles effect
 random: false, // animate tiles in random order
