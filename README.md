@@ -26,16 +26,6 @@ sliderSpeed: 3000,
 }
 ```
 
-### Effects:
-* **default**
-* **simple**
-* **switchlr:** `y=1` and `x` must be even.
-* **switchud:** `x=1` and `y` must be even.
-* **updown:** `y=1`.
-* **leftright:** `x=1`.
-* **fliplr:** `y=1`.
-* **flipud:** `x=1`.
-
 ### Methods:
 
 #### start  
