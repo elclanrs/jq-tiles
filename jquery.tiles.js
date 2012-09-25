@@ -34,8 +34,7 @@ var options = {
   limit: false,
   rewind: false,
   loop: true,
-  auto: true,
-  effectSpeed: 1200,
+  effectSpeed: 1000,
   sliderSpeed: 3000,
   cssSpeed: 300
 };
@@ -112,6 +111,8 @@ $.fn.tiles = function(ops) {
     // Trigger load event if image is cached
     if ($img[0].complete) { $img.trigger('load'); }
 
+    var timers = [];
+
     // Toggle effect
     $img.on('toggleTiles', function(e,cb) {
 
@@ -130,7 +131,7 @@ $.fn.tiles = function(ops) {
         setTimeout(anim, i*delay);
         if (o.rewind) { 
           var d = i*delay + (o.cssSpeed/(100/o.rewind));
-          setTimeout(anim, d); 
+          setTimeout(anim, d);
         }
       });
 
@@ -159,7 +160,7 @@ $.fn.tilesSlider = function(ops) {
   if (o.rewind) { o.fade = true; }
 
   var $wrap = this;
-  $wrap.addClass('tiles-slider-wrap');
+  $wrap.addClass('tiles-slider-wrap tiles-slider-'+ o.effect);
 
   var $imgs = $wrap.find('img');
   $imgs.tiles(o);
@@ -193,7 +194,7 @@ $.fn.tilesSlider = function(ops) {
 
   var ival;
   $wrap.on('start', function(e, cb){
-    
+
     if (ival) { clearInterval(ival); }
     ival = setInterval(start, o.sliderSpeed);
     start();
