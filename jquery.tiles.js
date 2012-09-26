@@ -21,7 +21,7 @@ function range(min, max, rand) {
 /*--------------------------------------------------------------------
 
   Options
-  
+
 ---------------------------------------------------------------------*/
 
 var options = {
@@ -43,7 +43,7 @@ var options = {
 /*--------------------------------------------------------------------
 
   jquery.tiles
-  
+
 ---------------------------------------------------------------------*/
 
 $.fn.tiles = function(ops) {
@@ -54,7 +54,7 @@ $.fn.tiles = function(ops) {
 
   // Prevent css3 transitions on load
   $('body').addClass('tiles-preload');
-  $(window).load(function(){ 
+  $(window).load(function(){
     $('body').removeClass('tiles-preload');
   });
 
@@ -75,15 +75,15 @@ $.fn.tiles = function(ops) {
     (new Array(n_tiles))
       .join('.').split('.')
       .forEach(function(v, i){
-        tiles.push('<div class="tiles-tile '+ 
+        tiles.push('<div class="tiles-tile '+
           (o.slider && 'tiles-slider ') + klass +'-normal"/>');
       });
     $tiles = $(tiles.join(''));
-    
+
     $tiles.addClass('tiles-x'+ o.x +' tiles-y'+ o.y);
     $tiles.filter(':odd').addClass('tiles-odd');
     $tiles.filter(':even').addClass('tiles-even');
-    
+
     // Insert in DOM
     $wrap.insertAfter($img);
     $wrap.append($img, $tiles);
@@ -114,8 +114,6 @@ $.fn.tiles = function(ops) {
     // Trigger load event if image is cached
     if ($img[0].complete) { $img.trigger('load'); }
 
-    var timers = [];
-
     // Toggle effect
     $img.on('toggleTiles', function(e,cb) {
 
@@ -132,7 +130,7 @@ $.fn.tiles = function(ops) {
       (o.reverse ? ran.reverse() : ran).forEach(function(v,i){
         function anim() { $tiles.eq(v).toggleClass(klass +'-toggle'); }
         setTimeout(anim, i*delay);
-        if (o.rewind) { 
+        if (o.rewind) {
           var d = i*delay + (o.cssSpeed/(100/o.rewind));
           setTimeout(anim, d);
         }
@@ -152,13 +150,13 @@ $.fn.tiles = function(ops) {
 /*--------------------------------------------------------------------
 
   jquery.tilesSlider
-  
+
 ---------------------------------------------------------------------*/
 
 $.fn.tilesSlider = function(ops) {
 
   var o = $.extend({}, options, ops);
-    
+
   o.slider = true;
   if (o.rewind) { o.fade = true; }
 
@@ -183,7 +181,7 @@ $.fn.tilesSlider = function(ops) {
       $cont.delay(o.effectSpeed/2).fadeTo(o.effectSpeed, 0).next().fadeTo(o.effectSpeed, 1) :
       $cont.delay(o.effectSpeed + o.cssSpeed).fadeTo(0,0).next().fadeTo(0,1);
 
-    $img.trigger('toggleTiles', function(t){ 
+    $img.trigger('toggleTiles', function(t){
       t.parent().appendTo($wrap);
       if (!o.rewind) {
         var idx = $imgs.index($img);
@@ -192,7 +190,7 @@ $.fn.tilesSlider = function(ops) {
         }, ++idx * o.effectSpeed + o.cssSpeed);
       }
     });
-  } 
+  }
 
   // Methods:
 
@@ -205,7 +203,7 @@ $.fn.tilesSlider = function(ops) {
 
     var delay = o.sliderSpeed * ($imgs.length-1) + o.effectSpeed;
 
-    if (!o.loop) { 
+    if (!o.loop) {
       setTimeout(function(){ $wrap.trigger('stop'); }, delay);
     }
 
@@ -215,7 +213,7 @@ $.fn.tilesSlider = function(ops) {
   });
 
   $wrap.on('stop', function(){ clearInterval(ival); });
-  
+
   if (o.auto) {
     setTimeout(function(){ $wrap.trigger('start'); }, o.sliderSpeed);
   }
