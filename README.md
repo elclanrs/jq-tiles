@@ -1,13 +1,11 @@
 #jq-tiles
 
-Split images in tiles with css3 transitions.
+Slideshow with images split in tiles and css3 transitions.
 
-**Note:** jq-tiles is a work in progress so some features might be buggy.
-
-**Demo:** http://elclanrs.github.com/jq-tiles/  
-**Support:** Webkit, Firefox, Opera, IE10, IE9-8*  
-**License:** [MIT](http://en.wikipedia.org/wiki/MIT_License)  
-\* _In browsers that don't support css3 transitions classes won't be animated but some effects will still work, just a bit choppy._  
+**Demo:** http://elclanrs.github.com/jq-tiles/
+**Support:** Webkit, Firefox, Opera, IE10, IE9-8*
+**License:** [MIT](http://en.wikipedia.org/wiki/MIT_License)
+\* _In browsers that don't support css3 transitions classes won't be animated but some effects will still work, just a bit choppy._
 \*\* _IE8 requires polyfills for `Array.prototype.map` and `Array.prototype.forEach`. You may use [ES5 Shim](https://github.com/kriskowal/es5-shim/)._
 
 ### Options:
@@ -30,7 +28,7 @@ cssSpeed: 300 // css3 transition speed [100,200,300,400,500,600,700,800,900,1000
 
 ### Methods:
 
-#### start  
+#### start
 Start the slideshow / go to the next slide.
 ```javascript
 $('.slider').trigger('start', function(){
