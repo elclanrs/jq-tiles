@@ -11,6 +11,9 @@
   -o-transition: none !important;
   transition: none !important;
 }
+.tiles-slider-wrap .tiles-wrap {
+  position: absolute;
+}
 .tiles-wrap,
 .tiles-tile {
   position: relative;
@@ -22,14 +25,12 @@
   right: 0;
   bottom: 0;
   opacity: 1;
+  z-index: 0;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-}
-.tiles-slider-wrap .tiles-wrap {
-  position: absolute;
 }
 /* cssSpeed */
 .tiles-slider-s100 .tiles-tile {
@@ -101,6 +102,13 @@
   -ms-transition: all 1s ease-in-out;
   -o-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out;
+}
+.tiles-tile.tiles-reset {
+  -webkit-transition: all 0s ease-in-out;
+  -moz-transition: all 0s ease-in-out;
+  -ms-transition: all 0s ease-in-out;
+  -o-transition: all 0s ease-in-out;
+  transition: all 0s ease-in-out;
 }
 /*-----------------------------------------------
  * Effects:
@@ -267,11 +275,11 @@
 }
 /* Reduce */
 .tiles-reduce-toggle {
-  -webkit-transform: scale(.5);
-  -moz-transform: scale(.5);
-  -ms-transform: scale(.5);
-  -o-transform: scale(.5);
-  transform: scale(.5);
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
 }
 /* 360 */
 .tiles-360-toggle {
@@ -312,15 +320,15 @@
   transform: translate(0, -50%);
 }
 /* Slider fixes */
-.tiles-slider.tiles-switchlr-toggle,
-.tiles-slider.tiles-switchud-toggle,
-.tiles-slider.tiles-fliplr-toggle,
-.tiles-slider.tiles-y1.tiles-up-toggle,
-.tiles-slider.tiles-x1.tiles-left-toggle,
-.tiles-slider.tiles-updown-toggle,
-.tiles-slider.tiles-leftright-toggle,
-.tiles-slider.tiles-flipud-toggle,
-.tiles-slider.tiles-reduce-toggle {
+.tiles-slider-wrap .tiles-switchlr-toggle,
+.tiles-slider-wrap .tiles-switchud-toggle,
+.tiles-slider-wrap .tiles-fliplr-toggle,
+.tiles-slider-wrap .tiles-y1.tiles-up-toggle,
+.tiles-slider-wrap .tiles-x1.tiles-left-toggle,
+.tiles-slider-wrap .tiles-updown-toggle,
+.tiles-slider-wrap .tiles-leftright-toggle,
+.tiles-slider-wrap .tiles-flipud-toggle,
+.tiles-slider-wrap .tiles-reduce-toggle {
   opacity: 0;
   visibility: hidden;
 }

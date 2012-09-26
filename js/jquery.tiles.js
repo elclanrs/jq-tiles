@@ -35,9 +35,8 @@ var options = {
   rewind: false,
   loop: true,
   auto: true,
-  effectSpeed: 1000,
-  tileSpeed: false, //= effectSpeed
   sliderSpeed: 3000,
+  tileSpeed: 1000,
   cssSpeed: 300
 };
 
@@ -50,8 +49,6 @@ var options = {
 $.fn.tiles = function(ops) {
 
   var o = $.extend({}, options, ops);
-
-  o.tileSpeed = o.tileSpeed || o.effectSpeed;
 
   // Prevent css3 transitions on load
   $('body').addClass('tiles-preload');
@@ -76,8 +73,7 @@ $.fn.tiles = function(ops) {
     (new Array(n_tiles))
       .join('.').split('.')
       .forEach(function(v, i){
-        tiles.push('<div class="tiles-tile '+
-          (o.slider && 'tiles-slider ') + klass +'-normal"/>');
+        tiles.push('<div class="tiles-tile '+ klass +'-normal"/>');
       });
     $tiles = $(tiles.join(''));
 
@@ -116,13 +112,16 @@ $.fn.tiles = function(ops) {
     if ($img[0].complete) { $img.trigger('load'); }
 
     // Toggle effect
-    $img.on('toggleTiles', function(e, reset, cb) {
+    $img.on('toggleTiles', function(e, toggleOps) {
 
-      reset = reset || false;
-      cb = cb || $.noop;
+      toggleOps = $.extend(true, {
+        toggle: true,
+        reset: false,
+        cb: $.noop
+      }, toggleOps);
 
-      var delay = ~~(o.tileSpeed / n_tiles);
       var ran = range(0, n_tiles, o.random);
+      var delay = ~~(o.tileSpeed / n_tiles);
 
       if (o.limit) {
         var lim = ran.length/(100/o.limit);
@@ -131,17 +130,28 @@ $.fn.tiles = function(ops) {
           ran.splice(lim, ran.length);
       }
 
-      (o.reverse ? ran.reverse() : ran).forEach(function(v,i){
-        function anim() { $tiles.eq(v).toggleClass(klass +'-toggle'); }
-        setTimeout(anim, reset || i*delay);
-        if (o.rewind) {
-          var d = i*delay + (o.cssSpeed/(100/o.rewind));
-          setTimeout(anim, d);
+      // Reset
+      $tiles.removeClass('tiles-reset');
+      if (toggleOps.reset) { $tiles.addClass('tiles-reset'); }
+
+      (o.reverse ? ran.reverse() : ran).forEach(function(v, i) {
+        function anim(toggle, delay) {
+          setTimeout(function(){
+            $tiles.addClass('tiles-animated');
+            $tiles.eq(v).toggleClass(klass +'-toggle', toggle);
+          }, delay);
         }
+        anim(toggleOps.toggle, toggleOps.reset ? 0 : i * delay);
+        if (o.rewind) { anim(false, i * delay + (o.cssSpeed/(100/o.rewind))); }
       });
 
-      // Callback
-      setTimeout(cb($tiles, $img), o.tileSpeed);
+      // Finished animating
+      var done = toggleOps.reset ? 0 : o.tileSpeed + o.cssSpeed;
+      setTimeout(function(){
+        $tiles.removeClass('tiles-animated');
+        // callback
+        toggleOps.cb($tiles, $img);
+      }, done);
 
     });
 
@@ -171,43 +181,45 @@ $.fn.tilesSlider = function(ops) {
   $imgs.tiles(o);
 
   var $containers = $wrap.find('.tiles-wrap');
-  $containers.fadeTo(0,0).first().fadeTo(0,1);
+  // Insert in reverse order so next image is always on top
+  $containers.each(function(){ $(this).prependTo($wrap); });
 
-  // Slideshow:
-
+  // Start slideshow / Next slide:
   function start() {
 
-    var $cont = $containers.filter(':first-child');
-    var $img = $cont.find('img');
+    var $cur = $containers.filter(':last-child');
+    var $next = $cur.prev(); // Next image is the previous one
+    var $img = $cur.find('img');
 
-    o.fade ?
-      $cont.delay(o.effectSpeed/2).fadeTo(o.effectSpeed, 0).next().fadeTo(o.effectSpeed, 1) :
-      $cont.delay(o.effectSpeed + o.cssSpeed).fadeTo(0,0).next().fadeTo(0,1);
+    if (o.fade) { $next.fadeTo(0,0).fadeTo(o.tilesSpeed, 1); }
+    if (o.rewind) { $cur.delay(o.tileSpeed/2).fadeTo(o.tileSpeed, 0); }
 
-    $img.trigger('toggleTiles', [0, function(tiles){
-      tiles.parent().appendTo($wrap);
-      if (!o.rewind) {
-        setTimeout(function(){
-          $img.trigger('toggleTiles', 1);
-        }, o.effectSpeed + o.cssSpeed);
-      }
-    }]);
+    $img.trigger('toggleTiles', { cb: function(){
+      $cur.prependTo($wrap);
+      $img.trigger('toggleTiles', { toggle: false, reset: true });
+    }});
   }
 
   // Methods:
-
   var ival;
-  $wrap.on('start', function(e, cb){
+  $wrap.on('start', function(e, cb) {
+
+    var $cur = $containers.filter(':last-child');
+    var $img = $cur.find('img');
+    var isAnimating = $containers.filter(':last-child').find('.tiles-animated').length;
+    var delay = o.sliderSpeed * ($imgs.length-2) + o.tileSpeed;
 
     if (ival) { clearInterval(ival); }
     ival = setInterval(start, o.sliderSpeed);
-    start();
 
-    var delay = o.sliderSpeed * ($imgs.length-1) + o.effectSpeed;
-
-    if (!o.loop) {
-      setTimeout(function(){ $wrap.trigger('stop'); }, delay);
+    if (!isAnimating) {
+      start();
+    } else {
+      $img.trigger('toggleTiles', { toggle: false, reset: true });
+      $cur.prependTo($wrap);
     }
+
+    if (!o.loop) { setTimeout(function(){ $wrap.trigger('stop'); }, delay); }
 
     // Callback
     cb = cb || $.noop;
