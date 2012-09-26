@@ -117,15 +117,15 @@
       });
 
       // Start
-      var timer;
+      var timer = false;
       $('section').on('click', '.start', function(){
         $('.stop').delay(150).fadeIn(250);
         $('.start').text('Next');
         $('article').addClass('active');
         if (!timer) {
+          timer = true;
           setTimeout(function(){
             $('.slider').trigger('start');
-            timer = true;
           }, 800);
         } else {
           $('.slider').trigger('start');
