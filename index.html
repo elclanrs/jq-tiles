@@ -9,11 +9,11 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-    <script src="jquery.tiles.js"></script>
+    <script src="js/jquery.tiles.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="jquery.tiles.css"/>
-    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="css/jquery.tiles.css"/>
+    <link rel="stylesheet" href="css/styles.css"/>
   </head>
   <body>
 
@@ -22,412 +22,69 @@
     <header>
     <h1>jq-tiles</h1>
     <a href="https://github.com/elclanrs/jq-tiles/zipball/master" id="down">Download</a>
+    <select id="effects">
+      <option>Default</option>
+      <option>Simple</option>
+    </select>
     </header>
 
-    <article>
-    <div class="title">
-      <h3>&raquo; Default</h3>
-        <code>x:6</code><code>y:4</code><code>random:true</code><code>cssSpeed:500</code>
-      <button type="button" class="run action">Start</button>
-      <button type="button" class="stop action">Stop</button>
-    </div>
-    <div class="container slider default">
-      <img src="img/bridge.jpg"/>
-      <img src="img/tiger.jpg"/>
-      <img src="img/city.jpg"/>
-      <img src="img/club.jpg"/>
-      <img src="img/snake.jpg"/>
-      <img src="img/mountain.jpg"/>
-      <img src="img/boat.jpg"/>
-      <img src="img/bike.jpg"/>
-      <img src="img/dust.jpg"/>
-      <img src="img/drop.jpg"/>
-      <img src="img/fruit.jpg"/>
-      <img src="img/girl.jpg"/>
-    </div>
-    </article>
-
-    <script> $('.slider.default').tilesSlider({ x:6, y:4, cssSpeed: 500, random: true }); </script>
-
-    <article>
-    <div class="title">
-      <h3>&raquo; Simple</h3>
-      <code>x:6</code><code>y:4</code><code>random:true</code><code>fade:false</code>
-      <button type="button" class="run action">Start</button>
-      <button type="button" class="stop action">Stop</button>
-    </div>
-    <div class="container slider simple">
-      <img src="img/tiger.jpg"/>
-      <img src="img/bridge.jpg"/>
-      <img src="img/snake.jpg"/>
-      <img src="img/mountain.jpg"/>
-      <img src="img/boat.jpg"/>
-      <img src="img/club.jpg"/>
-      <img src="img/fruit.jpg"/>
-      <img src="img/city.jpg"/>
-      <img src="img/dust.jpg"/>
-      <img src="img/bike.jpg"/>
-      <img src="img/girl.jpg"/>
-      <img src="img/drop.jpg"/>
-    </div>
-    </article>
-
-    <script>
-      $('.slider.simple').tilesSlider({
-        x:6, y:4,
-        effect: 'simple',
-        fade: false,
-        random: true
-      });
-    </script>
-
-    <article>
-    <div class="title">
-      <h3>&raquo; Reduce</h3>
-      <code>x:6</code><code>y:4</code><code>fade:false</code>
-      <button type="button" class="run action">Start</button>
-      <button type="button" class="stop action">Stop</button>
-    </div>
-    <div class="container slider reduce">
-      <img src="img/snake.jpg"/>
-      <img src="img/tiger.jpg"/>
-      <img src="img/bridge.jpg"/>
-      <img src="img/club.jpg"/>
-      <img src="img/city.jpg"/>
-      <img src="img/dust.jpg"/>
-      <img src="img/fruit.jpg"/>
-      <img src="img/bike.jpg"/>
-      <img src="img/mountain.jpg"/>
-      <img src="img/boat.jpg"/>
-      <img src="img/girl.jpg"/>
-      <img src="img/drop.jpg"/>
-    </div>
-    </article>
-
-    <script>
-      $('.slider.reduce').tilesSlider({
-        x:6, y:4,
-        effect: 'reduce',
-        fade: false
-      });
-    </script>
-
-    <article>
-    <div class="title">
-      <h3>&raquo; Left</h3>
-      <code>x:1</code><code>y:10</code><code>fade:false</code>
-      <button type="button" class="run action">Start</button>
-      <button type="button" class="stop action">Stop</button>
-    </div>
-    <div class="container slider left">
-      <img src="img/boat.jpg"/>
-      <img src="img/tiger.jpg"/>
-      <img src="img/bridge.jpg"/>
-      <img src="img/club.jpg"/>
-      <img src="img/fruit.jpg"/>
-      <img src="img/city.jpg"/>
-      <img src="img/snake.jpg"/>
-      <img src="img/mountain.jpg"/>
-      <img src="img/dust.jpg"/>
-      <img src="img/bike.jpg"/>
-      <img src="img/girl.jpg"/>
-      <img src="img/drop.jpg"/>
-    </div>
-    </article>
-
-    <script>
-      $('.slider.left').tilesSlider({
-        x:1, y:10,
-        effect: 'left',
-        fade: false
-      });
-    </script>
-
-    <article>
-    <div class="title">
-      <h3>&raquo; Up</h3>
-      <code>x:20</code><code>y:1</code><code>rewind:60</code><code>cssSpeed:400</code>
-      <button type="button" class="run action">Start</button>
-      <button type="button" class="stop action">Stop</button>
-    </div>
-    <div class="container slider up">
-      <img src="img/mountain.jpg"/>
-      <img src="img/bridge.jpg"/>
-      <img src="img/club.jpg"/>
-      <img src="img/tiger.jpg"/>
-      <img src="img/city.jpg"/>
-      <img src="img/snake.jpg"/>
-      <img src="img/fruit.jpg"/>
-      <img src="img/boat.jpg"/>
-      <img src="img/dust.jpg"/>
-      <img src="img/bike.jpg"/>
-      <img src="img/girl.jpg"/>
-      <img src="img/drop.jpg"/>
-    </div>
-    </article>
-
-    <script>
-      $('.slider.up').tilesSlider({
-        x:20, y:1,
-        effect: 'up',
-        cssSpeed: 400,
-        effectSpeed: 1000,
-        rewind: 60
-      });
-    </script>
-
-    <article>
-    <div class="title">
-      <h3>&raquo; Left & Right</h3>
-      <code>x:1</code><code>y:10</code><code>cssSpeed:600</code><code>fade:false</code>
-      <button type="button" class="run action">Start</button>
-      <button type="button" class="stop action">Stop</button>
-    </div>
-    <div class="container slider leftright">
-      <img src="img/club.jpg"/>
-      <img src="img/fruit.jpg"/>
-      <img src="img/bike.jpg"/>
-      <img src="img/dust.jpg"/>
-      <img src="img/city.jpg"/>
-      <img src="img/tiger.jpg"/>
-      <img src="img/bridge.jpg"/>
-      <img src="img/snake.jpg"/>
-      <img src="img/mountain.jpg"/>
-      <img src="img/boat.jpg"/>
-      <img src="img/girl.jpg"/>
-      <img src="img/drop.jpg"/>
-    </div>
-    </article>
-
-    <script>
-      $('.slider.leftright').tilesSlider({
-        x:1, y:10,
-        effectSpeed: 1000,
-        cssSpeed: 600,
-        effect: 'leftright',
-        fade: false
-      });
-    </script>
-
-    <article>
-    <div class="title">
-      <h3>&raquo; Up & Down</h3>
-      <code>x:12</code><code>y:1</code><code>fade:false</code><code>cssSpeed:600</code>
-      <button type="button" class="run action">Start</button>
-      <button type="button" class="stop action">Stop</button>
-    </div>
-    <div class="container slider updown">
-      <img src="img/drop.jpg"/>
-      <img src="img/bike.jpg"/>
-      <img src="img/fruit.jpg"/>
-      <img src="img/snake.jpg"/>
-      <img src="img/mountain.jpg"/>
-      <img src="img/boat.jpg"/>
-      <img src="img/dust.jpg"/>
-      <img src="img/city.jpg"/>
-      <img src="img/tiger.jpg"/>
-      <img src="img/club.jpg"/>
-      <img src="img/bridge.jpg"/>
-      <img src="img/girl.jpg"/>
-    </div>
-    </article>
-
-    <script>
-      $('.slider.updown').tilesSlider({
-        x:12, y:1,
-        cssSpeed: 600,
-        effect: 'updown',
-        fade: false
-      });
-    </script>
-
-    <article>
-    <div class="title">
-      <h3>&raquo; Switch LR</h3>
-      <code>x:10</code><code>y:1</code><code>reverse:true</code><code>fade:false</code>
-      <button type="button" class="run action">Start</button>
-      <button type="button" class="stop action">Stop</button>
-    </div>
-    <div class="container slider switchlr">
-      <img src="img/dust.jpg"/>
-      <img src="img/city.jpg"/>
-      <img src="img/tiger.jpg"/>
-      <img src="img/club.jpg"/>
-      <img src="img/bridge.jpg"/>
-      <img src="img/bike.jpg"/>
-      <img src="img/snake.jpg"/>
-      <img src="img/fruit.jpg"/>
-      <img src="img/mountain.jpg"/>
-      <img src="img/boat.jpg"/>
-      <img src="img/girl.jpg"/>
-      <img src="img/drop.jpg"/>
-    </div>
-    </article>
-
-    <script>
-      $('.slider.switchlr').tilesSlider({
-        x:10, y:1,
-        effectSpeed: 600,
-        effect: 'switchlr',
-        reverse: true,
-        fade: false
-      });
-    </script>
-
-    <article>
-    <div class="title">
-      <h3>&raquo; Switch UD</h3>
-      <code>x:1</code><code>y:8</code><code>reverse:true</code>
-      <button type="button" class="run action">Start</button>
-      <button type="button" class="stop action">Stop</button>
-    </div>
-    <div class="container slider switchud">
-      <img src="img/bike.jpg"/>
-      <img src="img/dust.jpg"/>
-      <img src="img/fruit.jpg"/>
-      <img src="img/city.jpg"/>
-      <img src="img/tiger.jpg"/>
-      <img src="img/club.jpg"/>
-      <img src="img/bridge.jpg"/>
-      <img src="img/girl.jpg"/>
-      <img src="img/drop.jpg"/>
-      <img src="img/snake.jpg"/>
-      <img src="img/mountain.jpg"/>
-      <img src="img/boat.jpg"/>
-    </div>
-    </article>
-
-    <script>
-      $('.slider.switchud').tilesSlider({
-        x:1, y:8,
-        effectSpeed: 600,
-        effect: 'switchud',
-        reverse: true
-      });
-    </script>
-
-    <article>
-    <div class="title">
-      <h3>&raquo; Flip LR</h3>
-      <code>x:12</code><code>y:1</code><code>reverse:true</code><code>fade:false</code>
-      <button type="button" class="run action">Start</button>
-      <button type="button" class="stop action">Stop</button>
-    </div>
-    <div class="container slider fliplr">
-      <img src="img/city.jpg"/>
-      <img src="img/girl.jpg"/>
-      <img src="img/club.jpg"/>
-      <img src="img/bike.jpg"/>
-      <img src="img/dust.jpg"/>
-      <img src="img/fruit.jpg"/>
-      <img src="img/tiger.jpg"/>
-      <img src="img/bridge.jpg"/>
-      <img src="img/drop.jpg"/>
-      <img src="img/snake.jpg"/>
-      <img src="img/mountain.jpg"/>
-      <img src="img/boat.jpg"/>
-    </div>
-    </article>
-
-    <script>
-      $('.slider.fliplr').tilesSlider({
-        x:12, y:1,
-        effect: 'fliplr',
-        fade: false,
-        reverse: true,
-      });
-    </script>
-
-    <article>
-    <div class="title">
-      <h3>&raquo; Flip UD</h3>
-      <code>x:12</code><code>y:4</code><code>rewind:75</code>
-      <button type="button" class="run action">Start</button>
-      <button type="button" class="stop action">Stop</button>
-    </div>
-    <div class="container slider flipud">
-      <img src="img/girl.jpg"/>
-      <img src="img/club.jpg"/>
-      <img src="img/bike.jpg"/>
-      <img src="img/dust.jpg"/>
-      <img src="img/city.jpg"/>
-      <img src="img/tiger.jpg"/>
-      <img src="img/bridge.jpg"/>
-      <img src="img/drop.jpg"/>
-      <img src="img/snake.jpg"/>
-      <img src="img/fruit.jpg"/>
-      <img src="img/mountain.jpg"/>
-      <img src="img/boat.jpg"/>
-    </div>
-    </article>
-
-    <script>
-      $('.slider.flipud').tilesSlider({
-        x:12, y:4,
-        effect: 'flipud',
-        rewind: 75
-      });
-    </script>
-
-    <article>
-    <div class="title">
-      <h3>&raquo; 360&deg;</h3>
-      <code>x:1</code><code>y:1</code><code>cssSpeed:800</code>
-      <button type="button" class="run action">Start</button>
-      <button type="button" class="stop action">Stop</button>
-    </div>
-    <div class="container slider r360">
-      <img src="img/fruit.jpg"/>
-      <img src="img/girl.jpg"/>
-      <img src="img/club.jpg"/>
-      <img src="img/bike.jpg"/>
-      <img src="img/dust.jpg"/>
-      <img src="img/city.jpg"/>
-      <img src="img/tiger.jpg"/>
-      <img src="img/bridge.jpg"/>
-      <img src="img/drop.jpg"/>
-      <img src="img/snake.jpg"/>
-      <img src="img/mountain.jpg"/>
-      <img src="img/boat.jpg"/>
-    </div>
-    </article>
-
-    <script>
-      $('.slider.r360').tilesSlider({
-        x:1, y:1,
-        effect: '360',
-        cssSpeed: 800
-      });
-    </script>
-
+    <section>
+      <article id="default">
+      <div class="title">
+        <h3>&raquo; Default</h3>
+          <code>x:6</code><code>y:4</code><code>random:true</code><code>cssSpeed:500</code>
+        <button type="button" class="run action">Start</button>
+        <button type="button" class="stop action">Stop</button>
+      </div>
+      <div class="slider">
+        <img src="img/bridge.jpg"/>
+        <img src="img/tiger.jpg"/>
+        <img src="img/city.jpg"/>
+        <img src="img/club.jpg"/>
+        <img src="img/snake.jpg"/>
+        <img src="img/mountain.jpg"/>
+        <img src="img/boat.jpg"/>
+        <img src="img/bike.jpg"/>
+        <img src="img/dust.jpg"/>
+        <img src="img/drop.jpg"/>
+        <img src="img/fruit.jpg"/>
+        <img src="img/girl.jpg"/>
+      </div>
+      </article>
+    </section>
+   
     <a href="https://github.com/elclanrs/jq-tiles">&laquo; Back to Github</a>
 
     <script>
-      var timer;
-      $('button.run').click(function(){
-        var $this = $(this);
-        var $next = $this.parent().next('.slider');
-        var $article = $this.parents('article');
-        $this.text('Next')
-        $article.addClass('active');
-        $('.slider').trigger('stop');
-        $(this).next('.stop').fadeIn(250);
-        $article.siblings('article').fadeTo(250,0.5);
-        $('button.run').not($this).fadeOut(250);
-        if (!timer) {
-          timer = setTimeout(function(){ $next.trigger('start'); }, 850);
-        } else {
-          $next.trigger('start');
+  
+      // Options
+      var effects = {
+        default: {
+          x:6, y:4
+        },
+        simple: {
+          x:6, y:4,
+          effect: 'simple',
+          fade: false
         }
+      };
+  
+      // Change
+      $('#effects').change(function(){
+        var effect = $(this).text().toLowerCase();
+        $('section').empty().load(effect + '.html', function(){
+          $('.slider').tilesSlider(effects[effect]);
+        });
       });
-      $('button.stop').hide().click(function(){
-        timer = false;
-        $(this).delay(100).fadeOut(250);
-        $('button.run').fadeIn(500);
-        $('button.run').text('Start');
-        $('article').removeClass('active').fadeTo(250,1);
-        $(this).parent().next('.slider').trigger('stop');
+
+      // Start
+      $('.run').click(function(){
+      
       });
+      
+      // Init
+      $('.slider').tilesSlider(effects['default']);
+    
     </script>
 
   </body>
