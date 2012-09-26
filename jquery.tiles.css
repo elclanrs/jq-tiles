@@ -13,7 +13,7 @@
 .tiles-slider-s900 .tiles-tile{-webkit-transition:all 0.9s ease-in-out;-moz-transition:all 0.9s ease-in-out;-ms-transition:all 0.9s ease-in-out;-o-transition:all 0.9s ease-in-out;transition:all 0.9s ease-in-out;}
 .tiles-slider-s1000 .tiles-tile{-webkit-transition:all 1s ease-in-out;-moz-transition:all 1s ease-in-out;-ms-transition:all 1s ease-in-out;-o-transition:all 1s ease-in-out;transition:all 1s ease-in-out;}
 .tiles-simple-toggle{opacity:0;}
-.tiles-default-toggle{opacity:0;box-shadow:0 0 10px black;top:-7%;left:3%;z-index:1;}
+.tiles-default-toggle{opacity:0;box-shadow:0 0 10px black;top:-5%;left:5%;z-index:1;}
 .tiles-y1.tiles-up-toggle{height:1px !important;}
 .tiles-x1.tiles-left-normal{clear:both;}
 .tiles-x1.tiles-left-toggle{width:0 !important;}
