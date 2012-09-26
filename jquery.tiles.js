@@ -34,6 +34,7 @@ var options = {
   limit: false,
   rewind: false,
   loop: true,
+  auto: true,
   effectSpeed: 1000,
   tileSpeed: false, //= effectSpeed
   sliderSpeed: 3000,
