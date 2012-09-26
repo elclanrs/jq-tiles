@@ -24,7 +24,7 @@
     <a href="https://github.com/elclanrs/jq-tiles/zipball/master" id="down">Download</a>
     <select id="effects">
       <option>Default</option>
-      <option>Simple</option>
+      <option value="simple">Simple</option>
     </select>
     </header>
 
@@ -33,7 +33,7 @@
       <div class="title">
         <h3>&raquo; Default</h3>
           <code>x:6</code><code>y:4</code><code>random:true</code><code>cssSpeed:500</code>
-        <button type="button" class="run action">Start</button>
+        <button type="button" class="start action">Start</button>
         <button type="button" class="stop action">Stop</button>
       </div>
       <div class="slider">
@@ -52,39 +52,66 @@
       </div>
       </article>
     </section>
-   
+
     <a href="https://github.com/elclanrs/jq-tiles">&laquo; Back to Github</a>
 
     <script>
-  
+
       // Options
       var effects = {
         default: {
-          x:6, y:4
+          x:6, y:4,
+          auto: false,
+          random: true
         },
         simple: {
           x:6, y:4,
+          auto: false,
           effect: 'simple',
+          random: true,
           fade: false
         }
       };
-  
+
       // Change
       $('#effects').change(function(){
-        var effect = $(this).text().toLowerCase();
-        $('section').empty().load(effect + '.html', function(){
-          $('.slider').tilesSlider(effects[effect]);
+        $('.slider').trigger('stop');
+        var effect = $(this).val().toLowerCase();
+        $('section').fadeTo(0,0).empty().load(effect + '.html', function(){
+          setTimeout(function(){ 
+            $('.slider').tilesSlider(effects[effect]);
+            $('section').fadeTo(0,1);
+          }, 100);
         });
       });
 
       // Start
-      $('.run').click(function(){
-      
+      var timer;
+      $('section').on('click', '.start', function(){
+        $('.stop').delay(150).fadeIn(250);
+        $('.start').text('Next');
+        $('article').addClass('active');
+        if (!timer) {
+          setTimeout(function(){
+            $('.slider').trigger('start');
+            timer = true;
+          }, 800);
+        } else {
+          $('.slider').trigger('start');
+        }
       });
-      
+
+      // Stop
+      $('section').on('click', '.stop', function(){
+        $('.start').text('Start');
+        $('article').removeClass('active');
+        $('.slider').trigger('stop');
+        $('.stop').delay(150).fadeOut(250);
+      });
+
       // Init
       $('.slider').tilesSlider(effects['default']);
-    
+
     </script>
 
   </body>

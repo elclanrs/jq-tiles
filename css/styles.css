@@ -3,6 +3,7 @@ body {
   margin: 30px auto;
   background: url(../img/bg.png);
   font: normal 14px Doppio One, sans;
+  overflow-y: scroll;
 }
 a {
   color: #088BBF;
@@ -54,7 +55,7 @@ article {
   transition: all .5s ease-in-out;
 }
 article.active {
-  box-shadow: 0 0 0 1px #088BBF, 
+  box-shadow: 0 0 0 1px #088BBF,
   0 0 20px rgba(8,139,191,.5),
   0 0 40px rgba(0,0,0,.3);
 }
@@ -105,7 +106,7 @@ button.action:active {
   background: #222;
   top: 6px;
 }
-.active button.action.run { 
+.active button.action.start {
   background: #258dc8;
   background: -moz-linear-gradient(top, #258dc8 0%, #258dc8 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#258dc8), color-stop(100%,#258dc8));
@@ -118,7 +119,7 @@ button.action:active {
   border: 1px solid #174E9C;
   text-shadow: 1px 1px rgba(0,0,0,.5);
 }
-.active button.action.stop { display: none; }
+button.action.stop { display: none; }
 .slider {
   width: 600px;
   height: 400px;
