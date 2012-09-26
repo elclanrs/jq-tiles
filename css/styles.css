@@ -12,7 +12,16 @@ a {
 a:hover { text-decoration: underline }
 img { display: block; }
 header { margin: 50px 0 30px 0; }
-#effects { float: right; }
+select#effects {
+  float: right;
+  margin-top: 20px;
+  font-family: Arial;
+  padding: .3em;
+  width: 100px;
+  border-radius: 3px;
+  border: 1px solid #999;
+  outline: none;
+}
 h1, h3 { display: inline-block; }
 h1 {
   font-size: 42px;
@@ -29,6 +38,7 @@ h3 {
   position: relative;
   top: 4px;
 }
+.code { display: inline-block; }
 code {
   font-family: Ubuntu Mono, mono;
   background: #dedede;
@@ -64,7 +74,10 @@ article.active {
   left: 20px;
   top: -6px;
 }
-
+#github {
+  position: relative;
+  top: 10px;
+}
 button::-moz-focus-inner { border: 0; }
 button.action {
   float: right;
