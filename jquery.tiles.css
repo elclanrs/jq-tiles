@@ -113,8 +113,9 @@
 .tiles-default-toggle {
   opacity: 0;
   box-shadow: 0 0 10px black;
-  top: -0.8em;
-  left: .5em;
+  top: -7%;
+  left: 3%;
+  z-index: 1;
 }
 /* Up */
 .tiles-y1.tiles-up-toggle {
