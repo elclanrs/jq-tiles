@@ -3,9 +3,9 @@
  ----------------------------------------------*/
 
 .transition (@transition) {
-  -webkit-transition: @transition;  
+  -webkit-transition: @transition;
   -moz-transition: @transition;
-  -ms-transition: @transition; 
+  -ms-transition: @transition;
   -o-transition: @transition;
   transition: @transition;
 }
@@ -36,8 +36,8 @@
   transition: none !important;
 }
 .tiles-wrap, .tiles-tile { position: relative; }
-.tiles-tile { 
-  float: left; 
+.tiles-tile {
+  float: left;
   top: 0;
   left: 0;
   right: 0;
@@ -141,7 +141,6 @@
 .tiles-reduce-toggle { .transform(~"scale(.5)"); }
 
 /* 360 */
-.tiles-360-toggle { .transform(~"scale(.5)"); }
 .tiles-360-toggle { .transform(~"rotateZ(360deg) scale(0)"); }
 
 /* Left & Right */
@@ -162,7 +161,7 @@
   &.tiles-updown-toggle,
   &.tiles-leftright-toggle,
   &.tiles-flipud-toggle,
-  &.tiles-reduce-toggle { 
+  &.tiles-reduce-toggle {
     opacity: 0;
     visibility: hidden;
   }
@@ -170,5 +169,5 @@
 .tiles-slider-leftright .tiles-wrap,
 .tiles-slider-updown .tiles-wrap,
 .tiles-slider-360 .tiles-wrap {
-  overflow: hidden; 
+  overflow: hidden;
 }
