@@ -60,7 +60,6 @@
 .tiles-fliplr-toggle{-webkit-transform:rotateY(180deg);-moz-transform:rotateY(180deg);-ms-transform:rotateY(180deg);-o-transform:rotateY(180deg);transform:rotateY(180deg);}
 .tiles-flipud-toggle{-webkit-transform:rotateX(180deg);-moz-transform:rotateX(180deg);-ms-transform:rotateX(180deg);-o-transform:rotateX(180deg);transform:rotateX(180deg);}
 .tiles-reduce-toggle{-webkit-transform:scale(.5);-moz-transform:scale(.5);-ms-transform:scale(.5);-o-transform:scale(.5);transform:scale(.5);}
-.tiles-360-toggle{-webkit-transform:scale(.5);-moz-transform:scale(.5);-ms-transform:scale(.5);-o-transform:scale(.5);transform:scale(.5);}
 .tiles-360-toggle{-webkit-transform:rotateZ(360deg) scale(0);-moz-transform:rotateZ(360deg) scale(0);-ms-transform:rotateZ(360deg) scale(0);-o-transform:rotateZ(360deg) scale(0);transform:rotateZ(360deg) scale(0);}
 .tiles-leftright-toggle.tiles-even{-webkit-transform:translate(50%, 0);-moz-transform:translate(50%, 0);-ms-transform:translate(50%, 0);-o-transform:translate(50%, 0);transform:translate(50%, 0);}
 .tiles-leftright-toggle.tiles-odd{-webkit-transform:translate(-50%, 0);-moz-transform:translate(-50%, 0);-ms-transform:translate(-50%, 0);-o-transform:translate(-50%, 0);transform:translate(-50%, 0);}
