@@ -115,7 +115,10 @@ $.fn.tiles = function(ops) {
     if ($img[0].complete) { $img.trigger('load'); }
 
     // Toggle effect
-    $img.on('toggleTiles', function(e,cb) {
+    $img.on('toggleTiles', function(e, reset, cb) {
+
+      reset = reset || false;
+      cb = cb || $.noop;
 
       var delay = ~~(o.tileSpeed / n_tiles);
       var ran = range(0, n_tiles, o.random);
@@ -129,7 +132,7 @@ $.fn.tiles = function(ops) {
 
       (o.reverse ? ran.reverse() : ran).forEach(function(v,i){
         function anim() { $tiles.eq(v).toggleClass(klass +'-toggle'); }
-        setTimeout(anim, i*delay);
+        setTimeout(anim, reset || i*delay);
         if (o.rewind) {
           var d = i*delay + (o.cssSpeed/(100/o.rewind));
           setTimeout(anim, d);
@@ -137,7 +140,6 @@ $.fn.tiles = function(ops) {
       });
 
       // Callback
-      cb = cb || $.noop;
       setTimeout(cb($tiles, $img), o.tileSpeed);
 
     });
@@ -181,15 +183,14 @@ $.fn.tilesSlider = function(ops) {
       $cont.delay(o.effectSpeed/2).fadeTo(o.effectSpeed, 0).next().fadeTo(o.effectSpeed, 1) :
       $cont.delay(o.effectSpeed + o.cssSpeed).fadeTo(0,0).next().fadeTo(0,1);
 
-    $img.trigger('toggleTiles', function(t){
-      t.parent().appendTo($wrap);
+    $img.trigger('toggleTiles', [0, function(tiles){
+      tiles.parent().appendTo($wrap);
       if (!o.rewind) {
-        var idx = $imgs.index($img);
         setTimeout(function(){
-          $img.trigger('toggleTiles');
-        }, ++idx * o.effectSpeed + o.cssSpeed);
+          $img.trigger('toggleTiles', 1);
+        }, o.effectSpeed + o.cssSpeed);
       }
-    });
+    }]);
   }
 
   // Methods:
