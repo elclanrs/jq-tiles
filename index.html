@@ -9,10 +9,12 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script src="select2/chosen.jquery.min.js"></script>
     <script src="js/jquery.tiles.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="http://necolas.github.com/normalize.css/2.0.1/normalize.css"/>
+    <link rel="stylesheet" href="select2/chosen.css"/>
     <link rel="stylesheet" href="css/jquery.tiles.css"/>
     <link rel="stylesheet" href="css/styles.css"/>
   </head>
@@ -23,7 +25,8 @@
     <header>
     <h1>jq-tiles</h1>
     <a href="https://github.com/elclanrs/jq-tiles/zipball/master" id="down">Download</a>
-    <select id="effects">
+    <div class="effects">
+    <select id="effects_select">
       <option value="default">default</option>
       <option value="simple">simple</option>
       <option value="left">left</option>
@@ -37,6 +40,7 @@
       <option value="reduce">reduce</option>
       <option value="360">360</option>
     </select>
+  </div>
     </header>
 
     <section>
@@ -92,7 +96,7 @@
       };
 
       // Change
-      $('#effects').change(function(){
+      $('#effects_select').change(function(){
         timer = false;
         $('.slider').trigger('stop');
         var effect = $(this).val();
@@ -142,6 +146,8 @@
 
       // Init
       $('.slider').tilesSlider(effects['default']);
+
+      $('#effects_select').chosen();
 
     </script>
 

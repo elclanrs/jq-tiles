@@ -12,15 +12,14 @@ a {
 a:hover { text-decoration: underline }
 img { display: block; }
 header { margin: 50px 0 30px 0; }
-select#effects {
+.effects {
   float: right;
   margin-top: 20px;
   font-family: Arial;
-  padding: .3em;
-  width: 100px;
-  border-radius: 3px;
-  border: 1px solid #999;
-  outline: none;
+}
+#effects_select {
+  float: right;
+  width: 140px;
 }
 h1, h3 { display: inline-block; }
 h1 {
