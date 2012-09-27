@@ -2,13 +2,14 @@ body {
   width: 640px;
   margin: 30px auto;
   background: url(../img/bg.png);
-  font: normal 14px Arial, sans;
+  font: normal 13px Arial, sans;
   overflow-y: scroll;
   color: #222;
 }
 a {
   color: #088BBF;
   text-decoration: none;
+  font-weight: bold;
 }
 a:hover { text-decoration: underline }
 img { display: block; }
