@@ -146,7 +146,8 @@ $.fn.tiles = function(ops) {
       });
 
       // Finished animating
-      var done = toggleOps.reset ? 0 : o.tileSpeed + o.cssSpeed;
+      var isSingle = o.x === 1 && o.y === 1;
+      var done = toggleOps.reset ? 0 : (isSingle ? o.cssSpeed : o.tileSpeed + o.cssSpeed);
       setTimeout(function(){
         $tiles.removeClass('tiles-animated');
         // callback
