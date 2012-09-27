@@ -2,8 +2,9 @@ body {
   width: 640px;
   margin: 30px auto;
   background: url(../img/bg.png);
-  font: normal 14px Doppio One, sans;
+  font: normal 14px Arial, sans;
   overflow-y: scroll;
+  color: #222;
 }
 a {
   color: #088BBF;
@@ -18,21 +19,21 @@ header { margin: 50px 0 30px 0; }
   font-family: Arial;
 }
 #effects_select {
-  float: right;
   width: 120px;
   padding: .3em;
   outline: 0;
   border: 1px solid grey;
   border-radius: 3px;
 }
+label { font-weight: bold; padding-right: .5em; }
 h1, h3 { display: inline-block; }
 h1 {
   font-size: 42px;
   font-weight: normal;
   letter-spacing: -1px;
   text-shadow: 1px 1px 0 white;
-  color: #222;
   margin: 0;
+  font-family: Doppio One, sans;
 }
 h3 {
   color: #444;
