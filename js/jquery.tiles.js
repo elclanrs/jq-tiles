@@ -213,12 +213,12 @@ $.fn.tilesSlider = function(ops) {
     if (ival) { clearInterval(ival); }
     ival = setInterval(start, o.slideSpeed);
 
-    if (!isAnimating) {
-      start();
-    } else {
+    if (isAnimating) {
       $img.trigger('toggleTiles', { toggle: false, reset: true });
       $cur.prependTo($wrap);
     }
+
+    start();
 
     if (!o.loop) { setTimeout(function(){ $wrap.trigger('stop'); }, delay); }
 
