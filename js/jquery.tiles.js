@@ -35,7 +35,7 @@ var options = {
   rewind: false,
   loop: true,
   auto: true,
-  sliderSpeed: 3000,
+  slideSpeed: 3000,
   tileSpeed: 1000,
   cssSpeed: 300
 };
@@ -207,10 +207,10 @@ $.fn.tilesSlider = function(ops) {
     var $cur = $containers.filter(':last-child');
     var $img = $cur.find('img');
     var isAnimating = $containers.filter(':last-child').find('.tiles-animated').length;
-    var delay = o.sliderSpeed * ($imgs.length-2) + o.tileSpeed;
+    var delay = o.slideSpeed * ($imgs.length-2) + o.tileSpeed;
 
     if (ival) { clearInterval(ival); }
-    ival = setInterval(start, o.sliderSpeed);
+    ival = setInterval(start, o.slideSpeed);
 
     if (!isAnimating) {
       start();
@@ -229,7 +229,7 @@ $.fn.tilesSlider = function(ops) {
   $wrap.on('stop', function(){ clearInterval(ival); });
 
   if (o.auto) {
-    setTimeout(function(){ $wrap.trigger('start'); }, o.sliderSpeed);
+    setTimeout(function(){ $wrap.trigger('start'); }, o.slideSpeed);
   }
 
   return $wrap;
