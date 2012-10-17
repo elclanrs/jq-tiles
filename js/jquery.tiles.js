@@ -17,7 +17,9 @@
       loop: true,
       slideSpeed: 2500,
       tileSpeed: 1000,
-      cssSpeed: 250
+      cssSpeed: 250,
+      beforeChange: $.noop,
+      afterChange: $.noop
     }
     , Utils = {
      /**
@@ -195,7 +197,10 @@
         $cur.remove()
         self._resetTiles( $cur )
         callback()
+        o.afterChange()
       })
+
+      o.beforeChange()
 
       return this
 
@@ -235,7 +240,7 @@
 
       _interval = setInterval(function() {
         self.next() }, o.slideSpeed )
-        
+
       if ( !o.loop ) {
         setTimeout(function(){ self.stop() }, endLoop );
       }
