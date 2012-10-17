@@ -17,7 +17,7 @@
       loop: true,
       slideSpeed: 2500,
       tileSpeed: 1000,
-      cssSpeed: 250,
+      cssSpeed: 300,
       beforeChange: $.noop,
       afterChange: $.noop
     }
