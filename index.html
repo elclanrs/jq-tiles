@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>jq-tiles</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script src="js/jquery.tiles.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://necolas.github.com/normalize.css/2.0.1/normalize.css"/>
+    <link rel="stylesheet" href="css/jquery.tiles.min.css"/>
+    <link rel="stylesheet" href="css/styles.css"/>
+  </head>
+  <body>
+
+    <a href="https://github.com/elclanrs/jq-tiles"><img style="position: fixed; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+
+    <header>
+    <h1>jq-tiles</h1>
+    <a href="https://github.com/elclanrs/jq-tiles/zipball/master" id="down">Download</a>
+    <div class="effects">
+    <label>Effect:</label>
+    <select id="effects_select">
+      <option value="default">default</option>
+      <option value="simple">simple</option>
+      <option value="left">left</option>
+      <option value="up">up</option>
+      <option value="leftright">leftright</option>
+      <option value="updown">updown</option>
+      <option value="switchlr">switchlr</option>
+      <option value="switchud">switchud</option>
+      <option value="fliplr">fliplr</option>
+      <option value="flipud">flipud</option>
+      <option value="reduce">reduce</option>
+      <option value="360">360</option>
+    </select>
+  </div>
+    </header>
+
+    <section>
+      <article id="default">
+      <div class="title">
+        <h3>&raquo; default</h3>
+        <div class="code">
+          <code>x:6</code>
+          <code>y:4</code>
+          <code>random:true</code>
+        </div>
+        <button type="button" class="start action">Start</button>
+        <button type="button" class="stop action">Stop</button>
+      </div>
+      <div class="slider">
+        <img src="img/bridge.jpg"/>
+        <img src="img/tiger.jpg"/>
+        <img src="img/city.jpg"/>
+        <img src="img/club.jpg"/>
+        <img src="img/snake.jpg"/>
+        <img src="img/mountain.jpg"/>
+        <img src="img/boat.jpg"/>
+        <img src="img/bike.jpg"/>
+        <img src="img/dust.jpg"/>
+        <img src="img/drop.jpg"/>
+        <img src="img/fruit.jpg"/>
+        <img src="img/girl.jpg"/>
+      </div>
+      </article>
+      </section>
+
+    <a id="github" href="https://github.com/elclanrs/jq-tiles">&laquo; Back to Github</a>
+
+    <script>
+
+
+      var html = $('section').html();
+
+      // Options
+      var effects = {
+        'default': { x:6, y:4, random: true },
+        simple: { x:6, y:4, effect: 'simple', random: true },
+        left: { x:1, y:8, effect: 'left' },
+        up: { x:20, y:1, effect: 'up', rewind: 60 },
+        leftright: { x:1, y:8, effect: 'leftright' },
+        updown: { x:12, y:1, effect: 'updown', cssSpeed: 500 },
+        switchlr: { x:12, y:1, effect: 'switchlr' },
+        switchud: { x:1, y:8, effect: 'switchud' },
+        fliplr: { x:12, y:1, effect: 'fliplr', reverse: true },
+        flipud: { x:1, y:8, effect: 'flipud' },
+        reduce: { x:6, y:4, effect: 'reduce' },
+        360: { x:1, y:1, effect: '360', fade: true, cssSpeed: 600 }
+      };
+
+      // Change
+      $('#effects_select').change(function(){
+        timer = false;
+        $('.slider').trigger('stop');
+        var effect = $(this).val();
+        $('section').fadeTo(0,0).empty().html(html);
+        setTimeout(function(){
+          $('section').fadeTo(0,1);
+          $('.slider').tilesSlider(effects[effect]);
+          $('article')
+            .find('h3').html('&raquo; '+ effect).end()
+            .find('.code').html(function(){
+              var code = [];
+              var ops = effects[effect];
+              for (var o in ops) {
+                if (!/^(auto|effect)/.test(o)) {
+                  code.push('<code>'+ o +':'+ ops[o] +'</code>');
+                }
+              }
+              return code.join('');
+            });
+          $('body').removeClass('tiles-preload');
+        }, 100);
+      });
+
+      // Start
+      $('section').on('click', '.start', function(){
+        $('.stop').delay(150).fadeIn(250);
+        $('.start').text('Next');
+        $('article').addClass('active');
+        $('.slider').tilesSlider('start');
+      });
+
+      // Stop
+      $('section').on('click', '.stop', function(){
+        $('.start').text('Start');
+        $('article').removeClass('active');
+        $('.slider').tilesSlider('stop');
+        $('.stop').delay(150).fadeOut(250);
+      });
+
+      // Init
+      $('.slider').tilesSlider(effects['default']);
+
+    </script>
+
+  </body>
+</html>
