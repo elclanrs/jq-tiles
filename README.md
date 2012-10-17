@@ -32,7 +32,6 @@ afterChange: function() {}
 ### Methods:
 
 #### start
-Start the slideshow / go to the next slide.
 ```javascript
 $('.slider').tilesSlider('start')
 ```
