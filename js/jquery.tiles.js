@@ -40,7 +40,8 @@
       }
     }
 
-  // Constructor
+  // Constructor:
+
   function TilesSlider( element, options ) {
 
     this.opts = $.extend( {}, _defaults, options )
@@ -141,7 +142,7 @@
       if ( o.limit ) {
         o.reverse
           ? range.splice( 0, limit )
-          : range.splice( limit, range.length );
+          : range.splice( limit, range.length )
       }
 
       range.forEach(function( tile, i ) {
