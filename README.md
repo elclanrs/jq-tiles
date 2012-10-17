@@ -30,14 +30,22 @@ cssSpeed: 300 // css3 transition speed [100,200,300,400,500,600,700,800,900,1000
 #### start
 Start the slideshow / go to the next slide.
 ```javascript
-$('.slider').trigger('start', function(){
-  // Loop finished
-});
+$('.slider').tilesSlider('start')
 ```
 
 #### stop
 ```javascript
-$('.slider').trigger('stop');
+$('.slider').tilesSlider('stop')
+```
+
+#### next
+```javascript
+$('.slider').tilesSlider('next', callback)
+```
+
+#### prev
+```javascript
+$('.slider').tilesSlider('prev', callback)
 ```
 
 ### Usage:
@@ -58,7 +66,7 @@ $('.slider').trigger('stop');
 
 **jQuery:**
 ```javascript
-$('.slider').tilesSlider({ random: true });
+$('.slider').tilesSlider({ random: true })
 ```
 
 
