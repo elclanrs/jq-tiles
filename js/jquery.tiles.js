@@ -114,8 +114,7 @@
       $slides.click(function(e) {
         var $this = $(this)
           , idx = +$this.text() - 1
-        $slides.removeClass('tiles-nav-active')
-        $this.addClass('tiles-nav-active')
+        self._updateNav()
         self._navigate( idx, $.noop )
         e.preventDefault()
       })
@@ -134,6 +133,7 @@
     },
 
     _updateNav: function() {
+      if ( _interval ) { this.stop().start() }
       this.$slides.removeClass('tiles-nav-active')
         .eq( this._getCurrentIdx() ).addClass('tiles-nav-active')
     },
