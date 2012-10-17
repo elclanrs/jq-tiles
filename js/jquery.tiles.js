@@ -1,4 +1,3 @@
-
 ;(function( $, window, undefined ) {
 
   // Globals:
@@ -56,6 +55,7 @@
 
     // Assign in _init when elements are generated
     this.$tiles = null
+    this.$slides = null
 
     if ( this.opts.rewind ) { this.opts.fade = true }
 
@@ -86,6 +86,7 @@
       self.$wraps.first().addClass('tiles-wrap-current').appendTo( self.$container )
 
       self._addNav()
+      self.$slides = $('.tiles-nav a')
 
       // Prevent css3 transitions on load
       $('body').addClass('tiles-preload')
@@ -103,19 +104,20 @@
         , $nav = $( o.navWrap || '<div/>' ).addClass('tiles-nav')
         , slides = [], $slides
 
-        for ( var i = 1; i < self.$wraps.length; i++ ) {
-          slides.push('<a href="#">'+ i +'</a>')
-        }
+      for ( var i = 1; i < self.$wraps.length + 1; i++ ) {
+        slides.push('<a href="#">'+ i +'</a>')
+      }
 
       $slides = $( slides.join('') )
 
       // Events
-      $slides.click(function() {
+      $slides.click(function(e) {
         var $this = $(this)
           , idx = +$this.text() - 1
         $slides.removeClass('tiles-nav-active')
         $this.addClass('tiles-nav-active')
-        self._navigate( idx )
+        self._navigate( idx, $.noop )
+        e.preventDefault()
       })
 
       $slides.first().addClass('tiles-nav-active') // init
@@ -129,6 +131,11 @@
         $nav.css( 'margin-left', '-'+ $nav.outerWidth()/2 +'px' )
       }
 
+    },
+
+    _updateNav: function() {
+      this.$slides.removeClass('tiles-nav-active')
+        .eq( this._getCurrentIdx() ).addClass('tiles-nav-active')
     },
 
     _generateTiles: function( $img ) {
@@ -241,6 +248,8 @@
       })
 
       o.beforeChange()
+
+      self._updateNav()
 
       return this
 
