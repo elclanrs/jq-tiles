@@ -97,7 +97,7 @@
       // Change
       $('#effects_select').change(function(){
         timer = false;
-        $('.slider').trigger('stop');
+        $('.slider').tilesSlider('stop');
         var effect = $(this).val();
         $('section').fadeTo(0,0).empty().html(html);
         setTimeout(function(){
