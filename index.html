@@ -8,7 +8,7 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="js/jquery.tiles.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
@@ -22,7 +22,7 @@
 
     <header>
     <h1>jq-tiles</h1>
-    <a href="https://github.com/elclanrs/jq-tiles/raw/master/zip/jquery.tiles.zip" id="down">Download</a>
+    <a href="https://github.com/elclanrs/jq-tiles/zipball/master" id="down">Download</a>
     <div class="effects">
     <label>Effect:</label>
     <select id="effects_select">
@@ -136,7 +136,9 @@
       });
 
       // Init
-      $('.slider').tilesSlider(effects['default']);
+      $('.slider').tilesSlider();
+
+    </script>
 
   </body>
 </html>
