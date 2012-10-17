@@ -24,6 +24,7 @@ loop: true,
 slideSpeed: 3000, // time between slides
 tileSpeed: 1000, // time to clear all tiles
 cssSpeed: 300, // css3 transition speed [100,200,300,400,500,600,700,800,900,1000]
+navWrap: null // Add the navigation to an existing element
 beforeChange: function() {},
 afterChange: function() {}
 }
