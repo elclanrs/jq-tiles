@@ -15,12 +15,12 @@ Slideshow with images split in tiles and css3 transitions.
 {
 x: 4, y: 4, // limit 20 each
 effect: 'default',
-fade: true, // fade images in addition to the tiles effect
+fade: false, // fade images in addition to the tiles effect
 random: false, // animate tiles in random order
 reverse: false, // start animation from opposite direction
 rewind: false, // reverse animation at a certain percentage in time
+auto: false,
 loop: true,
-auto: true,
 slideSpeed: 3000, // time between slides
 tileSpeed: 1000, // time to clear all tiles
 cssSpeed: 300, // css3 transition speed [100,200,300,400,500,600,700,800,900,1000]
