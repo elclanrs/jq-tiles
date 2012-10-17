@@ -18,6 +18,7 @@
       slideSpeed: 2500,
       tileSpeed: 1000,
       cssSpeed: 300,
+      navWrap: null,
       beforeChange: $.noop,
       afterChange: $.noop
     }
@@ -84,11 +85,49 @@
       self.$wraps = self.$container.find('.tiles-wrap').detach()
       self.$wraps.first().addClass('tiles-wrap-current').appendTo( self.$container )
 
+      self._addNav()
+
       // Prevent css3 transitions on load
       $('body').addClass('tiles-preload')
       $( window ).load(function(){ $('body').removeClass('tiles-preload') })
 
       if ( o.auto ) { self.start() }
+
+    },
+
+    _addNav: function() {
+
+      var self = this
+        , o = self.opts
+        // double-wrap in case a string is passed
+        , $nav = $( o.navWrap || '<div/>' ).addClass('tiles-nav')
+        , slides = [], $slides
+
+        for ( var i = 1; i < self.$wraps.length; i++ ) {
+          slides.push('<a href="#">'+ i +'</a>')
+        }
+
+      $slides = $( slides.join('') )
+
+      // Events
+      $slides.click(function() {
+        var $this = $(this)
+          , idx = +$this.text() - 1
+        $slides.removeClass('tiles-nav-active')
+        $this.addClass('tiles-nav-active')
+        self._navigate( idx )
+      })
+
+      $slides.first().addClass('tiles-nav-active') // init
+
+      // Insert in DOM
+      if ( o.navWrap ) {
+        $nav.append( $slides )
+      } else {
+        self.$container.append( $nav.append( $slides ) )
+        // Adjust center
+        $nav.css( 'margin-left', '-'+ $nav.outerWidth()/2 +'px' )
+      }
 
     },
 

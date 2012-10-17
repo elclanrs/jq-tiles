@@ -58,6 +58,29 @@
   .transition(all .3s ease-in-out);
 }
 
+/* Navigation */
+.tiles-nav {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-top: 1em;
+  a { 
+    text-decoration: none;
+    color: #222;
+    padding: .1em .5em;
+    margin: 0 .1em;
+    border-radius: 2px;
+    &:hover { 
+      text-decoration: none; 
+      color: #088BBF;
+    }
+    &.tiles-nav-active {
+      background: #088BBF;
+      color: #fff; 
+    }
+  }
+}
+
 /* cssSpeed */
 .tiles-slider-s100 .tiles-tile { .transition(all .1s ease-in-out); }
 .tiles-slider-s200 .tiles-tile { .transition(all .2s ease-in-out); }
