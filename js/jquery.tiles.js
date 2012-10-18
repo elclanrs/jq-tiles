@@ -123,7 +123,6 @@
         self._navigate( idx, $.noop )
         e.preventDefault()
       })
-
       $links.first().addClass('tiles-nav-active') // init
 
       // Insert in DOM
@@ -245,6 +244,10 @@
         , o = self.opts
         , $cur = self._getCurrentWrap()
         , $target = self.$wraps.eq( idx )
+
+      if ( idx === self._getCurrentIdx() ) {
+        return false
+      }
 
       self.$container.find('.tiles-wrap').removeClass('tiles-wrap-current')
       $target.addClass('tiles-wrap-current').prependTo( self.$container )
