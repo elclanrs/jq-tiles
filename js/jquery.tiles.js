@@ -13,7 +13,7 @@
       rewind: false,
       auto: false,
       loop: true,
-      slideSpeed: 2500,
+      slideSpeed: 3500,
       tileSpeed: 1000,
       cssSpeed: 300,
       nav: true,
@@ -52,6 +52,7 @@
 
     this.$container = $( element )
     this.$images = this.$container.find('img')
+    this.$descriptions = this.$container.find('p')
 
     this.interval = null
 
@@ -89,6 +90,8 @@
 
       self._addNav()
       self.$navLinks = $('.tiles-nav a')
+
+      self._setupDescriptions()
 
       // Prevent css3 transitions on load
       $('body').addClass('tiles-preload')
@@ -142,6 +145,16 @@
         .eq( this._getCurrentIdx() ).addClass('tiles-nav-active')
     },
 
+    _setupDescriptions: function() {
+      this.$descriptions.addClass('tiles-description')
+        .first().addClass('tiles-description-active')
+    },
+
+    _showOrHideDescription: function( toggle ) {
+      this.$descriptions.removeClass('tiles-description-active')
+        .eq( this._getCurrentIdx() ).toggleClass( 'tiles-description-active', toggle )
+    },
+
     _generateTiles: function( $img ) {
 
       var self = this
@@ -184,7 +197,7 @@
         , range = Utils.range( 0, self.n_tiles, o.random )
         , delay = Math.floor( o.tileSpeed / self.n_tiles )
         , limit = range.length / ( 100/o.limit )
-        , done = o.tileSpeed + o.cssSpeed
+        , done = self.n_tiles > 1 ? o.tileSpeed + o.cssSpeed : o.cssSpeed
         , $tiles = $wrap.find('.tiles-tile')
 
       if ( o.reverse ) { range = range.reverse() }
@@ -203,7 +216,7 @@
         setTimeout(function() { theTile.addClass( self.klassAnim ) }, theDelay )
 
         if ( o.rewind ) {
-          theDelay += ( o.cssSpeed / (100/o.rewind) )
+          theDelay += o.cssSpeed / ( 100/o.rewind )
           setTimeout(function() { theTile.removeClass( self.klassAnim ) }, theDelay )
         }
 
@@ -247,6 +260,7 @@
       self._animateTiles( $cur, function() {
         $cur.remove()
         self._resetTiles( $cur )
+        self._showOrHideDescription( true )
         callback()
         o.afterChange()
       })
@@ -254,6 +268,7 @@
       o.beforeChange()
 
       self._updateNav()
+      self._showOrHideDescription( false )
 
       return this
 

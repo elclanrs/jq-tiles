@@ -28,12 +28,17 @@
  * Global:
  ----------------------------------------------*/
 
-.tiles-preload .tiles-wrap * {
+.tiles-preload .tiles-slider-wrap * {
   -webkit-transition: none !important;
   -moz-transition: none !important;
   -ms-transition: none !important;
   -o-transition: none !important;
   transition: none !important;
+}
+.tiles-slider-wrap * {
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
 }
 .tiles-slider-wrap,
 .tiles-tile { position: relative; }
@@ -77,9 +82,33 @@
     }
     &.tiles-nav-active {
       background: #088BBF;
-      color: #fff; 
+      color: #fff;
     }
   }
+}
+
+/* Descriptions */
+.tiles-description {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 1em 2em;
+  line-height: 1.5;
+  text-indent: -5em;
+  visibility: hidden;
+  opacity: 0;
+  color: white;
+  background: rgba(0,0,0,.65);
+  box-shadow: 0 -1px 2px rgba(0,0,0,.3);
+  .transition(all .3s ease-in-out);
+}
+.tiles-description-active {
+  opacity: 1;
+  text-indent: 0;
+  visibility: visible;
 }
 
 /* cssSpeed */

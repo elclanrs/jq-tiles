@@ -144,3 +144,6 @@ button.action.stop { display: none; }
   height: 400px;
   margin-bottom: 35px;
 }
+.slider strong {
+  color: #F2CF05;
+}
