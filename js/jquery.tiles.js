@@ -17,6 +17,7 @@
       slideSpeed: 2500,
       tileSpeed: 1000,
       cssSpeed: 300,
+      nav: true,
       navWrap: null,
       beforeChange: $.noop,
       afterChange: $.noop
@@ -55,7 +56,7 @@
 
     // Assign in _init when elements are generated
     this.$tiles = null
-    this.$slides = null
+    this.$navLinks = null
 
     if ( this.opts.rewind ) { this.opts.fade = true }
 
@@ -86,7 +87,7 @@
       self.$wraps.first().addClass('tiles-wrap-current').appendTo( self.$container )
 
       self._addNav()
-      self.$slides = $('.tiles-nav a')
+      self.$navLinks = $('.tiles-nav a')
 
       // Prevent css3 transitions on load
       $('body').addClass('tiles-preload')
@@ -102,16 +103,16 @@
         , o = self.opts
         // double-wrap in case a string is passed
         , $nav = $( o.navWrap || '<div/>' ).addClass('tiles-nav')
-        , slides = [], $slides
+        , links = [], $links
 
       for ( var i = 1; i < self.$wraps.length + 1; i++ ) {
-        slides.push('<a href="#">'+ i +'</a>')
+        links.push('<a href="#">'+ i +'</a>')
       }
 
-      $slides = $( slides.join('') )
+      $links = $( links.join('') )
 
       // Events
-      $slides.click(function(e) {
+      $links.click(function(e) {
         var $this = $(this)
           , idx = +$this.text() - 1
         self._updateNav()
@@ -119,22 +120,24 @@
         e.preventDefault()
       })
 
-      $slides.first().addClass('tiles-nav-active') // init
+      $links.first().addClass('tiles-nav-active') // init
 
       // Insert in DOM
-      if ( o.navWrap ) {
-        $nav.append( $slides )
-      } else {
-        self.$container.append( $nav.append( $slides ) )
-        // Adjust center
-        $nav.css( 'margin-left', '-'+ $nav.outerWidth()/2 +'px' )
+      if ( o.nav ) {
+        if ( o.navWrap ) {
+          $nav.append( $links )
+        } else {
+          self.$container.append( $nav.append( $links ) )
+          // Adjust center
+          $nav.css( 'margin-left', '-'+ $nav.outerWidth()/2 +'px' )
+        }
       }
 
     },
 
     _updateNav: function() {
       if ( _interval ) { this.stop().start() }
-      this.$slides.removeClass('tiles-nav-active')
+      this.$navLinks.removeClass('tiles-nav-active')
         .eq( this._getCurrentIdx() ).addClass('tiles-nav-active')
     },
 
