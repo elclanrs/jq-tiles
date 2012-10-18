@@ -2,8 +2,7 @@
 
   // Globals:
 
-  var _interval
-    , _defaults = {
+  var _defaults = {
       x: 4, y: 4,
       slider: false,
       effect: 'default',
@@ -53,6 +52,8 @@
 
     this.$container = $( element )
     this.$images = this.$container.find('img')
+
+    this.interval = null
 
     // Assign in _init when elements are generated
     this.$tiles = null
@@ -136,7 +137,7 @@
     },
 
     _updateNav: function() {
-      if ( _interval ) { this.stop().start() }
+      if ( this.interval ) { this.stop().start() }
       this.$navLinks.removeClass('tiles-nav-active')
         .eq( this._getCurrentIdx() ).addClass('tiles-nav-active')
     },
@@ -288,9 +289,9 @@
         , o = self.opts
         , endLoop = ( o.slideSpeed * (self.$wraps.length-1) ) + o.tileSpeed
 
-      if ( _interval ) { self.stop().next() }
+      if ( self.interval ) { self.stop().next() }
 
-      _interval = setInterval(function() {
+      self.interval = setInterval(function() {
         self.next() }, o.slideSpeed )
 
       if ( !o.loop ) {
@@ -302,8 +303,8 @@
     },
 
     stop: function() {
-      clearInterval( _interval )
-      _interval = false
+      clearInterval( this.interval )
+      this.interval = false
       return this
     }
 
