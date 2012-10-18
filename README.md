@@ -13,21 +13,22 @@ Slideshow with images split in tiles and css3 transitions.
 ### Options:
 ```javascript
 {
-x: 4, y: 4, // limit 20 each
-effect: 'default',
-fade: false, // fade images in addition to the tiles effect
-random: false, // animate tiles in random order
-reverse: false, // start animation from opposite direction
-rewind: false, // reverse animation at a certain percentage in time
-auto: false,
-loop: true,
-slideSpeed: 3000, // time between slides
-tileSpeed: 1000, // time to clear all tiles
-cssSpeed: 300, // css3 transition speed [100,200,300,400,500,600,700,800,900,1000],
-nav : true, // Add navigation
-navWrap: null // Add the navigation to an existing element
-beforeChange: function() {},
-afterChange: function() {}
+  x            : 4, // limit 20
+  y            : 4, // limit 20
+  effect       : 'default',
+  fade         : false, // fade images in addition to the tiles effect
+  random       : false, // animate tiles in random order
+  reverse      : false, // start animation from opposite direction
+  rewind       : false, // reverse animation at a certain percentage in time
+  auto         : false, // Start the slideshow on load
+  loop         : true, // Loop the images when the slideshow is running
+  slideSpeed   : 3000, // time between slides
+  tileSpeed    : 1000, // time to clear all tiles
+  cssSpeed     : 300, // css3 transition speed [100,200,300,400,500,600,700,800,900,1000],
+  nav          : true, // Add navigation
+  navWrap      : null // Add the navigation to an existing element
+  beforeChange : function() {}, // Runs before changing the image
+  afterChange  : function() {} // Runs after the tiles have cleared
 }
 ```
 
