@@ -13,8 +13,8 @@ Slideshow with images split in tiles and css3 transitions.
 ### Options:
 ```javascript
 {
-  x            : 4, // limit 20
-  y            : 4, // limit 20
+  x            : 4, // # of tiles in x axis, 20 max
+  y            : 4, // # of tiles in y axis, 20 max
   effect       : 'default',
   fade         : false, // fade images in addition to the tiles effect
   random       : false, // animate tiles in random order
