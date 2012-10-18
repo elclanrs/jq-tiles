@@ -59,9 +59,9 @@ $('.slider').tilesSlider('prev', callback)
 **HTML:**
 ```html
 <div class="slider">
-  <img src="img1.jpg"/>
-  <img src="img2.jpg"/>
-  <img src="img3.jpg"/>
+  <img src="img1.jpg"/><p>Description image one</p>
+  <img src="img2.jpg"/><p>Description image two</p>
+  <img src="img3.jpg"/><p>Description image three</p>
 </div>
 ```
 
