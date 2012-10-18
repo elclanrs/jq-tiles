@@ -22,8 +22,8 @@ Slideshow with images split in tiles and css3 transitions.
   rewind       : false, // reverse animation at a certain percentage in time
   auto         : false, // Start the slideshow on load
   loop         : true, // Loop the images when the slideshow is running
-  slideSpeed   : 3000, // time between slides
-  tileSpeed    : 1000, // time to clear all tiles
+  slideSpeed   : 3500, // time between slides
+  tileSpeed    : 800, // time to clear all tiles
   cssSpeed     : 300, // css3 transition speed [100,200,300,400,500,600,700,800,900,1000],
   nav          : true, // Add navigation
   navWrap      : null // Add the navigation to an existing element
