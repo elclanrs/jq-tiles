@@ -88,8 +88,10 @@
       self.$wraps = self.$container.find('.tiles-wrap').detach()
       self.$wraps.first().addClass('tiles-wrap-current').appendTo( self.$container )
 
-      self._addNav()
-      self.$navLinks = $('.tiles-nav a')
+      if ( o.nav ) {
+        self._addNav()
+        self.$navLinks = $('.tiles-nav a')
+      }
 
       self._setupDescriptions()
 
@@ -126,14 +128,12 @@
       $links.first().addClass('tiles-nav-active') // init
 
       // Insert in DOM
-      if ( o.nav ) {
-        if ( o.navWrap ) {
-          $nav.append( $links )
-        } else {
-          self.$container.append( $nav.append( $links ) )
-          // Adjust center
-          $nav.css( 'margin-left', '-'+ $nav.outerWidth()/2 +'px' )
-        }
+      if ( o.navWrap ) {
+        $nav.append( $links )
+      } else {
+        self.$container.append( $nav.append( $links ) )
+        // Adjust center
+        $nav.css( 'margin-left', '-'+ $nav.outerWidth()/2 +'px' )
       }
 
     },
