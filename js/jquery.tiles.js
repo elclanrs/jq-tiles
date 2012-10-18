@@ -57,7 +57,7 @@
     this.interval = null
 
     // Assign in _init when elements are generated
-    this.$tiles = null
+    this.$wraps = null
     this.$navLinks = null
 
     if ( this.opts.rewind ) { this.opts.fade = true }
