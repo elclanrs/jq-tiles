@@ -14,7 +14,7 @@
       auto: false,
       loop: true,
       slideSpeed: 3500,
-      tileSpeed: 1000,
+      tileSpeed: 800,
       cssSpeed: 300,
       nav: true,
       navWrap: null,
