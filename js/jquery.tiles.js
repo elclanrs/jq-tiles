@@ -17,6 +17,7 @@
       tileSpeed: 800,
       cssSpeed: 300,
       nav: true,
+      bullets: true,
       navWrap: null,
       thumbs: true,
       thumbSize: 25,
@@ -62,10 +63,6 @@
     this.isAnimating = null
 
     // Assign in _init when elements are generated
-<<<<<<< HEAD
-    this.$wraps = null
-=======
->>>>>>> gh-pages
     this.$navLinks = null
     this.$descriptions = null
 
@@ -99,7 +96,7 @@
 
       if ( o.nav ) {
         self._addNav()
-        self.$navLinks = self.$container.find('.tiles-nav a')
+        self.$navLinks = self.$container.find('.tiles-nav-item')
       }
 
       self._setupDescriptions()
@@ -126,7 +123,8 @@
 
       for ( var i = 1; i < self.$wraps.length + 1; i++ ) {
         thumb = '<span><img src="'+ self.$images.eq( i-1 ).attr('src') +'"/></span>'
-        links.push('<a href="#">'+ i + ( o.thumbs ? thumb : '' ) + '</a>')
+        links.push('<a href="#" class="tiles-nav-item '+ ( o.bullets ? 'tiles-bullet' : 'tiles-pagination' ) +'">'+
+          ( !o.bullets ? i : '') + ( o.thumbs ? thumb : '' ) + '</a>')
       }
 
       $links = $( links.join('') )
@@ -134,7 +132,7 @@
       // Events
       $links.click(function(e) {
         var $this = $(this)
-          , idx = +$this.text() - 1
+          , idx = $links.index( $this )
         self._updateNav()
         self._navigate( idx, $.noop )
         e.preventDefault()
