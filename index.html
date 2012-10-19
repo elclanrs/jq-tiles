@@ -14,7 +14,7 @@
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="http://necolas.github.com/normalize.css/2.0.1/normalize.css"/>
     <link rel="stylesheet" href="css/jquery.tiles.min.css"/>
-    <link rel="stylesheet" href="css/styles.css"/>
+    <link rel="stylesheet" href="css/styles.css" media="screen"/>
   </head>
   <body>
 
@@ -140,9 +140,9 @@
       // Init
       $('.slider').tilesSlider(effects['default']);
 
-      $('#next').click(function(){ $('.slider').tilesSlider('next'); });
-      $('#prev').click(function(){ $('.slider').tilesSlider('prev'); });
-      $('#next, #prev').click(function(e){ e.preventDefault(); });
+      $('section').on('click', '#next', function(){ $('.slider').tilesSlider('next'); });
+      $('section').on('click', '#prev', function(){ $('.slider').tilesSlider('prev'); });
+      $('section').on('click', '#next, #prev', function(e){ e.preventDefault(); });
 
     </script>
 
