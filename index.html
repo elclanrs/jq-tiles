@@ -140,9 +140,9 @@
       // Init
       $('.slider').tilesSlider(effects['default']);
 
-      $('#next').click(function(){ $('.slider').tilesSlider('next'); });
-      $('#prev').click(function(){ $('.slider').tilesSlider('prev'); });
-      $('#next, #prev').click(function(e){ e.preventDefault(); });
+      $('section').on('click', '#next', function(){ $('.slider').tilesSlider('next'); });
+      $('section').on('click', '#prev', function(){ $('.slider').tilesSlider('prev'); });
+      $('section').on('click', '#next, #prev', function(e){ e.preventDefault(); });
 
     </script>
 
