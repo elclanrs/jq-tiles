@@ -152,7 +152,7 @@ button.action.stop { display: none; }
   position: absolute;
   z-index: 1;
   top: 100%;
-  margin-top: 1em;
+  margin-top: .9em;
   color: #222;
   text-decoration: none;
 }
