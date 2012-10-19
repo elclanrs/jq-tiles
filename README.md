@@ -62,7 +62,7 @@ $('.slider').tilesSlider('prev', callback)
 **HTML:**
 ```html
 <div class="slider">
-  <img src="img1.jpg"/><p></p> <!-- Empty paragraph if no description -->
+  <img src="img1.jpg"/> <!-- No description -->
   <img src="img2.jpg"/><p>Description image two</p>
   <img src="img3.jpg"/><p>Description image three</p>
 </div>
