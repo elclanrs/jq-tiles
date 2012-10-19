@@ -167,6 +167,11 @@
     },
 
     _setupDescriptions: function() {
+      // Add empty description if it doesn't exist
+      // so we don't mess with the index
+      this.$images.each(function() {
+        if ( !$(this).next('p').length ) { $(this).after('<p/>') }
+      })
       this.$container.find('p').each(function() {
         $(this).wrapAll('<div class="tiles-description '+
           ( $(this).is(':empty') && 'tiles-description-empty' ) +'"/>')
