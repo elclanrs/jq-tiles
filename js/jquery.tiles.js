@@ -54,7 +54,6 @@
 
     this.$container = $( element )
     this.$images = this.$container.find('img')
-    this.$descriptions = this.$container.find('p')
 
     this.imgWidth = this.$container.width()
     this.imgHeight = this.$container.height()
@@ -63,8 +62,12 @@
     this.isAnimating = null
 
     // Assign in _init when elements are generated
+<<<<<<< HEAD
     this.$wraps = null
+=======
+>>>>>>> gh-pages
     this.$navLinks = null
+    this.$descriptions = null
 
     if ( this.opts.rewind ) { this.opts.fade = true }
 
@@ -96,10 +99,12 @@
 
       if ( o.nav ) {
         self._addNav()
-        self.$navLinks = $('.tiles-nav a')
+        self.$navLinks = self.$container.find('.tiles-nav a')
       }
 
       self._setupDescriptions()
+      self.$descriptions = self.$container.find('.tiles-description')
+      self._showOrHideDescription()
 
       // Prevent css3 transitions on load
       $('body').addClass('tiles-preload')
@@ -164,8 +169,9 @@
     },
 
     _setupDescriptions: function() {
-      this.$descriptions.addClass('tiles-description')
-        .first().addClass('tiles-description-active')
+      this.$container.find('p').each(function() {
+        $(this).wrapAll('<div class="tiles-description"/>')
+      })
     },
 
     _showOrHideDescription: function( toggle ) {
