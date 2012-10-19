@@ -215,7 +215,7 @@
         var theTile = $tiles.eq( tile )
           , theDelay = i * delay
 
-        self.timeout = setTimeout(function() { theTile.addClass( self.klassAnim ) }, theDelay )
+        setTimeout(function() { theTile.addClass( self.klassAnim ) }, theDelay )
 
         if ( o.rewind ) {
           theDelay += o.cssSpeed / ( 100/o.rewind )
