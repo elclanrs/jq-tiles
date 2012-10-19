@@ -125,7 +125,7 @@ button.action:active {
   background: #222;
   top: 6px;
 }
-.active button.action.start {
+.active button.action.stop {
   background: #258dc8;
   background: -moz-linear-gradient(top, #258dc8 0%, #258dc8 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#258dc8), color-stop(100%,#258dc8));
@@ -140,6 +140,7 @@ button.action:active {
 }
 button.action.stop { display: none; }
 .slider {
+  position: relative;
   width: 600px;
   height: 400px;
   margin-bottom: 35px;
@@ -147,3 +148,16 @@ button.action.stop { display: none; }
 .slider strong {
   color: #F2CF05;
 }
+.slider-nav {
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  margin-top: 1em;
+  color: #222;
+  text-decoration: none;
+}
+.slider-nav:hover {
+  text-decoration: none;
+  color: #088BBF;
+}
+#next { right: 0; }

@@ -67,6 +67,8 @@
         <img src="img/drop.jpg"/><p><strong>Drumstick:</strong> tail ham hock short ribs andouille.</p>
         <img src="img/fruit.jpg"/><p><strong>Shank tail:</strong> fatback pork belly ham hock.</p>
         <img src="img/girl.jpg"/><p><strong>Prosciutto:</strong> turkey ball tip, turducken strip steak.</p>
+        <a href="#" id="next" class="slider-nav">Next &raquo;</a>
+        <a href="#" id="prev" class="slider-nav">&laquo; Prev</a>
       </div>
       </article>
       </section>
@@ -121,22 +123,26 @@
 
       // Start
       $('section').on('click', '.start', function(){
-        $('.stop').delay(150).fadeIn(250);
-        $('.start').text('Next');
+        $('.stop').show();
+        $('.start').hide();
         $('article').addClass('active');
         $('.slider').tilesSlider('start');
       });
 
       // Stop
       $('section').on('click', '.stop', function(){
-        $('.start').text('Start');
+        $('.start').show();
         $('article').removeClass('active');
         $('.slider').tilesSlider('stop');
-        $('.stop').delay(150).fadeOut(250);
+        $('.stop').hide();
       });
 
       // Init
       $('.slider').tilesSlider(effects['default']);
+
+      $('#next').click(function(){ $('.slider').tilesSlider('next'); });
+      $('#prev').click(function(){ $('.slider').tilesSlider('prev'); });
+      $('#next, #prev').click(function(e){ e.preventDefault(); });
 
     </script>
 

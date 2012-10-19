@@ -55,6 +55,7 @@
     this.$descriptions = this.$container.find('p')
 
     this.interval = null
+    this.isAnimating = null
 
     // Assign in _init when elements are generated
     this.$wraps = null
@@ -199,6 +200,8 @@
         , done = self.n_tiles > 1 ? o.tileSpeed + o.cssSpeed : o.cssSpeed
         , $tiles = $wrap.find('.tiles-tile')
 
+      self.isAnimating = true
+
       if ( o.reverse ) { range = range.reverse() }
 
       if ( o.limit ) {
@@ -212,7 +215,7 @@
         var theTile = $tiles.eq( tile )
           , theDelay = i * delay
 
-        setTimeout(function() { theTile.addClass( self.klassAnim ) }, theDelay )
+        self.timeout = setTimeout(function() { theTile.addClass( self.klassAnim ) }, theDelay )
 
         if ( o.rewind ) {
           theDelay += o.cssSpeed / ( 100/o.rewind )
@@ -222,7 +225,10 @@
       })
 
       // Callback
-      setTimeout( callback, done )
+      setTimeout(function() {
+        self.isAnimating = false
+        callback()
+      }, done )
 
     },
 
@@ -245,7 +251,7 @@
         , $cur = self._getCurrentWrap()
         , $target = self.$wraps.eq( idx )
 
-      if ( idx === self._getCurrentIdx() ) {
+      if ( idx === self._getCurrentIdx() || self.isAnimating ) {
         return false
       }
 
