@@ -27,6 +27,7 @@ Slideshow with images split in tiles and css3 transitions.
   cssSpeed     : 300, // css3 transition speed [100,200,300,400,500,600,700,800,900,1000],
   nav          : true, // Add navigation
   navWrap      : null, // Add the navigation to an existing element
+  bullets      : true, // Show bullets, if false the show pagination with numbers
   thumbs       : true, // Show thumbnails when hovering nav
   thumbSize    : 25, // Thumbnail size (percentage of the original image)
   beforeChange : function() {}, // Runs before changing the image
