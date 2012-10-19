@@ -69,7 +69,9 @@
   top: 100%;
   left: 50%;
   margin-top: 1em;
-  a { 
+  /* Pagination */
+  a {
+    position: relative;
     text-decoration: none;
     color: #222;
     padding: .1em .5em;
@@ -80,9 +82,45 @@
       text-decoration: none; 
       color: #088BBF;
     }
+    &:not(.tiles-nav-active):hover span {
+      visibility: visible;
+      opacity: 1;
+    }
+    &:focus { outline: none; } // FF
     &.tiles-nav-active {
       background: #088BBF;
       color: #fff;
+      cursor: default;
+    }
+  }
+  /* Thumbnails */
+  span {
+    position: absolute;
+    z-index: 1;
+    visibility: hidden;
+    opacity: 0;
+    padding: .4em;
+    margin-top: -1em;
+    background: rgba(255,255,255,.85);
+    box-shadow: 0 0 5px rgba(0,0,0,.3);
+    border-radius: 2px;
+    border-top: 1px solid white;
+    .transition(all .3s ease-in-out);
+    -webkit-backface-visibility: hidden; // Fix resizing bug Webkit
+    &:after, &:before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -10px;
+      border-style: solid;
+      border-width: 10px;
+      border-color: transparent;
+      border-top-color: rgba(255,255,255,.85);
+    }
+    &:before {
+      margin-top: 1px;
+      border-top-color: rgba(0,0,0,.85);
     }
   }
 }

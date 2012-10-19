@@ -18,6 +18,8 @@
       cssSpeed: 300,
       nav: true,
       navWrap: null,
+      thumbs: true,
+      thumbSize: 25,
       beforeChange: $.noop,
       afterChange: $.noop
     }
@@ -53,6 +55,9 @@
     this.$container = $( element )
     this.$images = this.$container.find('img')
     this.$descriptions = this.$container.find('p')
+
+    this.imgWidth = this.$container.width()
+    this.imgHeight = this.$container.height()
 
     this.interval = null
     this.isAnimating = null
@@ -110,10 +115,13 @@
         , o = self.opts
         // double-wrap in case a string is passed
         , $nav = $( o.navWrap || '<div/>' ).addClass('tiles-nav')
-        , links = [], $links
+        , links = [], $links, thumb
+        , thumbHeight = self.imgHeight * o.thumbSize / 100
+        , thumbWidth = self.imgWidth * o.thumbSize / 100
 
       for ( var i = 1; i < self.$wraps.length + 1; i++ ) {
-        links.push('<a href="#">'+ i +'</a>')
+        thumb = '<span><img src="'+ self.$images.eq( i-1 ).attr('src') +'"/></span>'
+        links.push('<a href="#">'+ i + ( o.thumbs ? thumb : '' ) + '</a>')
       }
 
       $links = $( links.join('') )
@@ -136,6 +144,16 @@
         // Adjust center
         $nav.css( 'margin-left', '-'+ $nav.outerWidth()/2 +'px' )
       }
+
+      // Adjust thumbnails when already in DOM
+      $links.find('img').height( thumbHeight ).width( thumbWidth )
+      $links.find('span').each(function(){
+        var $this = $(this)
+        $this.css({
+          top: -$this.outerHeight() - $nav.outerHeight(),
+          left: -( $this.outerWidth() - $this.parent().outerWidth() ) / 2
+        })
+      })
 
     },
 
@@ -172,8 +190,8 @@
         .filter(':even').addClass('tiles-even')
 
       $tiles.css({
-        width: self.$container.width() / o.x,
-        height: self.$container.height() / o.y,
+        width: self.imgWidth / o.x,
+        height: self.imgHeight / o.y,
         backgroundImage: 'url('+ $img.attr('src') +')'
       })
 
