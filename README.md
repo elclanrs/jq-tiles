@@ -26,7 +26,9 @@ Slideshow with images split in tiles and css3 transitions.
   tileSpeed    : 800, // time to clear all tiles
   cssSpeed     : 300, // css3 transition speed [100,200,300,400,500,600,700,800,900,1000],
   nav          : true, // Add navigation
-  navWrap      : null // Add the navigation to an existing element
+  navWrap      : null, // Add the navigation to an existing element
+  thumbs       : true, // Show thumbnails when hovering nav
+  thumbSize    : 25, // Thumbnail size (percentage of the original image)
   beforeChange : function() {}, // Runs before changing the image
   afterChange  : function() {} // Runs after the tiles have cleared
 }
