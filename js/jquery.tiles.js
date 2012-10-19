@@ -174,7 +174,7 @@
       })
       this.$container.find('p').each(function() {
         $(this).wrapAll('<div class="tiles-description '+
-          ( $(this).is(':empty') && 'tiles-description-empty' ) +'"/>')
+          ( $(this).is(':empty') ? 'tiles-description-empty' : '' ) +'"/>')
       })
     },
 
