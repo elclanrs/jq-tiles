@@ -13,10 +13,10 @@ a {
 }
 a:hover { text-decoration: underline }
 img { display: block; }
-header { margin: 50px 0 30px 0; }
+header { margin: 30px 0 15px 0; }
 .effects {
   float: right;
-  margin-top: 20px;
+  margin-top: 15px;
   font-family: Arial;
 }
 #effects_select {
@@ -29,6 +29,8 @@ header { margin: 50px 0 30px 0; }
 label { font-weight: bold; padding-right: .5em; }
 h1, h3 { display: inline-block; }
 h1 {
+  position: relative;
+  top: 5px;
   font-size: 42px;
   font-weight: normal;
   letter-spacing: -1px;
@@ -76,9 +78,10 @@ article.active {
   0 0 40px rgba(0,0,0,.3);
 }
 #down {
+  display: inline-block;
   position: relative;
   left: 20px;
-  top: -6px;
+  top: -12px;
 }
 #github {
   position: relative;
