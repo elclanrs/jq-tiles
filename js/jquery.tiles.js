@@ -9,6 +9,7 @@
       fade: false,
       random: false,
       reverse: false,
+      prevReverse: false,
       limit: false,
       rewind: false,
       auto: false,
@@ -115,7 +116,7 @@
 
       var self = this
         , o = self.opts
-        // double-wrap in case a string is passed
+          // double-wrap in case a string is passed
         , $nav = $( o.navWrap || '<div/>' ).addClass('tiles-nav')
         , links = [], $links, thumb
         , thumbHeight = self.imgHeight * o.thumbSize / 100
@@ -277,8 +278,9 @@
         , o = self.opts
         , $cur = self._getCurrentWrap()
         , $target = self.$wraps.eq( idx )
+        , curIdx = self._getCurrentIdx()
 
-      if ( idx === self._getCurrentIdx() || self.isAnimating ) {
+      if ( idx === curIdx || self.isAnimating ) {
         return false
       }
 
@@ -291,6 +293,10 @@
 
       if ( o.rewind ) {
         $cur.fadeIn(1).delay( o.tileSpeed/2 ).fadeOut( o.tileSpeed )
+      }
+
+      if ( o.prevReverse ) {
+        o.reverse = idx < curIdx
       }
 
       self._animateTiles( $cur, function() {
