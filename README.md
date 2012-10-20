@@ -2,7 +2,7 @@
 
 Slideshow with images split in tiles and css3 transitions.
 
-**Demo:** http://elclanrs.github.com/jq-tiles/ (Use Google Chrome to view demo with the smoothest transitions)  
+**Demo:** http://elclanrs.github.com/jq-tiles/ (Use Google Chrome for best experience)  
 **Support:** Webkit, Firefox, Opera, IE10, IE9-8*  
 **License:** [MIT](http://en.wikipedia.org/wiki/MIT_License)  
 \* _In browsers that don't support css3 transitions classes won't be animated but some effects will still work, just a bit choppy._  
