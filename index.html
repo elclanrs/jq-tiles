@@ -10,7 +10,6 @@
     <![endif]-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="js/jquery.tiles.js"></script>
-    <link href='http://fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="http://necolas.github.com/normalize.css/2.0.1/normalize.css"/>
     <link rel="stylesheet" href="css/jquery.tiles.min.css"/>
@@ -47,7 +46,7 @@
       </select>
       <label>Options:</label>
       <div class="code">
-        <code>x: 9</code>
+        <code>x: 6</code>
         <code>y: 4</code>
         <code>random: true</code>
       </div>
@@ -56,18 +55,17 @@
     </div>
     <div class="slider-wrap">
       <div class="slider">
+        <p><strong>Pig ham:</strong> hock pork loin brisket pastrami frankfurter andouille.</p>
         <img src="img/img01.jpg"/><p><strong>Sausage:</strong> ground round sirloin ball tip beef ribs.</p>
         <img src="img/img02.jpg"/><p><strong>Pig ham:</strong> hock pork loin brisket pastrami frankfurter andouille.</p>
-        <img src="img/img03.jpg"/><p><strong>Short loin:</strong> pig jowl fatback, pork loin pork chop.</p>
+        <img src="img/img03.jpg"/><p><strong>Pork turkey:</strong> shoulder, filet mignon chuck t-bone bacon.</p>
         <img src="img/img04.jpg"/><p><strong>Short loin:</strong> pig jowl fatback, pork loin pork chop.</p>
-        <img src="img/img05.jpg"/><p><strong>Short loin:</strong> pig jowl fatback, pork loin pork chop.</p>
-        <img src="img/img06.jpg"/><p><strong>Short loin:</strong> pig jowl fatback, pork loin pork chop.</p>
-        <img src="img/img07.jpg"/><p><strong>Short loin:</strong> pig jowl fatback, pork loin pork chop.</p>
+        <img src="img/img05.jpg"/><p><strong>Sausage:</strong> ground round sirloin ball tip beef ribs.</p>
+        <img src="img/img06.jpg"/><p><strong>Pig ham:</strong> hock pork loin brisket pastrami frankfurter andouille.</p>
+        <img src="img/img07.jpg"/><p><strong>Pork turkey:</strong> shoulder, filet mignon chuck t-bone bacon.</p>
         <img src="img/img08.jpg"/><p><strong>Short loin:</strong> pig jowl fatback, pork loin pork chop.</p>
-        <img src="img/img09.jpg"/><p><strong>Short loin:</strong> pig jowl fatback, pork loin pork chop.</p>
-        <img src="img/img10.jpg"/><p><strong>Short loin:</strong> pig jowl fatback, pork loin pork chop.</p>
-        <a href="#" id="next" class="slider-nav">Next &raquo;</a>
-        <a href="#" id="prev" class="slider-nav">&laquo; Prev</a>
+        <img src="img/img09.jpg"/><p><strong>Sausage:</strong> ground round sirloin ball tip beef ribs.</p>
+        <img src="img/img10.jpg"/><p><strong>Pig ham:</strong> hock pork loin brisket pastrami frankfurter andouille.</p>
       </div>
     </div>
     </section>
@@ -80,30 +78,41 @@
       var html = $slider.html();
 
       // Options
+
+      var defaults = { thumbSize: 20 };
+
       var effects = {
-        'default': { x:8, y:4, random: true },
-        simple: { x:8, y:4, effect: 'simple', random: true },
+        'default': { x:6, y:4, random: true },
+        simple: { x:6, y:4, effect: 'simple', random: true },
         left: { x:1, y:8, effect: 'left' },
         up: { x:20, y:1, effect: 'up', rewind: 60, backReverse: true },
         leftright: { x:1, y:8, effect: 'leftright' },
-        updown: { x:16, y:1, effect: 'updown', cssSpeed: 500, backReverse: true },
-        switchlr: { x:16, y:1, effect: 'switchlr', backReverse: true },
+        updown: { x:20, y:1, effect: 'updown', cssSpeed: 500, backReverse: true },
+        switchlr: { x:20, y:1, effect: 'switchlr', backReverse: true },
         switchud: { x:1, y:8, effect: 'switchud' },
-        fliplr: { x:16, y:1, effect: 'fliplr', backReverse: true },
-        flipud: { x:16, y:3, effect: 'flipud', reverse: true, rewind: 75 },
-        reduce: { x:8, y:4, effect: 'reduce' },
+        fliplr: { x:20, y:1, effect: 'fliplr', backReverse: true },
+        flipud: { x:20, y:3, effect: 'flipud', reverse: true, rewind: 75 },
+        reduce: { x:6, y:4, effect: 'reduce' },
         360: { x:1, y:1, effect: '360', fade: true, cssSpeed: 600 }
       };
 
       $('#effects-select').change(function() {
         var effect = $(this).val();
         $slider.fadeTo( 0,0 ).html( html );
+        $('.stop').hide();
+        $('.start').show();
         setTimeout(function() {
-          $('.slider').tilesSlider( effects[ effect ] );
+          $('.slider').tilesSlider( $.extend( {}, defaults, effects[ effect ] ) );
           $slider.fadeTo( 0,1 );
           $('body').removeClass('tiles-preload');
         }, 100 );
-
+        $('.code').empty().html(function() {
+          var e = effects[ effect ], c = [];
+          for ( var i in effects[ effect ] ) {
+            c.push('<code>'+ i +': '+ e[i] +'</code>');
+          }
+          return c.join('');
+        });
       });
 
       $('.start').click(function() {
@@ -118,11 +127,7 @@
         $('.slider').tilesSlider('stop')
       });
 
-      $('.slider').tilesSlider( effects['default'] );
-
-      $('.slider-wrap').on( 'click', '#next', function() { $('.slider').tilesSlider('next'); });
-      $('.slider-wrap').on( 'click', '#prev', function() { $('.slider').tilesSlider('prev'); });
-      $('.slider-wrap').on( 'click', '#prev, #next', function(e) { e.preventDefault() });
+      $('.slider').tilesSlider( $.extend( {}, defaults, effects['default'] ) );
 
     </script>
 

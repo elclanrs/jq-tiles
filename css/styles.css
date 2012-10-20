@@ -2,6 +2,7 @@ body {
   width: 960px;
   margin: 0 auto;
   background: url(../img/bg.png);
+  overflow-y: scroll;
 }
 header {
   margin-top: 40px;
@@ -14,7 +15,7 @@ h1 {
   display: inline-block;
   margin: 0;
 }
-#down { 
+#down {
   position: relative;
   top: -18px;
   margin: 0 1em;
@@ -29,13 +30,6 @@ h1 {
   width: 940px;
   height: 400px;
 }
-.slider-nav {
-  top: 100%;
-  margin-top: 1em;
-  position: absolute;
-  z-index: 1;
-}
-#next { right: 0; }
 .slider strong { color: #F0E10E; }
 article {
   position: relative;
@@ -52,6 +46,7 @@ article {
   padding: .4em;
   margin-right: 1em;
   font-size: 14px;
+  border: 1px solid #aaa;
 }
 label { margin-right: .5em; }
 code {
@@ -59,6 +54,7 @@ code {
   background: rgba(255,255,255,.75);
   font-size: 14px;
   margin: 0 .2em;
+  font-family: Ubuntu Mono, monospace;
 }
 .action {
   position: absolute;
@@ -78,3 +74,5 @@ code {
 footer {
   margin-top: 2em;
 }
+
+/*.tiles-nav span { padding: .3em; }*/
