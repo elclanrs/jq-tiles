@@ -81,3 +81,5 @@ code {
 footer {
   margin-top: 2em;
 }
+
+.tiles-nav span { padding: .3em; }

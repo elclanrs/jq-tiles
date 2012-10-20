@@ -80,6 +80,9 @@
       var html = $slider.html();
 
       // Options
+
+      var defaults = { thumbSize: 20 };
+
       var effects = {
         'default': { x:6, y:4, random: true },
         simple: { x:6, y:4, effect: 'simple', random: true },
@@ -99,7 +102,7 @@
         var effect = $(this).val();
         $slider.fadeTo( 0,0 ).html( html );
         setTimeout(function() {
-          $('.slider').tilesSlider( effects[ effect ] );
+          $('.slider').tilesSlider( $.extend( {}, defaults, effects[ effect ] ) );
           $slider.fadeTo( 0,1 );
           $('body').removeClass('tiles-preload');
         }, 100 );
@@ -124,7 +127,7 @@
         $('.slider').tilesSlider('stop')
       });
 
-      $('.slider').tilesSlider( effects['default'] );
+      $('.slider').tilesSlider( $.extend( {}, defaults, effects['default'] ) );
 
       $('.slider-wrap').on( 'click', '#next', function() { $('.slider').tilesSlider('next'); });
       $('.slider-wrap').on( 'click', '#prev', function() { $('.slider').tilesSlider('prev'); });
