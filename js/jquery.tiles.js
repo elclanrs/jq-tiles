@@ -9,7 +9,7 @@
       fade: false,
       random: false,
       reverse: false,
-      prevReverse: false,
+      backReverse: false,
       limit: false,
       rewind: false,
       auto: false,
@@ -295,7 +295,7 @@
         $cur.fadeIn(1).delay( o.tileSpeed/2 ).fadeOut( o.tileSpeed )
       }
 
-      if ( o.prevReverse ) {
+      if ( o.backReverse ) {
         o.reverse = idx < curIdx
       }
 
