@@ -78,9 +78,13 @@
   line-height: 50px;
   background: rgba(0,0,0,.65);
   color: white;
+  box-shadow: 1px 0 2px rgba(0,0,0,.3);
   .transition(all .3s ease-in-out);
 }
-.tiles-next { right: 0; }
+.tiles-next { 
+  right: 0; 
+  box-shadow: -1px 0 2px rgba(0,0,0,.3); 
+}
 .tiles-slider-wrap:hover .tiles-next,
 .tiles-slider-wrap:hover .tiles-prev { opacity: 1; }
 .tiles-nav:hover ~ .tiles-next,
