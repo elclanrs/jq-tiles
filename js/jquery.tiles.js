@@ -133,7 +133,6 @@
       $links.click(function(e) {
         var $this = $(this)
           , idx = $links.index( $this )
-        self._updateNav()
         self._navigate( idx, $.noop )
         e.preventDefault()
       })
