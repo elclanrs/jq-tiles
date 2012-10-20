@@ -22,7 +22,8 @@ module.exports = function(grunt) {
         files: {
           'zip/jquery.tiles.zip': [
             'css/jquery.tiles.min.css',
-            'js/min/jquery.tiles.min.js'
+            'js/min/jquery.tiles.min.js',
+            'img/prev_next.png'
           ]
         }
       },
