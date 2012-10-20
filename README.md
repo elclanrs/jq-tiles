@@ -1,6 +1,6 @@
 #jq-tiles
 
-Slideshow with images split in tiles and css3 transitions.
+Slideshow with many cool css3 effects.
 
 **Demo:** http://elclanrs.github.com/jq-tiles/ (Use Google Chrome for best experience)  
 **Support:** Webkit, Firefox, Opera, IE10, IE9-8*  
