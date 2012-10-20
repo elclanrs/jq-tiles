@@ -101,6 +101,8 @@
       $('#effects-select').change(function() {
         var effect = $(this).val();
         $slider.fadeTo( 0,0 ).html( html );
+        $('.stop').hide();
+        $('.start').show();
         setTimeout(function() {
           $('.slider').tilesSlider( $.extend( {}, defaults, effects[ effect ] ) );
           $slider.fadeTo( 0,1 );
