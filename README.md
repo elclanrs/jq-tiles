@@ -19,6 +19,7 @@ Slideshow with images split in tiles and css3 transitions.
   fade         : false, // fade images in addition to the tiles effect
   random       : false, // animate tiles in random order
   reverse      : false, // start animation from opposite direction
+  prevReverse  : false, // reverse the animation based on the image index
   rewind       : false, // reverse animation at a certain percentage in time
   auto         : false, // Start the slideshow on load
   loop         : true, // Loop the images when the slideshow is running
