@@ -64,7 +64,9 @@
   .transition(all .3s ease-in-out);
 }
 
-/* Navigation */
+/*-----------------------------------------------
+ * Navigation:
+ ----------------------------------------------*/
 
 /* Prev/Next */
 .tiles-next, .tiles-prev {
@@ -72,18 +74,19 @@
   position: absolute;
   z-index: 1;
   top: 50%;
-  margin-top: -25px;
-  padding: 0 1.5em;
-  height: 50px;
+  margin: 0 .5em;
+  margin-top: -24px;
+  text-indent: -9999px;
+  width: 48px;
+  height: 48px;
   line-height: 50px;
-  background: rgba(0,0,0,.65);
+  background: url(../img/prev_next.png) left no-repeat;
   color: white;
-  box-shadow: 1px 0 2px rgba(0,0,0,.3);
   .transition(all .3s ease-in-out);
 }
 .tiles-next { 
-  right: 0; 
-  box-shadow: -1px 0 2px rgba(0,0,0,.3); 
+  right: 0;
+  background-position: right;
 }
 .tiles-slider-wrap:hover .tiles-next,
 .tiles-slider-wrap:hover .tiles-prev { opacity: 1; }
@@ -106,7 +109,6 @@
     }
     .transition(all .3s ease-in-out);
   }
-
   /* Pagination */
   .tiles-pagination {
     text-decoration: none;
