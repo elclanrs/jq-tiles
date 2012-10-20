@@ -40,6 +40,7 @@
   -moz-box-sizing:border-box;
   -webkit-box-sizing:border-box;
 }
+.tiles-slider-wrap a:focus { outline: none; } // FF
 .tiles-slider-wrap,
 .tiles-tile { position: relative; }
 .tiles-wrap {
@@ -93,7 +94,6 @@
   margin-top: 1em;
   .tiles-nav-item {
     position: relative;
-    &:focus { outline: none; } // FF
     &.tiles-nav-active { cursor: default; }
     &:not(.tiles-nav-active):hover span {
       visibility: visible;
