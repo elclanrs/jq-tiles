@@ -59,6 +59,7 @@ code {
   background: rgba(255,255,255,.75);
   font-size: 14px;
   margin: 0 .2em;
+  font-family: Ubuntu Mono, monospace;
 }
 .action {
   position: absolute;
