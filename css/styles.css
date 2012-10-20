@@ -15,7 +15,7 @@ h1 {
   display: inline-block;
   margin: 0;
 }
-#down { 
+#down {
   position: relative;
   top: -18px;
   margin: 0 1em;
@@ -53,6 +53,7 @@ article {
   padding: .4em;
   margin-right: 1em;
   font-size: 14px;
+  border: 1px solid #aaa;
 }
 label { margin-right: .5em; }
 code {
