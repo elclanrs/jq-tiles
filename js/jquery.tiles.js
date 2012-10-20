@@ -119,6 +119,8 @@
           // double-wrap in case a string is passed
         , $nav = $( o.navWrap || '<div/>' ).addClass('tiles-nav')
         , links = [], $links, thumb
+        , $next = $('<a href="#" class="tiles-next">Next &raquo;</a>')
+        , $prev = $('<a href="#" class="tiles-prev">&laquo; Prev</a>')
         , thumbHeight = self.imgHeight * o.thumbSize / 100
         , thumbWidth = self.imgWidth * o.thumbSize / 100
 
@@ -131,22 +133,30 @@
       $links = $( links.join('') )
 
       // Events
-      $links.click(function(e) {
+      $links.click(function() {
         var $this = $(this)
           , idx = $links.index( $this )
         self._navigate( idx, $.noop )
-        e.preventDefault()
       })
       $links.first().addClass('tiles-nav-active') // init
 
+      $next.click(function() { self.next() })
+      $prev.click(function() { self.prev() })
+
+      $links.add( $next ).add( $prev )
+        .click(function(e) { e.preventDefault() })
+
       // Insert in DOM
+
       if ( o.navWrap ) {
         $nav.append( $links )
       } else {
         self.$container.append( $nav.append( $links ) )
         // Adjust center
         $nav.css( 'margin-left', '-'+ $nav.outerWidth()/2 +'px' )
-      }
+      }      
+      
+      self.$container.append( $prev, $next )
 
       // Adjust thumbnails when already in DOM
       $links.find('img').height( thumbHeight ).width( thumbWidth )

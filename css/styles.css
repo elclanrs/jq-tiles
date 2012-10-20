@@ -30,13 +30,6 @@ h1 {
   width: 940px;
   height: 400px;
 }
-.slider-nav {
-  top: 100%;
-  margin-top: 1em;
-  position: absolute;
-  z-index: 1;
-}
-#next { right: 0; }
 .slider strong { color: #F0E10E; }
 article {
   position: relative;
@@ -82,4 +75,4 @@ footer {
   margin-top: 2em;
 }
 
-.tiles-nav span { padding: .3em; }
+/*.tiles-nav span { padding: .3em; }*/
