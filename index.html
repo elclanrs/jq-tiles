@@ -24,125 +24,105 @@
     <h1><img src="img/logo.png" alt="jq-tiles" /></h1>
     <a href="https://github.com/elclanrs/jq-tiles/raw/master/zip/jquery.tiles.zip" id="down">Download</a>
     <div class="effects">
-    <label>Effect:</label>
-    <select id="effects_select">
-      <option value="default">default</option>
-      <option value="simple">simple</option>
-      <option value="left">left</option>
-      <option value="up">up</option>
-      <option value="leftright">leftright</option>
-      <option value="updown">updown</option>
-      <option value="switchlr">switchlr</option>
-      <option value="switchud">switchud</option>
-      <option value="fliplr">fliplr</option>
-      <option value="flipud">flipud</option>
-      <option value="reduce">reduce</option>
-      <option value="360">360</option>
-    </select>
-  </div>
+    </div>
     </header>
 
     <section>
-      <article id="default">
-      <div class="title">
-        <h3>&raquo; default</h3>
-        <div class="code">
-          <code>x:6</code>
-          <code>y:4</code>
-          <code>random:true</code>
-        </div>
-        <button type="button" class="start action">Start</button>
-        <button type="button" class="stop action">Stop</button>
+    <div class="title">
+      <!--<h3>&raquo; default</h3>-->
+      <label>Effect:</label>
+      <select id="effects-select">
+        <option value="default">default</option>
+        <option value="simple">simple</option>
+        <option value="left">left</option>
+        <option value="up">up</option>
+        <option value="leftright">leftright</option>
+        <option value="updown">updown</option>
+        <option value="switchlr">switchlr</option>
+        <option value="switchud">switchud</option>
+        <option value="fliplr">fliplr</option>
+        <option value="flipud">flipud</option>
+        <option value="reduce">reduce</option>
+        <option value="360">360</option>
+      </select>
+      <label>Options:</label>
+      <div class="code">
+        <code>x: 9</code>
+        <code>y: 4</code>
+        <code>random: true</code>
       </div>
+      <button type="button" class="start action">Play</button>
+      <button type="button" class="stop action">Stop</button>
+    </div>
+    <div class="slider-wrap">
       <div class="slider">
-        <img src="img/bridge.jpg"/><p><strong>Sausage:</strong> ground round sirloin ball tip beef ribs.</p>
-        <img src="img/tiger.jpg"/><p><strong>Pig ham:</strong> hock pork loin brisket pastrami frankfurter andouille.</p>
-        <img src="img/city.jpg"/><p><strong>Short loin:</strong> pig jowl fatback, pork loin pork chop.</p>
-        <img src="img/club.jpg"/><p><strong>Filet mignon:</strong> capicola meatloaf, frankfurter.</p>
-        <img src="img/snake.jpg"/><p><strong>Short loin:</strong> fatback pancetta cow meatball brisket.</p>
-        <img src="img/mountain.jpg"/><p><strong>Boudin rump:</strong> ham, pork chop beef ribs meatloaf.</p>
-        <img src="img/boat.jpg"/><p><strong>Bresaola turkey:</strong> pastrami t-bone fatback.</p>
-        <img src="img/bike.jpg"/><p><strong>Kielbasa flank:</strong> turkey ground round meatloaf chicken.</p>
-        <img src="img/dust.jpg"/><p><strong>Venison:</strong> flank sausage, chicken sirloin strip steak.</p>
-        <img src="img/drop.jpg"/><p><strong>Drumstick:</strong> tail ham hock short ribs andouille.</p>
-        <img src="img/fruit.jpg"/><p><strong>Shank tail:</strong> fatback pork belly ham hock.</p>
-        <img src="img/girl.jpg"/><p><strong>Prosciutto:</strong> turkey ball tip, turducken strip steak.</p>
+        <img src="img/img01.jpg"/><p><strong>Sausage:</strong> ground round sirloin ball tip beef ribs.</p>
+        <img src="img/img02.jpg"/><p><strong>Pig ham:</strong> hock pork loin brisket pastrami frankfurter andouille.</p>
+        <img src="img/img03.jpg"/><p><strong>Short loin:</strong> pig jowl fatback, pork loin pork chop.</p>
+        <img src="img/img04.jpg"/><p><strong>Short loin:</strong> pig jowl fatback, pork loin pork chop.</p>
+        <img src="img/img05.jpg"/><p><strong>Short loin:</strong> pig jowl fatback, pork loin pork chop.</p>
+        <img src="img/img06.jpg"/><p><strong>Short loin:</strong> pig jowl fatback, pork loin pork chop.</p>
+        <img src="img/img07.jpg"/><p><strong>Short loin:</strong> pig jowl fatback, pork loin pork chop.</p>
+        <img src="img/img08.jpg"/><p><strong>Short loin:</strong> pig jowl fatback, pork loin pork chop.</p>
+        <img src="img/img09.jpg"/><p><strong>Short loin:</strong> pig jowl fatback, pork loin pork chop.</p>
+        <img src="img/img10.jpg"/><p><strong>Short loin:</strong> pig jowl fatback, pork loin pork chop.</p>
         <a href="#" id="next" class="slider-nav">Next &raquo;</a>
         <a href="#" id="prev" class="slider-nav">&laquo; Prev</a>
       </div>
-      </article>
-      </section>
+    </div>
+    </section>
 
-    <a id="github" href="https://github.com/elclanrs/jq-tiles">&laquo; Back to Github</a>
+    <footer><a id="github" href="https://github.com/elclanrs/jq-tiles">&laquo; Back to Github</a></footer>
 
     <script>
 
-
-      var html = $('section').html();
+      var $slider = $('.slider-wrap');
+      var html = $slider.html();
 
       // Options
       var effects = {
-        'default': { x:6, y:4, random: true },
-        simple: { x:6, y:4, effect: 'simple', random: true },
+        'default': { x:8, y:4, random: true },
+        simple: { x:8, y:4, effect: 'simple', random: true },
         left: { x:1, y:8, effect: 'left' },
         up: { x:20, y:1, effect: 'up', rewind: 60, backReverse: true },
         leftright: { x:1, y:8, effect: 'leftright' },
-        updown: { x:12, y:1, effect: 'updown', cssSpeed: 500, backReverse: true },
-        switchlr: { x:12, y:1, effect: 'switchlr', backReverse: true },
+        updown: { x:16, y:1, effect: 'updown', cssSpeed: 500, backReverse: true },
+        switchlr: { x:16, y:1, effect: 'switchlr', backReverse: true },
         switchud: { x:1, y:8, effect: 'switchud' },
-        fliplr: { x:12, y:1, effect: 'fliplr', backReverse: true },
-        flipud: { x:12, y:4, effect: 'flipud', reverse: true, rewind: 75 },
-        reduce: { x:6, y:4, effect: 'reduce' },
+        fliplr: { x:16, y:1, effect: 'fliplr', backReverse: true },
+        flipud: { x:16, y:3, effect: 'flipud', reverse: true, rewind: 75 },
+        reduce: { x:8, y:4, effect: 'reduce' },
         360: { x:1, y:1, effect: '360', fade: true, cssSpeed: 600 }
       };
 
-      // Change
-      $('#effects_select').change(function(){
-        timer = false;
-        $('.slider').tilesSlider('stop');
+      $('#effects-select').change(function() {
         var effect = $(this).val();
-        $('section').fadeTo(0,0).empty().html(html);
-        setTimeout(function(){
-          $('section').fadeTo(0,1);
-          $('.slider').tilesSlider(effects[effect]);
-          $('article')
-            .find('h3').html('&raquo; '+ effect).end()
-            .find('.code').html(function(){
-              var code = [];
-              var ops = effects[effect];
-              for (var o in ops) {
-                if (!/^(auto|effect)/.test(o)) {
-                  code.push('<code>'+ o +':'+ ops[o] +'</code>');
-                }
-              }
-              return code.join('');
-            });
+        $slider.fadeTo( 0,0 ).html( html );
+        setTimeout(function() {
+          $('.slider').tilesSlider( effects[ effect ] );
+          $slider.fadeTo( 0,1 );
           $('body').removeClass('tiles-preload');
-        }, 100);
+        }, 100 );
+
       });
 
-      // Start
-      $('section').on('click', '.start', function(){
+      $('.start').click(function() {
+        $(this).hide();
         $('.stop').show();
-        $('.start').hide();
-        $('article').addClass('active');
-        $('.slider').tilesSlider('start');
+        $('.slider').tilesSlider('start')
       });
 
-      // Stop
-      $('section').on('click', '.stop', function(){
-        $('.start').show();
-        $('article').removeClass('active');
-        $('.slider').tilesSlider('stop');
-        $('.stop').hide();
+      $('.stop').click(function() {
+        $(this).hide();
+        $('.start').show()
+        $('.slider').tilesSlider('stop')
       });
 
-      // Init
-      $('.slider').tilesSlider(effects['default']);
+      $('.slider').tilesSlider( effects['default'] );
 
-      $('section').on('click', '#next', function(){ $('.slider').tilesSlider('next'); });
-      $('section').on('click', '#prev', function(){ $('.slider').tilesSlider('prev'); });
-      $('section').on('click', '#next, #prev', function(e){ e.preventDefault(); });
+      $('.slider-wrap').on( 'click', '#next', function() { $('.slider').tilesSlider('next'); });
+      $('.slider-wrap').on( 'click', '#prev', function() { $('.slider').tilesSlider('prev'); });
+      $('.slider-wrap').on( 'click', '#prev, #next', function(e) { e.preventDefault() });
 
     </script>
 
