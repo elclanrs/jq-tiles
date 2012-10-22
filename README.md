@@ -22,7 +22,7 @@ Slideshow with many cool css3 effects.
   backReverse    : false, // reverse the animation when going back in the slideshow (useful for some effects)
   rewind         : false, // reverse animation at a certain percentage in time
   auto           : false, // Start the slideshow on load
-  loop           : true, // Loop the images when the slideshow is running
+  loop           : false, // Start slideshow again when it finishes
   slideSpeed     : 3500, // time between slides
   tileSpeed      : 800, // time to clear all tiles
   cssSpeed       : 300, // css3 transition speed [100,200,300,400,500,600,700,800,900,1000],
