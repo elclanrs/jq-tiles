@@ -34,7 +34,7 @@ Slideshow with many cool css3 effects.
   timer          : true // show or hide the timer bar
   beforeChange   : function() {}, // Runs before changing the image
   afterChange    : function() {} // Runs after the tiles have cleared
-  onSlideshoWEnd : function() {} // Runs when the slideshow finishes ( "loop" must be set to false )
+  onSlideshowEnd : function() {} // Runs when the slideshow finishes ( "loop" must be set to false )
 }
 ```
 
