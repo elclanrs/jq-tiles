@@ -382,7 +382,7 @@
       var self = this
         , o = self.opts
         , totalSpeed = o.slideSpeed + o.tileSpeed + o.cssSpeed
-        , endLoop = totalSpeed * ( self.$wraps.length - self._getCurrentIdx() - 1 )
+        , endLoop = totalSpeed * ( self.$wraps.length - self._getCurrentIdx() )
 
       this.slideshow = true
       self.timeout = setTimeout(function(){ self.next() }, o.slideSpeed )
