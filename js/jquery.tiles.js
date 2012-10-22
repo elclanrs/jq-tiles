@@ -13,7 +13,7 @@
       limit: false,
       rewind: false,
       auto: false,
-      loop: true,
+      loop: false,
       slideSpeed: 3500,
       tileSpeed: 800,
       cssSpeed: 300,
@@ -25,7 +25,7 @@
       timer: true,
       beforeChange: $.noop,
       afterChange: $.noop,
-      onLoopEnd: $.noop
+      onSlideshowEnd: $.noop
     }
     , Utils = {
      /**
@@ -390,7 +390,7 @@
       if ( !o.loop ) {
         self.endLoop = setTimeout(function(){
           self.stop()
-          o.onLoopEnd()
+          o.onSlideshowEnd()
         }, endLoop );
       }
 
