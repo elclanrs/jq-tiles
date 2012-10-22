@@ -340,7 +340,6 @@
         self._resetTiles( $cur )
         self._showOrHideDescription( true )
         if ( self.slideshow ) { self.stop().start() }
-        callback()
         o.afterChange()
       })
 
