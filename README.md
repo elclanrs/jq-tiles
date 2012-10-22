@@ -31,8 +31,10 @@ Slideshow with many cool css3 effects.
   bullets      : true, // Show bullets, if false the show pagination with numbers
   thumbs       : true, // Show thumbnails when hovering nav
   thumbSize    : 25, // Thumbnail size (percentage of the original image)
+  timer        : true // show or hide the timer bar
   beforeChange : function() {}, // Runs before changing the image
   afterChange  : function() {} // Runs after the tiles have cleared
+  onLoopEnd    : function() {} // Runs when the slideshow finishes looping
 }
 ```
 
