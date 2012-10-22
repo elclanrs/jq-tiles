@@ -22,8 +22,10 @@
       navWrap: null,
       thumbs: true,
       thumbSize: 25,
+      timer: true,
       beforeChange: $.noop,
-      afterChange: $.noop
+      afterChange: $.noop,
+      onLoopEnd: $.noop
     }
     , Utils = {
      /**
@@ -60,12 +62,14 @@
     this.imgWidth = this.$container.width()
     this.imgHeight = this.$container.height()
 
-    this.interval = null
+    this.slideshow = null
+    this.endLoop = null
     this.isAnimating = null
 
     // Assign in _init when elements are generated
     this.$navLinks = null
     this.$descriptions = null
+    this.$timer = null
 
     if ( this.opts.rewind ) { this.opts.fade = true }
 
@@ -100,6 +104,11 @@
         self.$navLinks = self.$container.find('.tiles-nav-item')
       }
 
+      if ( o.timer ) {
+        self._addTimer()
+        self.$timer = self.$container.find('.tiles-timer')
+      }
+
       self._setupDescriptions()
       self.$descriptions = self.$container.find('.tiles-description')
       self._showOrHideDescription()
@@ -110,6 +119,22 @@
 
       if ( o.auto ) { self.start() }
 
+    },
+
+    _addTimer: function() {
+      this.$container.append('<div class="tiles-timer"/>')
+    },
+
+    _updateTimer: function() {
+      if ( this.opts.timer ) {
+        this.$timer.animate( { width: '100%' }, this.opts.slideSpeed, 'linear' )
+      }
+    },
+
+    _resetTimer: function() {
+      if ( this.opts.timer ) {
+        this.$timer.stop( true ).width( 0 )
+      }
     },
 
     _addNav: function() {
@@ -154,8 +179,8 @@
         self.$container.append( $nav.append( $links ) )
         // Adjust center
         $nav.css( 'margin-left', '-'+ $nav.outerWidth()/2 +'px' )
-      }      
-      
+      }
+
       self.$container.append( $prev, $next )
 
       // Adjust thumbnails when already in DOM
@@ -171,9 +196,10 @@
     },
 
     _updateNav: function() {
-      if ( this.interval ) { this.stop().start() }
-      this.$navLinks.removeClass('tiles-nav-active')
-        .eq( this._getCurrentIdx() ).addClass('tiles-nav-active')
+      if ( this.opts.nav ) {
+        this.$navLinks.removeClass('tiles-nav-active')
+          .eq( this._getCurrentIdx() ).addClass('tiles-nav-active')
+      }
     },
 
     _setupDescriptions: function() {
@@ -313,6 +339,7 @@
         $cur.remove()
         self._resetTiles( $cur )
         self._showOrHideDescription( true )
+        if ( self.slideshow ) { self.stop().start() }
         callback()
         o.afterChange()
       })
@@ -320,6 +347,7 @@
       o.beforeChange()
 
       self._updateNav()
+      self._resetTimer()
       self._showOrHideDescription( false )
 
       return this
@@ -354,24 +382,30 @@
 
       var self = this
         , o = self.opts
-        , endLoop = ( o.slideSpeed * (self.$wraps.length-1) ) + o.tileSpeed
+        , totalSpeed = o.slideSpeed + o.tileSpeed + o.cssSpeed
+        , endLoop = totalSpeed * ( self.$wraps.length - self._getCurrentIdx() - 1 )
 
-      if ( self.interval ) { self.stop().next() }
-
-      self.interval = setInterval(function() {
-        self.next() }, o.slideSpeed )
+      this.slideshow = true
+      self.timeout = setTimeout(function(){ self.next() }, o.slideSpeed )
 
       if ( !o.loop ) {
-        setTimeout(function(){ self.stop() }, endLoop );
+        self.endLoop = setTimeout(function(){
+          self.stop()
+          o.onLoopEnd()
+        }, endLoop );
       }
+
+      this._updateTimer()
 
       return this
 
     },
 
     stop: function() {
-      clearInterval( this.interval )
-      this.interval = false
+      clearTimeout( this.timeout )
+      clearTimeout( this.endLoop )
+      this.slideshow = false
+      this._resetTimer()
       return this
     }
 
