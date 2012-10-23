@@ -62,8 +62,8 @@
     this.imgWidth = this.$container.width()
     this.imgHeight = this.$container.height()
 
+    this.timeouts = []
     this.slideshow = null
-    this.endLoop = null
     this.isAnimating = null
 
     // Assign in _init when elements are generated
@@ -381,17 +381,19 @@
 
       var self = this
         , o = self.opts
-        , totalSpeed = o.slideSpeed + o.tileSpeed + o.cssSpeed
+        , totalSpeed = o.slideSpeed + o.cssSpeed
         , endLoop = totalSpeed * ( self.$wraps.length - self._getCurrentIdx() )
 
+      if ( self.n_tiles > 1 ) { endLoop += o.tileSpeed }
+
       this.slideshow = true
-      self.timeout = setTimeout(function(){ self.next() }, o.slideSpeed )
+      self.timeouts.push( setTimeout(function(){ self.next() }, o.slideSpeed ) )
 
       if ( !o.loop ) {
-        self.endLoop = setTimeout(function(){
+        self.timeouts.push( setTimeout(function(){
           self.stop()
           o.onSlideshowEnd()
-        }, endLoop );
+        }, endLoop ) );
       }
 
       this._updateTimer()
@@ -401,8 +403,7 @@
     },
 
     stop: function() {
-      clearTimeout( this.timeout )
-      clearTimeout( this.endLoop )
+      this.timeouts.forEach(function( v ) { clearTimeout( v ) })
       this.slideshow = false
       this._resetTimer()
       return this
