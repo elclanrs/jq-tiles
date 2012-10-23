@@ -111,8 +111,10 @@
         }, 100 );
         $('.code').empty().html(function() {
           var e = effects[ effect ], c = [];
-          for ( var i in effects[ effect ] ) {
-            c.push('<code>'+ i +': '+ e[i] +'</code>');
+          for ( var i in e ) {
+            if ( i !== 'effect' ) {
+              c.push('<code>'+ i +': '+ e[i] +'</code>');
+            }
           }
           return c.join('');
         });
