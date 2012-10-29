@@ -44,7 +44,6 @@
         <option value="reduce">reduce</option>
         <option value="360">360</option>
       </select>
-      <label>Options:</label>
       <div class="code">
         <code>x: 6</code>
         <code>y: 4</code>
@@ -95,7 +94,7 @@
         switchud: { x:1, y:8, effect: 'switchud' },
         fliplr: { x:20, y:1, effect: 'fliplr', backReverse: true },
         flipud: { x:20, y:3, effect: 'flipud', reverse: true, rewind: 75 },
-        reduce: { x:1, y:1, effect: 'reduce' },
+        reduce: { x:6, y:4, effect: 'reduce' },
         360: { x:1, y:1, effect: '360', fade: true, cssSpeed: 600 }
       };
 
@@ -111,8 +110,10 @@
         }, 100 );
         $('.code').empty().html(function() {
           var e = effects[ effect ], c = [];
-          for ( var i in effects[ effect ] ) {
-            c.push('<code>'+ i +': '+ e[i] +'</code>');
+          for ( var i in e ) {
+            if ( i !== 'effect' ) {
+              c.push('<code>'+ i +': '+ e[i] +'</code>');
+            }
           }
           return c.join('');
         });
