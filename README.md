@@ -5,8 +5,6 @@ Slideshow with many cool css3 effects.
 **Demo:** http://elclanrs.github.com/jq-tiles/ (Use Google Chrome for best experience)  
 **Support:** Webkit, Firefox, Opera, IE10, IE9-8*  
 **License:** [MIT](http://en.wikipedia.org/wiki/MIT_License)  
-\* _In browsers that don't support css3 transitions classes won't be animated but some effects will still work, just a bit choppy._  
-\*\* _IE8 requires polyfills for `Array.prototype.map` and `Array.prototype.forEach`. You may use [ES5 Shim](https://github.com/kriskowal/es5-shim/)._  
 
 ### Options:
 ```javascript

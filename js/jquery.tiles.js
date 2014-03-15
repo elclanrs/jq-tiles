@@ -269,7 +269,7 @@
           : range.splice( limit, range.length )
       }
 
-      range.forEach(function( tile, i ) {
+      $.each( range, function( i, tile ) {
 
         var theTile = $tiles.eq( tile )
           , theDelay = i * delay
@@ -399,7 +399,7 @@
     },
 
     stop: function() {
-      this.timeouts.forEach(function( v ) { clearTimeout( v ) })
+      $.each( this.timeouts, function( i, v ) { clearTimeout( v ) })
       this.slideshow = false
       this._resetTimer()
       return this
