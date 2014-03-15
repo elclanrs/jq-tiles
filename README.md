@@ -8,8 +8,6 @@ Slideshow with many cool css3 effects.
 \* _In browsers that don't support css3 transitions classes won't be animated but some effects will still work, just a bit choppy._  
 \*\* _IE8 requires polyfills for `Array.prototype.map` and `Array.prototype.forEach`. You may use [ES5 Shim](https://github.com/kriskowal/es5-shim/)._  
 
-[Download as zip](https://github.com/elclanrs/jq-tiles/raw/master/zip/jquery.tiles.zip)
-
 ### Options:
 ```javascript
 {
