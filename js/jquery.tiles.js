@@ -28,21 +28,16 @@
       onSlideshowEnd: $.noop
     }
     , Utils = {
-     /**
-      * range Get an array of numbers within a range
-      * @param min {number} Lowest number in array
-      * @param max {number} Highest number in array
-      * @param rand {bool} Shuffle array
-      * @return {array}
-      */
-      range: function( min, max, rand ) {
-        var arr = ( new Array( ++max - min ) )
-          .join('.').split('.')
-          .map(function( v,i ){ return min + i })
-        return rand
-          ? arr.map(function( v ) { return [ Math.random(), v ] })
-             .sort().map(function( v ) { return v[ 1 ] })
-          : arr
+      // http://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array-in-javascript
+      shuffle: function(o) {
+        for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+        return o;
+      },
+      range: function(min, max, rand) {
+        var out = [];
+        for (var i=min; i<=max; i++) out.push(i);
+        if (rand) return Utils.shuffle(out);
+        return out;
       }
     }
 
