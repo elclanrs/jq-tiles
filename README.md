@@ -1,4 +1,4 @@
-#jq-tiles
+# jq-tiles
 
 Slideshow with many cool css3 effects.
 
